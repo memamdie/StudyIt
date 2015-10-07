@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lj-sk-mFd">
@@ -286,9 +286,6 @@
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="44" y="73" width="584" height="282"/>
-                                </variation>
                             </imageView>
                         </subviews>
                         <animations/>
@@ -314,16 +311,16 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="py0-ft-oJU"/>
+                                <exclude reference="7su-fB-7Bb"/>
                                 <exclude reference="Z2j-M7-wMt"/>
                                 <exclude reference="rLX-bV-ig0"/>
-                                <exclude reference="7su-fB-7Bb"/>
-                                <exclude reference="i8Z-bM-6nn"/>
-                                <exclude reference="Sfr-q9-sg7"/>
-                                <exclude reference="RPN-mR-ACT"/>
                                 <exclude reference="1IW-OX-wfT"/>
+                                <exclude reference="RPN-mR-ACT"/>
+                                <exclude reference="Sfr-q9-sg7"/>
+                                <exclude reference="i8Z-bM-6nn"/>
+                                <exclude reference="M8s-gO-pnQ"/>
                                 <exclude reference="gVY-Yv-sm8"/>
                                 <exclude reference="pGq-Mw-qAr"/>
-                                <exclude reference="M8s-gO-pnQ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -334,16 +331,16 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="py0-ft-oJU"/>
+                                <include reference="7su-fB-7Bb"/>
                                 <include reference="Z2j-M7-wMt"/>
                                 <include reference="rLX-bV-ig0"/>
-                                <include reference="7su-fB-7Bb"/>
-                                <include reference="i8Z-bM-6nn"/>
-                                <include reference="Sfr-q9-sg7"/>
-                                <include reference="RPN-mR-ACT"/>
                                 <include reference="1IW-OX-wfT"/>
+                                <include reference="RPN-mR-ACT"/>
+                                <include reference="Sfr-q9-sg7"/>
+                                <include reference="i8Z-bM-6nn"/>
+                                <include reference="M8s-gO-pnQ"/>
                                 <include reference="gVY-Yv-sm8"/>
                                 <include reference="pGq-Mw-qAr"/>
-                                <include reference="M8s-gO-pnQ"/>
                             </mask>
                         </variation>
                     </view>
