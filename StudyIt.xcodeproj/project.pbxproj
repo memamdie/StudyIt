@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9C22C2BB1BBB4B8F006971F3 /* BigProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C22C2BB1BBB4B8F006971F3 /* StudyIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C22C2BE1BBB4B8F006971F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C22C2C01BBB4B8F006971F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9C22C2C31BBB4B8F006971F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		9C22C2BC1BBB4B8F006971F3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9C22C2BB1BBB4B8F006971F3 /* BigProject.app */,
+				9C22C2BB1BBB4B8F006971F3 /* StudyIt.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9C22C2BA1BBB4B8F006971F3 /* BigProject */ = {
+		9C22C2BA1BBB4B8F006971F3 /* StudyIt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9C22C2CD1BBB4B8F006971F3 /* Build configuration list for PBXNativeTarget "BigProject" */;
+			buildConfigurationList = 9C22C2CD1BBB4B8F006971F3 /* Build configuration list for PBXNativeTarget "StudyIt" */;
 			buildPhases = (
 				9C22C2B71BBB4B8F006971F3 /* Sources */,
 				9C22C2B81BBB4B8F006971F3 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = BigProject;
+			name = StudyIt;
 			productName = BigProject;
-			productReference = 9C22C2BB1BBB4B8F006971F3 /* BigProject.app */;
+			productReference = 9C22C2BB1BBB4B8F006971F3 /* StudyIt.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,11 +98,10 @@
 				TargetAttributes = {
 					9C22C2BA1BBB4B8F006971F3 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = H87ZRY62FS;
 					};
 				};
 			};
-			buildConfigurationList = 9C22C2B61BBB4B8F006971F3 /* Build configuration list for PBXProject "BigProject" */;
+			buildConfigurationList = 9C22C2B61BBB4B8F006971F3 /* Build configuration list for PBXProject "StudyIt" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -115,7 +114,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9C22C2BA1BBB4B8F006971F3 /* BigProject */,
+				9C22C2BA1BBB4B8F006971F3 /* StudyIt */,
 			);
 		};
 /* End PBXProject section */
@@ -251,10 +250,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BigProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Isabel-Laurenceau.BigProject";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Group2.StudyIt;
+				PRODUCT_NAME = StudyIt;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -262,17 +265,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BigProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Isabel-Laurenceau.BigProject";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Group2.StudyIt;
+				PRODUCT_NAME = StudyIt;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9C22C2B61BBB4B8F006971F3 /* Build configuration list for PBXProject "BigProject" */ = {
+		9C22C2B61BBB4B8F006971F3 /* Build configuration list for PBXProject "StudyIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9C22C2CB1BBB4B8F006971F3 /* Debug */,
@@ -281,13 +288,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9C22C2CD1BBB4B8F006971F3 /* Build configuration list for PBXNativeTarget "BigProject" */ = {
+		9C22C2CD1BBB4B8F006971F3 /* Build configuration list for PBXNativeTarget "StudyIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9C22C2CE1BBB4B8F006971F3 /* Debug */,
 				9C22C2CF1BBB4B8F006971F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
