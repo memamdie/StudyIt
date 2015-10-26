@@ -33,6 +33,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
             let titlename = alertControl.textFields![0] as UITextField
             cardname = titlename.text!
             
+            //save title to parse
             let FriendName = PFObject(className: "CardInfo")
             FriendName.setObject(cardname, forKey: "title")
             
@@ -60,11 +61,9 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
             textField.placeholder = "Title"
             
         }
-                           print(cardname)
+        
         
         self.presentViewController(alertControl, animated: true, completion: nil)
-        //save title to parse
-
     }
 
     
@@ -72,6 +71,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "FrontToBack"
         {
+
             let fvc = segue.destinationViewController as! BackViewController;
             fvc.selected = cardname
         }
@@ -162,6 +162,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         
     }
     
+
 
     
     

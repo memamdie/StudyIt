@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class BackViewController: UIViewController {
 
      var selected: String!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(selected)
+        print(selected)
 
         // Do any additional setup after loading the view.
     }
@@ -22,6 +23,34 @@ class BackViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    @IBAction func Save(sender: AnyObject) {
+        //get title
+        
+            //save title to parse
+            let FriendName = PFObject(className: "CardInfo")
+            FriendName.setObject(selected, forKey: "title")
+            FriendName.setObject("back test", forKey: "backstring")
+            
+            FriendName.saveInBackgroundWithBlock {
+                (success: Bool, error:NSError?) -> Void in
+                
+                if(success)
+                {
+                    //We saved our information
+                    print("Saved Title")
+                    
+                }
+                else
+                {
+                    //there was a problem
+                    print(error)
+                    print("Error: Did Not Save Title")
+                }
+            }
+        
+        }
     
 
     //********************************************************************************************************************//
