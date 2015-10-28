@@ -11,6 +11,7 @@ import Parse
 
 class BackViewController: UIViewController {
 
+    @IBOutlet var backText: UITextView!
      var selected: String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class BackViewController: UIViewController {
             //save title to parse
             let FriendName = PFObject(className: "CardInfo")
             FriendName.setObject(selected, forKey: "title")
-            FriendName.setObject("back test", forKey: "backstring")
+            FriendName.setObject(backText, forKey: "backstring")
             
             FriendName.saveInBackgroundWithBlock {
                 (success: Bool, error:NSError?) -> Void in

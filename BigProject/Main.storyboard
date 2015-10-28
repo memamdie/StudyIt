@@ -291,29 +291,33 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IfO-7f-KMN">
-                                <rect key="frame" x="72" y="178" width="457" height="210"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="EGs-eM-ejO">
+                                <rect key="frame" x="8" y="171" width="584" height="282"/>
                                 <animations/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="210" id="n3i-Xr-nT2"/>
-                                </constraints>
                             </imageView>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello Guys!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t2d-zG-wa2">
+                                <rect key="frame" x="20" y="213" width="554" height="226"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="226" id="cKR-UI-4fu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2ho-vj-eHc" firstAttribute="top" secondItem="IfO-7f-KMN" secondAttribute="bottom" constant="212" id="EoV-I4-Jdt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t2d-zG-wa2" secondAttribute="trailing" constant="6" id="60m-U2-Gf0"/>
                             <constraint firstItem="Aur-BW-xyZ" firstAttribute="leading" secondItem="ZY8-S2-m1q" secondAttribute="leading" id="LYT-0S-XrA"/>
                             <constraint firstAttribute="trailing" secondItem="Aur-BW-xyZ" secondAttribute="trailing" id="UDJ-9Z-yG5"/>
-                            <constraint firstItem="IfO-7f-KMN" firstAttribute="leading" secondItem="ZY8-S2-m1q" secondAttribute="leadingMargin" constant="52" id="XN8-N8-sU5"/>
+                            <constraint firstItem="t2d-zG-wa2" firstAttribute="leading" secondItem="ZY8-S2-m1q" secondAttribute="leadingMargin" id="aCz-a7-Plv"/>
+                            <constraint firstItem="2ho-vj-eHc" firstAttribute="top" secondItem="t2d-zG-wa2" secondAttribute="bottom" constant="161" id="sux-ba-Lad"/>
                             <constraint firstItem="Aur-BW-xyZ" firstAttribute="top" secondItem="PSr-Bk-gOr" secondAttribute="bottom" constant="8" id="tsP-6f-2CG"/>
-                            <constraint firstItem="Aur-BW-xyZ" firstAttribute="centerX" secondItem="IfO-7f-KMN" secondAttribute="centerX" id="wJQ-9t-rG9"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Image" destination="IfO-7f-KMN" id="uaz-hi-FAf"/>
+                        <outlet property="EnteredText" destination="t2d-zG-wa2" id="le9-id-V0L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3U-DP-geE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -396,6 +400,7 @@
                     </view>
                     <connections>
                         <outlet property="Image" destination="gZh-Gx-kEu" id="7Do-dC-hVt"/>
+                        <outlet property="backText" destination="SCL-jF-I0O" id="Pmi-cU-Yme"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InG-1s-6Y4" userLabel="First Responder" sceneMemberID="firstResponder"/>

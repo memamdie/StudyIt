@@ -12,6 +12,7 @@ var cardname = ""
 
 class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
+    @IBOutlet var EnteredText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
             //save title to parse
             let FriendName = PFObject(className: "CardInfo")
             FriendName.setObject(cardname, forKey: "title")
+            FriendName.setObject(self.EnteredText.text, forKey: "frontstring")
             
             FriendName.saveInBackgroundWithBlock {
                 (success: Bool, error:NSError?) -> Void in
