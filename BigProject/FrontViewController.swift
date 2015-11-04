@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 var cardname = ""
+var ID = ""
 
 class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
@@ -46,6 +47,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
                 {
                     //We saved our information
                     print("Saved Title")
+                    ID = FriendName.objectId!
                     
                 }
                 else
@@ -76,6 +78,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
 
             let fvc = segue.destinationViewController as! BackViewController;
             fvc.selected = cardname
+            fvc.cardID = ""
         }
         
     }
