@@ -15,17 +15,17 @@ class CardViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func AddPhoto(sender: AnyObject) {
-
+        
         let alertControl: UIAlertController = UIAlertController(title: "Upload Photo", message: "Upload photo from Camera or Gallery", preferredStyle: .Alert)
         let Camera = UIAlertAction(title: "Take Photo", style: .Cancel) {action -> Void in}
         alertControl.addAction(Camera)
@@ -34,7 +34,7 @@ class CardViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         alertControl.addAction(Gallery)
         
         self.presentViewController(alertControl, animated: true, completion: nil)    }
-
+    
     
     @IBAction func PickFromGallery(sender: AnyObject) {
         picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
@@ -84,6 +84,6 @@ class CardViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             
         }
     }
-
-
+    
+    
 }

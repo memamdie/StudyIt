@@ -12,17 +12,17 @@ var cardname = ""
 var ID = ""
 
 class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
-
+    var setName: String!
     @IBOutlet var EnteredText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
-//        titlealert()
-
+        //        titlealert()
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -39,7 +39,8 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
             let FriendName = PFObject(className: "CardInfo")
             FriendName.setObject(cardname, forKey: "title")
             FriendName.setObject(self.EnteredText.text, forKey: "frontstring")
-            
+            FriendName.setObject((PFUser.currentUser()?.username)!, forKey: "username")
+            FriendName.setObject(self.setName, forKey: "setName")
             FriendName.saveInBackgroundWithBlock {
                 (success: Bool, error:NSError?) -> Void in
                 
@@ -48,7 +49,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
                     //We saved our information
                     print("Saved Title")
                     ID = FriendName.objectId!
-                    
+                    self.performSegueWithIdentifier("FrontToBack", sender: nil)
                 }
                 else
                 {
@@ -57,33 +58,33 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
                     print("Error: Did Not Save Title")
                 }
             }
-
-
+            
+            
         }
         alertControl.addAction(ok)
         alertControl.addTextFieldWithConfigurationHandler { (textField) in
             textField.placeholder = "Title"
             
         }
-        
-        
         self.presentViewController(alertControl, animated: true, completion: nil)
-    }
 
+    }
+    
     
     //segue title name
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "FrontToBack"
-        {
-
-            let fvc = segue.destinationViewController as! BackViewController;
+        if segue.identifier == "FrontToBack"   {
+            
+            let fvc = segue.destinationViewController as! BackViewController
             fvc.selected = cardname
-            fvc.cardID = ""
+            //fvc.cardID = ""
+            fvc.setName = setName
         }
         
+        
     }
-
-
+    
+    
     
     
     //********************************************************************************************************************//
@@ -97,8 +98,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         self.presentViewController(picker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?)
-    {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         print("TRYING TO SAVE TO PARSE")
         //set selectedIMage to image that we picked.
         Image.image = image
@@ -137,8 +137,6 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
     }
     
     
-    
-    
     @IBAction func AddPhoto(sender: AnyObject) {
         
         let alertControl: UIAlertController = UIAlertController(title: "Upload Photo", message: "Upload photo from Camera or Gallery", preferredStyle: .Alert)
@@ -150,7 +148,6 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         
         self.presentViewController(alertControl, animated: true, completion: nil)
     }
-    
     
     func PickFromGallery() {
         print("in gal")
@@ -166,9 +163,5 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         self.presentViewController(picker, animated: true, completion: nil)
         
     }
-    
-
-
-    
     
 }
