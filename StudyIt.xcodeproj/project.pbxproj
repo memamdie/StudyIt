@@ -21,8 +21,11 @@
 		58179F901BDA7826002648F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58179F8A1BDA7826002648F1 /* QuartzCore.framework */; };
 		58179F931BDA786A002648F1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58179F911BDA786A002648F1 /* Bolts.framework */; };
 		58179F941BDA786A002648F1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58179F921BDA786A002648F1 /* Parse.framework */; };
-		817D3BDC1BE03EB40090F58A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817D3BDB1BE03EB40090F58A /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		817D3BDE1BE04A2C0090F58A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817D3BDD1BE04A2C0090F58A /* SignUpViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		81547E781BF0748C00042145 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81547E771BF0748C00042145 /* ParseUI.framework */; settings = {ASSET_TAGS = (); }; };
+		81547E801BF0767900042145 /* StudyItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81547E7F1BF0767900042145 /* StudyItTests.swift */; };
+		81547E8E1BF0769E00042145 /* StudyItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81547E8D1BF0769E00042145 /* StudyItUITests.swift */; };
+		817D3BDC1BE03EB40090F58A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817D3BDB1BE03EB40090F58A /* LoginViewController.swift */; };
+		817D3BDE1BE04A2C0090F58A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817D3BDD1BE04A2C0090F58A /* SignUpViewController.swift */; };
 		9C22C2BF1BBB4B8F006971F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2BE1BBB4B8F006971F3 /* AppDelegate.swift */; };
 		9C22C2C11BBB4B8F006971F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2C01BBB4B8F006971F3 /* ViewController.swift */; };
 		9C22C2C61BBB4B8F006971F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C22C2C51BBB4B8F006971F3 /* Assets.xcassets */; };
@@ -32,6 +35,23 @@
 		9C88F6FD1BDA860E001F5A42 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88F6FC1BDA860E001F5A42 /* BackViewController.swift */; };
 		9CD1D9091BDAE97200545E2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1D9081BDAE97200545E2E /* Main.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		81547E821BF0767900042145 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C22C2B31BBB4B8F006971F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C22C2BA1BBB4B8F006971F3;
+			remoteInfo = StudyIt;
+		};
+		81547E901BF0769E00042145 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C22C2B31BBB4B8F006971F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C22C2BA1BBB4B8F006971F3;
+			remoteInfo = StudyIt;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		58179F791BDA77DC002648F1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -48,6 +68,13 @@
 		58179F8A1BDA7826002648F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		58179F911BDA786A002648F1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		58179F921BDA786A002648F1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		81547E771BF0748C00042145 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		81547E7D1BF0767800042145 /* StudyItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81547E7F1BF0767900042145 /* StudyItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyItTests.swift; sourceTree = "<group>"; };
+		81547E811BF0767900042145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81547E8B1BF0769E00042145 /* StudyItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81547E8D1BF0769E00042145 /* StudyItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyItUITests.swift; sourceTree = "<group>"; };
+		81547E8F1BF0769E00042145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		817D3BDB1BE03EB40090F58A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		817D3BDD1BE04A2C0090F58A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9C22C2BB1BBB4B8F006971F3 /* StudyIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +90,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		81547E7A1BF0767800042145 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81547E881BF0769E00042145 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C22C2B81BBB4B8F006971F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,6 +120,7 @@
 				58179F811BDA77EC002648F1 /* StoreKit.framework in Frameworks */,
 				58179F941BDA786A002648F1 /* Parse.framework in Frameworks */,
 				58179F821BDA77EC002648F1 /* SystemConfiguration.framework in Frameworks */,
+				81547E781BF0748C00042145 /* ParseUI.framework in Frameworks */,
 				58179F7C1BDA77E1002648F1 /* CFNetwork.framework in Frameworks */,
 				58179F7A1BDA77DC002648F1 /* AudioToolbox.framework in Frameworks */,
 			);
@@ -87,9 +129,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81547E7E1BF0767900042145 /* StudyItTests */ = {
+			isa = PBXGroup;
+			children = (
+				81547E7F1BF0767900042145 /* StudyItTests.swift */,
+				81547E811BF0767900042145 /* Info.plist */,
+			);
+			path = StudyItTests;
+			sourceTree = "<group>";
+		};
+		81547E8C1BF0769E00042145 /* StudyItUITests */ = {
+			isa = PBXGroup;
+			children = (
+				81547E8D1BF0769E00042145 /* StudyItUITests.swift */,
+				81547E8F1BF0769E00042145 /* Info.plist */,
+			);
+			path = StudyItUITests;
+			sourceTree = "<group>";
+		};
 		9C22C2B21BBB4B8F006971F3 = {
 			isa = PBXGroup;
 			children = (
+				81547E771BF0748C00042145 /* ParseUI.framework */,
 				58179F911BDA786A002648F1 /* Bolts.framework */,
 				58179F921BDA786A002648F1 /* Parse.framework */,
 				58179F851BDA7826002648F1 /* ContactsUI.framework */,
@@ -105,6 +166,8 @@
 				58179F7B1BDA77E1002648F1 /* CFNetwork.framework */,
 				58179F791BDA77DC002648F1 /* AudioToolbox.framework */,
 				9C22C2BD1BBB4B8F006971F3 /* BigProject */,
+				81547E7E1BF0767900042145 /* StudyItTests */,
+				81547E8C1BF0769E00042145 /* StudyItUITests */,
 				9C22C2BC1BBB4B8F006971F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				9C22C2BB1BBB4B8F006971F3 /* StudyIt.app */,
+				81547E7D1BF0767800042145 /* StudyItTests.xctest */,
+				81547E8B1BF0769E00042145 /* StudyItUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +203,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		81547E7C1BF0767800042145 /* StudyItTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81547E841BF0767900042145 /* Build configuration list for PBXNativeTarget "StudyItTests" */;
+			buildPhases = (
+				81547E791BF0767800042145 /* Sources */,
+				81547E7A1BF0767800042145 /* Frameworks */,
+				81547E7B1BF0767800042145 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81547E831BF0767900042145 /* PBXTargetDependency */,
+			);
+			name = StudyItTests;
+			productName = StudyItTests;
+			productReference = 81547E7D1BF0767800042145 /* StudyItTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		81547E8A1BF0769E00042145 /* StudyItUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81547E921BF0769E00042145 /* Build configuration list for PBXNativeTarget "StudyItUITests" */;
+			buildPhases = (
+				81547E871BF0769E00042145 /* Sources */,
+				81547E881BF0769E00042145 /* Frameworks */,
+				81547E891BF0769E00042145 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81547E911BF0769E00042145 /* PBXTargetDependency */,
+			);
+			name = StudyItUITests;
+			productName = StudyItUITests;
+			productReference = 81547E8B1BF0769E00042145 /* StudyItUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		9C22C2BA1BBB4B8F006971F3 /* StudyIt */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C22C2CD1BBB4B8F006971F3 /* Build configuration list for PBXNativeTarget "StudyIt" */;
@@ -161,9 +262,18 @@
 		9C22C2B31BBB4B8F006971F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Isabel Laurenceau";
 				TargetAttributes = {
+					81547E7C1BF0767800042145 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 9C22C2BA1BBB4B8F006971F3;
+					};
+					81547E8A1BF0769E00042145 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 9C22C2BA1BBB4B8F006971F3;
+					};
 					9C22C2BA1BBB4B8F006971F3 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = H87ZRY62FS;
@@ -184,11 +294,27 @@
 			projectRoot = "";
 			targets = (
 				9C22C2BA1BBB4B8F006971F3 /* StudyIt */,
+				81547E7C1BF0767800042145 /* StudyItTests */,
+				81547E8A1BF0769E00042145 /* StudyItUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		81547E7B1BF0767800042145 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81547E891BF0769E00042145 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C22C2B91BBB4B8F006971F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,6 +328,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		81547E791BF0767800042145 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81547E801BF0767900042145 /* StudyItTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81547E871BF0769E00042145 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81547E8E1BF0769E00042145 /* StudyItUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C22C2B71BBB4B8F006971F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,6 +360,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		81547E831BF0767900042145 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C22C2BA1BBB4B8F006971F3 /* StudyIt */;
+			targetProxy = 81547E821BF0767900042145 /* PBXContainerItemProxy */;
+		};
+		81547E911BF0769E00042145 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C22C2BA1BBB4B8F006971F3 /* StudyIt */;
+			targetProxy = 81547E901BF0769E00042145 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		9C22C2C71BBB4B8F006971F3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -230,6 +385,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		81547E851BF0767900042145 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = StudyItTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myling.StudyItTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudyIt.app/StudyIt";
+			};
+			name = Debug;
+		};
+		81547E861BF0767900042145 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = StudyItTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myling.StudyItTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudyIt.app/StudyIt";
+			};
+			name = Release;
+		};
+		81547E931BF0769E00042145 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = StudyItUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myling.StudyItUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TEST_TARGET_NAME = StudyIt;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		81547E941BF0769E00042145 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = StudyItUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myling.StudyItUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TEST_TARGET_NAME = StudyIt;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		9C22C2CB1BBB4B8F006971F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -352,6 +557,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		81547E841BF0767900042145 /* Build configuration list for PBXNativeTarget "StudyItTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81547E851BF0767900042145 /* Debug */,
+				81547E861BF0767900042145 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		81547E921BF0769E00042145 /* Build configuration list for PBXNativeTarget "StudyItUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81547E931BF0769E00042145 /* Debug */,
+				81547E941BF0769E00042145 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9C22C2B61BBB4B8F006971F3 /* Build configuration list for PBXProject "StudyIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

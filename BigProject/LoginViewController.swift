@@ -8,8 +8,6 @@
 import UIKit
 import Parse
 
-//var currentUser = PFUser.currentUser()
-
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var username: UITextField!
