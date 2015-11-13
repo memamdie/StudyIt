@@ -10,13 +10,19 @@ import UIKit
 import Parse
 
 class setViewController: UIViewController, UITableViewDelegate {
+    @IBOutlet var table: UITableView!
     var sets = [String]()
     var setName: String!
     var selectedSet = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadSets()
+        
         // Do any additional setup after loading the view.
+    }
+    @IBAction func logOut(sender: AnyObject) {
+        let login = ViewController()
+        login.signOut("")
     }
     @IBAction func newSet(sender: AnyObject) {
         let alertControl: UIAlertController = UIAlertController(title: "Start by naming your set", message: "", preferredStyle: .Alert)
@@ -49,11 +55,23 @@ class setViewController: UIViewController, UITableViewDelegate {
                     sets.append(set["setName"] as! String)
                 }
             }
+            table.reloadData()
         }
         catch{}
+        table.reloadData()
     }
     func deleteSet(setName: String) {
-        
+        let query = PFQuery(className: "CardInfo")
+        query.whereKey("setName", equalTo: setName)
+        do {
+            let result = try query.findObjects()
+            for r in result {
+                r.deleteInBackground()
+            }
+        }
+        catch {}
+        downloadSets()
+        table.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,17 +93,20 @@ class setViewController: UIViewController, UITableViewDelegate {
         let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
             print("delete button tapped")
             self.deleteSet(self.sets[indexPath.row])
+            self.table.reloadData()
+
         }
         delete.backgroundColor = UIColor.redColor()
-
         return [delete]
     }
     
     func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
+        table.reloadData()
         //dismissViewControllerAnimated(true, completion: nil)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        table.reloadData()
         // the cells you would like the actions to appear needs to be editable
         return true
     }
