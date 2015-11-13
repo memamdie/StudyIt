@@ -10,17 +10,18 @@ import UIKit
 import Parse
 
 class BackViewController: UIViewController {
-
+    
     @IBOutlet var backText: UITextView!
-     var selected: String!
-    var cardID: String!
+    var selected: String!
+    //var cardID: String!
+    var setName: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         print(selected)
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,61 +30,34 @@ class BackViewController: UIViewController {
     
     @IBAction func Save(sender: AnyObject) {
         //get objectID
-        var query = PFQuery(className:"CardInfo")
-        query.getObjectInBackgroundWithId(cardID) {
+        let query = PFQuery(className:"CardInfo")
+        query.getObjectInBackgroundWithId(ID) {
             (object, error) -> Void in
             if error != nil {
                 print(error)
             } else {
-                
                 if let object = object {
                     print("found")
-                    object["backstring"] = "trest123"
-//                    object["backfile"] = "testing2113"
+                    object["backstring"] = self.backText.text
+                    object["username"] = (PFUser.currentUser()?.username)!
                     object.saveInBackground()
                 }
             }
         }
         print("Saving Back")
-//        
-//        var query = PFQuery(className:"CardInfo")
-//        query.getObjectInBackgroundWithId(cardID) {
-//            (gameScore: PFObject?, error: NSError?) -> Void in
-//            if error != nil {
-//                print(error)
-//            } else if let gameScore = gameScore {
-//                print("found")
-//                gameScore["backstring"] = "testing1234"
-//                gameScore.saveInBackground()
-//            }
-//        }
-        
-        
-//            //save title to parse
-//            let FriendName = PFObject(className: "CardInfo")
-//            FriendName.setObject(selected, forKey: "title")
-//            FriendName.setObject(backText, forKey: "backstring")
-//            
-//            FriendName.saveInBackgroundWithBlock {
-//                (success: Bool, error:NSError?) -> Void in
-//                
-//                if(success)
-//                {
-//                    //We saved our information
-//                    print("Saved Title")
-//                    
-//                }
-//                else
-//                {
-//                    //there was a problem
-//                    print(error)
-//                    print("Error: Did Not Save Title")
-//                }
-//            }
-//        
-        }
+        performSegueWithIdentifier("toIndividualCards", sender: nil)
+    }
     
-
+    //segue set name
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toIndividualCards"   {
+            
+            let fvc = segue.destinationViewController as! cardTableViewController
+            fvc.selectedSet = setName
+        }
+        
+        
+    }
     //********************************************************************************************************************//
     @IBOutlet var Image: UIImageView!
     var picker = UIImagePickerController()
@@ -93,7 +67,6 @@ class BackViewController: UIViewController {
         picker.allowsEditing = true
         self.presentViewController(picker, animated: true, completion: nil)
     }
-    
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         //set selectedIMage to image that we picked.
@@ -157,6 +130,6 @@ class BackViewController: UIViewController {
         
     }
     
-
-
+    
+    
 }
