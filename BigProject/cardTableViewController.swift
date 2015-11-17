@@ -57,6 +57,10 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
         
     }
    
+   
+    
+    
+    
     func downloadCards() {
         let query = PFQuery(className: "CardInfo")
         query.whereKey("setName", equalTo: selectedSet)
