@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import StudyIt
+import UIKit
 
 class StudyItTests: XCTestCase {
     
@@ -20,9 +22,20 @@ class StudyItTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testViewLoadForController() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let vc = ViewController()
+        XCTAssertNotNil(vc.view, "View did not load for ViewController")
+        
+        let cvc = CardViewController()
+        XCTAssertNotNil(cvc.view, "View did not load for CardViewController")
+        
+        let fvc = FrontViewController()
+        XCTAssertNotNil(fvc.view, "View did not load for FrontViewController")
+        
+        /*let bvc = BackViewController()
+        XCTAssertNotNil(bvc.view, "View did not load for BackViewController")*/
     }
     
     func testPerformanceExample() {

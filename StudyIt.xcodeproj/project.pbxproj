@@ -23,7 +23,17 @@
 		58179F941BDA786A002648F1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58179F921BDA786A002648F1 /* Parse.framework */; };
 		81547E781BF0748C00042145 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81547E771BF0748C00042145 /* ParseUI.framework */; settings = {ASSET_TAGS = (); }; };
 		81547E801BF0767900042145 /* StudyItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81547E7F1BF0767900042145 /* StudyItTests.swift */; };
-		81547E8E1BF0769E00042145 /* StudyItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81547E8D1BF0769E00042145 /* StudyItUITests.swift */; };
+		81547E8E1BF0769E00042145 /* LoginSignupTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81547E8D1BF0769E00042145 /* LoginSignupTest.swift */; };
+		81547E981BF0F1A900042145 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81547E971BF0F1A900042145 /* UIKit.framework */; };
+		81547E9A1BF0F1C900042145 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81547E991BF0F1C900042145 /* MobileCoreServices.framework */; };
+		81547E9C1BF0F1D700042145 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81547E9B1BF0F1D700042145 /* Foundation.framework */; };
+		81547E9E1BFC509F00042145 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2C01BBB4B8F006971F3 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		81547E9F1BFC51DC00042145 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1D9081BDAE97200545E2E /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		81547EA01BFC525500042145 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88F6F81BDA811E001F5A42 /* FrontViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		81547EA11BFC525900042145 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88F6FC1BDA860E001F5A42 /* BackViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		81547EA21BFC526000042145 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2D01BBB4BBE006971F3 /* CardViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		81547EA31BFC5D2300042145 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58179F921BDA786A002648F1 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		81547EA51BFC5ECA00042145 /* HomepageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81547EA41BFC5ECA00042145 /* HomepageTest.swift */; settings = {ASSET_TAGS = (); }; };
 		817D3BDC1BE03EB40090F58A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817D3BDB1BE03EB40090F58A /* LoginViewController.swift */; };
 		817D3BDE1BE04A2C0090F58A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817D3BDD1BE04A2C0090F58A /* SignUpViewController.swift */; };
 		9C22C2BF1BBB4B8F006971F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2BE1BBB4B8F006971F3 /* AppDelegate.swift */; };
@@ -44,7 +54,7 @@
 			remoteGlobalIDString = 9C22C2BA1BBB4B8F006971F3;
 			remoteInfo = StudyIt;
 		};
-		81547E901BF0769E00042145 /* PBXContainerItemProxy */ = {
+		81547E951BF0EE8600042145 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9C22C2B31BBB4B8F006971F3 /* Project object */;
 			proxyType = 1;
@@ -73,8 +83,12 @@
 		81547E7F1BF0767900042145 /* StudyItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyItTests.swift; sourceTree = "<group>"; };
 		81547E811BF0767900042145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81547E8B1BF0769E00042145 /* StudyItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		81547E8D1BF0769E00042145 /* StudyItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyItUITests.swift; sourceTree = "<group>"; };
+		81547E8D1BF0769E00042145 /* LoginSignupTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupTest.swift; sourceTree = "<group>"; };
 		81547E8F1BF0769E00042145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81547E971BF0F1A900042145 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		81547E991BF0F1C900042145 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		81547E9B1BF0F1D700042145 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		81547EA41BFC5ECA00042145 /* HomepageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageTest.swift; sourceTree = "<group>"; };
 		817D3BDB1BE03EB40090F58A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		817D3BDD1BE04A2C0090F58A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9C22C2BB1BBB4B8F006971F3 /* StudyIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81547EA31BFC5D2300042145 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +123,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81547E9C1BF0F1D700042145 /* Foundation.framework in Frameworks */,
+				81547E9A1BF0F1C900042145 /* MobileCoreServices.framework in Frameworks */,
+				58179F821BDA77EC002648F1 /* SystemConfiguration.framework in Frameworks */,
+				81547E981BF0F1A900042145 /* UIKit.framework in Frameworks */,
 				58179F8B1BDA7826002648F1 /* ContactsUI.framework in Frameworks */,
 				58179F8C1BDA7826002648F1 /* CoreGraphics.framework in Frameworks */,
 				58179F8D1BDA7826002648F1 /* CoreLocation.framework in Frameworks */,
@@ -119,7 +138,6 @@
 				58179F801BDA77EC002648F1 /* Security.framework in Frameworks */,
 				58179F811BDA77EC002648F1 /* StoreKit.framework in Frameworks */,
 				58179F941BDA786A002648F1 /* Parse.framework in Frameworks */,
-				58179F821BDA77EC002648F1 /* SystemConfiguration.framework in Frameworks */,
 				81547E781BF0748C00042145 /* ParseUI.framework in Frameworks */,
 				58179F7C1BDA77E1002648F1 /* CFNetwork.framework in Frameworks */,
 				58179F7A1BDA77DC002648F1 /* AudioToolbox.framework in Frameworks */,
@@ -141,8 +159,9 @@
 		81547E8C1BF0769E00042145 /* StudyItUITests */ = {
 			isa = PBXGroup;
 			children = (
-				81547E8D1BF0769E00042145 /* StudyItUITests.swift */,
+				81547E8D1BF0769E00042145 /* LoginSignupTest.swift */,
 				81547E8F1BF0769E00042145 /* Info.plist */,
+				81547EA41BFC5ECA00042145 /* HomepageTest.swift */,
 			);
 			path = StudyItUITests;
 			sourceTree = "<group>";
@@ -150,6 +169,9 @@
 		9C22C2B21BBB4B8F006971F3 = {
 			isa = PBXGroup;
 			children = (
+				81547E9B1BF0F1D700042145 /* Foundation.framework */,
+				81547E991BF0F1C900042145 /* MobileCoreServices.framework */,
+				81547E971BF0F1A900042145 /* UIKit.framework */,
 				81547E771BF0748C00042145 /* ParseUI.framework */,
 				58179F911BDA786A002648F1 /* Bolts.framework */,
 				58179F921BDA786A002648F1 /* Parse.framework */,
@@ -232,7 +254,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				81547E911BF0769E00042145 /* PBXTargetDependency */,
+				81547E961BF0EE8600042145 /* PBXTargetDependency */,
 			);
 			name = StudyItUITests;
 			productName = StudyItUITests;
@@ -305,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81547E9F1BFC51DC00042145 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +355,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81547EA01BFC525500042145 /* FrontViewController.swift in Sources */,
+				81547E9E1BFC509F00042145 /* ViewController.swift in Sources */,
 				81547E801BF0767900042145 /* StudyItTests.swift in Sources */,
+				81547EA21BFC526000042145 /* CardViewController.swift in Sources */,
+				81547EA11BFC525900042145 /* BackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +367,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81547E8E1BF0769E00042145 /* StudyItUITests.swift in Sources */,
+				81547E8E1BF0769E00042145 /* LoginSignupTest.swift in Sources */,
+				81547EA51BFC5ECA00042145 /* HomepageTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,10 +394,10 @@
 			target = 9C22C2BA1BBB4B8F006971F3 /* StudyIt */;
 			targetProxy = 81547E821BF0767900042145 /* PBXContainerItemProxy */;
 		};
-		81547E911BF0769E00042145 /* PBXTargetDependency */ = {
+		81547E961BF0EE8600042145 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9C22C2BA1BBB4B8F006971F3 /* StudyIt */;
-			targetProxy = 81547E901BF0769E00042145 /* PBXContainerItemProxy */;
+			targetProxy = 81547E951BF0EE8600042145 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -389,6 +417,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = StudyItTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myling.StudyItTests;
@@ -401,6 +433,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = StudyItTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myling.StudyItTests;
@@ -412,6 +448,7 @@
 		81547E931BF0769E00042145 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				INFOPLIST_FILE = StudyItUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myling.StudyItUITests;
@@ -425,6 +462,7 @@
 		81547E941BF0769E00042145 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				INFOPLIST_FILE = StudyItUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myling.StudyItUITests;
@@ -564,6 +602,7 @@
 				81547E861BF0767900042145 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81547E921BF0769E00042145 /* Build configuration list for PBXNativeTarget "StudyItUITests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +611,7 @@
 				81547E941BF0769E00042145 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C22C2B61BBB4B8F006971F3 /* Build configuration list for PBXProject "StudyIt" */ = {
 			isa = XCConfigurationList;
