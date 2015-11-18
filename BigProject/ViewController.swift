@@ -12,10 +12,26 @@ import UIKit
 import Parse
 import ParseUI
 
-class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
+class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource  {
+    
+    @IBOutlet var collection: UICollectionView!
+    var currentUser = PFUser.currentUser()
+    var cards = [PFObject]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        downloadData()
+        collection.delegate = self
+        
+//        print(currentUser!.username!)
+        // Resize size of collection view items in grid so that we achieve 3 boxes across
+        let cellWidth = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 3
+        let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
+        cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        super.viewDidLoad()
+        
+
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -103,6 +119,75 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         
         self.loginSetup()
     }
+    
+    
+    
+
+    
+
+    
+    func downloadData(){
+//        let query = PFQuery(className: "CardInfo")
+//        query.whereKey("username", equalTo: currentUser!.username!)
+        print("be do")
+        
+//        do {
+//            print("be do be do")
+//            cards = try query.findObjects()
+//            self.collection.reloadData()
+//            print("Number of sets", cards.count)
+//        }
+//        catch _ {
+//            print("Error")
+//        }
+//        
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //query for current user
+        //query for number of sets from user
+        //return number of sets from user
+        
+        //        return 1
+        print(cards.count ,"Number of sets")
+        return cards.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        print("be do")
+        
+        
+        
+        
+        
+        
+        var comment: String
+        //        var imageView:UIImageView = UIImageView()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
+        if let value = cards[indexPath.row]["username"] as? String {
+            comment = value
+        }
+        //        if let img = pictures[indexPath.row]["image"] as? PFFile {
+        //            let finalImage = pictures[indexPath.row]["image"] as? PFFile
+        //            finalImage!.getDataInBackgroundWithBlock {
+        //                (imageData: NSData?, error: NSError?) -> Void in
+        //                imageView.image = UIImage(data: imageData!)
+        //            }
+        //        }
+        //        imageView.frame = cell.bounds
+        cell.backgroundColor = UIColor.lightGrayColor()
+        
+        //        cell.addSubview(imageView)
+        return cell
+    }
+    
+
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
