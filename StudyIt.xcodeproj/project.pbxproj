@@ -26,7 +26,17 @@
 		58C5DC501BF0FDE100EFB5F7 /* cardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5DC4F1BF0FDE100EFB5F7 /* cardTableViewController.swift */; };
 		81547E781BF0748C00042145 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81547E771BF0748C00042145 /* ParseUI.framework */; };
 		81547E801BF0767900042145 /* StudyItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81547E7F1BF0767900042145 /* StudyItTests.swift */; };
-		81547E8E1BF0769E00042145 /* StudyItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81547E8D1BF0769E00042145 /* StudyItUITests.swift */; };
+		81547E8E1BF0769E00042145 /* LoginSignupTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81547E8D1BF0769E00042145 /* LoginSignupTest.swift */; };
+		81547E981BF0F1A900042145 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81547E971BF0F1A900042145 /* UIKit.framework */; };
+		81547E9A1BF0F1C900042145 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81547E991BF0F1C900042145 /* MobileCoreServices.framework */; };
+		81547E9C1BF0F1D700042145 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81547E9B1BF0F1D700042145 /* Foundation.framework */; };
+		81547E9E1BFC509F00042145 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2C01BBB4B8F006971F3 /* ViewController.swift */; };
+		81547E9F1BFC51DC00042145 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1D9081BDAE97200545E2E /* Main.storyboard */; };
+		81547EA01BFC525500042145 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88F6F81BDA811E001F5A42 /* FrontViewController.swift */; };
+		81547EA11BFC525900042145 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88F6FC1BDA860E001F5A42 /* BackViewController.swift */; };
+		81547EA21BFC526000042145 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2D01BBB4BBE006971F3 /* CardViewController.swift */; };
+		81547EA31BFC5D2300042145 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58179F921BDA786A002648F1 /* Parse.framework */; };
+		81547EA51BFC5ECA00042145 /* HomepageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81547EA41BFC5ECA00042145 /* HomepageTest.swift */; };
 		9C22C2BF1BBB4B8F006971F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2BE1BBB4B8F006971F3 /* AppDelegate.swift */; };
 		9C22C2C11BBB4B8F006971F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2C01BBB4B8F006971F3 /* ViewController.swift */; };
 		9C22C2C61BBB4B8F006971F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C22C2C51BBB4B8F006971F3 /* Assets.xcassets */; };
@@ -79,6 +89,10 @@
 		81547E8B1BF0769E00042145 /* StudyItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81547E8D1BF0769E00042145 /* LoginSignupTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupTest.swift; sourceTree = "<group>"; };
 		81547E8F1BF0769E00042145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81547E971BF0F1A900042145 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		81547E991BF0F1C900042145 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		81547E9B1BF0F1D700042145 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		81547EA41BFC5ECA00042145 /* HomepageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageTest.swift; sourceTree = "<group>"; };
 		9C22C2BB1BBB4B8F006971F3 /* StudyIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C22C2BE1BBB4B8F006971F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C22C2C01BBB4B8F006971F3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,9 +149,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		58C5DC4C1BF0F9F200EFB5F7 /* Frameworks */ = {
+		583EBB9F1BFCDC6B00074D88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81547E9B1BF0F1D700042145 /* Foundation.framework */,
+				81547E991BF0F1C900042145 /* MobileCoreServices.framework */,
+				81547E971BF0F1A900042145 /* UIKit.framework */,
 				81547E771BF0748C00042145 /* ParseUI.framework */,
 				58179F911BDA786A002648F1 /* Bolts.framework */,
 				58179F921BDA786A002648F1 /* Parse.framework */,
@@ -179,7 +196,7 @@
 		9C22C2B21BBB4B8F006971F3 = {
 			isa = PBXGroup;
 			children = (
-				58C5DC4C1BF0F9F200EFB5F7 /* Frameworks */,
+				583EBB9F1BFCDC6B00074D88 /* Frameworks */,
 				9C22C2BD1BBB4B8F006971F3 /* BigProject */,
 				81547E7E1BF0767900042145 /* StudyItTests */,
 				81547E8C1BF0769E00042145 /* StudyItUITests */,
