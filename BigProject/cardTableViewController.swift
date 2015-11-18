@@ -19,6 +19,20 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
         downloadCards()
         // Do any additional setup after loading the view.
     }
+    @IBAction func shuffle() {
+        downloadCards()
+        shuffleInPlace()
+    }
+    func shuffleInPlace() {
+        // empty and single-element collections don't shuffle
+        if cards.count < 2 { return }
+        
+        for i in 0..<cards.count - 1 {
+            let j = Int(arc4random_uniform(UInt32(cards.count - i))) + i
+            guard i != j else { continue }
+            swap(&cards[i], &cards[j])
+        }
+    }
     @IBAction func newCard(sender: AnyObject) {
         let alertControl: UIAlertController = UIAlertController(title: "Start by naming your card", message: "", preferredStyle: .Alert)
         let ok = UIAlertAction(title: "OK", style: .Cancel) { action -> Void in
@@ -54,7 +68,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
         
         
         self.presentViewController(alertControl, animated: true, completion: nil)
-        
+        performSegueWithIdentifier("newCardFromSet", sender: nil)
     }
    
     func downloadCards() {
