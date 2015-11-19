@@ -18,7 +18,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLabel?.font = nameLabel?.font.fontWithSize(20)
-        nameLabel?.text = "Welcome \(currentUser!.username!)!!"
+//        nameLabel?.text = "Welcome \(currentUser!.username!)!!"
         // Do any additional setup after loading the view, typically from a nib.
     }
     

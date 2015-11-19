@@ -13,15 +13,18 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
     var cards = [PFObject]()
     var arr:[String] = []
     var selectedSet = ""
+    @IBOutlet var table: UITableView!
     //var selectedCard = PFObject()
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadCards()
+        table.reloadData()
         // Do any additional setup after loading the view.
     }
     @IBAction func shuffle() {
         downloadCards()
         shuffleInPlace()
+        table.reloadData()
     }
     func shuffleInPlace() {
         // empty and single-element collections don't shuffle
@@ -48,7 +51,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
                     
                     if(success) {
                         //We saved our information
-                        print("Saved Set Title")
+                        print("Saved card Title")
                     }
                     else
                     {
@@ -69,6 +72,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
         
         self.presentViewController(alertControl, animated: true, completion: nil)
         performSegueWithIdentifier("newCardFromSet", sender: nil)
+        downloadCards()
     }
    
     func downloadCards() {

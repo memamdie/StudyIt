@@ -335,7 +335,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="0Uy-Ar-Yhh"/>
+                        <outlet property="table" destination="zhY-cq-PBw" id="toN-mH-M5Q"/>
+                        <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="bER-Jt-3Qw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -508,8 +509,8 @@
         <image name="card" width="518" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="meP-hC-F5U"/>
-        <segue reference="s6D-7b-aqh"/>
         <segue reference="u19-cP-Oav"/>
+        <segue reference="Ugy-Wv-VjU"/>
+        <segue reference="bER-Jt-3Qw"/>
     </inferredMetricsTieBreakers>
 </document>
