@@ -126,21 +126,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
 
     
-    func downloadData(){
-//        let query = PFQuery(className: "CardInfo")
-//        query.whereKey("username", equalTo: currentUser!.username!)
-        print("be do")
-        
-//        do {
-//            print("be do be do")
-//            cards = try query.findObjects()
-//            self.collection.reloadData()
-//            print("Number of sets", cards.count)
-//        }
-//        catch _ {
-//            print("Error")
-//        }
-//        
+    func downloadData(){      
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

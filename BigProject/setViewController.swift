@@ -16,10 +16,20 @@ class setViewController: UIViewController, UITableViewDelegate {
     var selectedSet = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        table.reloadData()
         downloadSets()
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidLoad()
+        table.reloadData()
+        downloadSets()
+    }
+    
+
+    
     @IBAction func logOut(sender: AnyObject) {
         let login = ViewController()
         login.signOut("")
@@ -93,15 +103,20 @@ class setViewController: UIViewController, UITableViewDelegate {
         let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
             print("delete button tapped")
             self.deleteSet(self.sets[indexPath.row])
-            self.table.reloadData()
+//            self.table.reloadData()
 
         }
         delete.backgroundColor = UIColor.redColor()
+        
         return [delete]
     }
     
-    func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
+    func relod(){
         table.reloadData()
+    }
+    
+    func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
+//        table.reloadData()
         //dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -113,6 +128,7 @@ class setViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedSet = sets[indexPath.row]
+        table.reloadData()
         performSegueWithIdentifier("toSpecifiedSet", sender: nil)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

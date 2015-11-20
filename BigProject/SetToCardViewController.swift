@@ -1,20 +1,19 @@
 //
-//  SetsViewController.swift
+//  SetToCardViewController.swift
 //  StudyIt
 //
-//  Created by Isabel Laurenceau on 11/17/15.
+//  Created by Isabel Laurenceau on 11/18/15.
 //  Copyright © 2015 Isabel Laurenceau. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class SetsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet var collection: UICollectionView!
     var currentUser = PFUser.currentUser()
     var cards = [PFObject]()
-   var widthsize = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
     
     
     override func viewDidLoad() {
@@ -26,7 +25,7 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
         cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
         super.viewDidLoad()
-
+        
     }
     
     func downloadData(){
@@ -39,12 +38,11 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cards = try query.findObjects()
             self.collection.reloadData()
             print("Number of sets", cards.count)
-//            print("cards", cards)
         }
         catch _ {
             print("Error")
         }
-
+        
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -56,55 +54,49 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //query for number of sets from user
         //return number of sets from user
         
-
+        
         print("Collection number", cards.count)
         return cards.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-//        print("be do")
+        //        print("be do")
         
         var setName : String
-
+        
         var comment: String
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
         
         if let value = cards[indexPath.row]["setName"] as? String {
             
             comment = value
-            let cellsize = CGFloat(widthsize)
-            var name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
+            var name = UILabel(frame: CGRectMake(0, 0, 50, 50))
             name.font = UIFont(name:"HelveticaNeue;", size: 6.0)
             name.text = comment
             name.contentMode = UIViewContentMode.ScaleAspectFit
-            name.textAlignment = NSTextAlignment.Center
             
-            var pic = UIImage(named: "card.png")
-        
-            
-            var backpic = UIImageView(image: UIImage(named: "card.png"))
-            backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
-            
-            cell.addSubview(backpic)
+            //            var pic = UIImage(named: "card.png")
+            var pic = UIImageView(image: UIImage(named: "card.png"))
+            cell.addSubview(pic)
             cell.addSubview(name)
             
-         }
-
+        }
+        
         cell.backgroundColor = UIColor.lightGrayColor()
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-            //segue to selected set-card view
+        //segue to selected set-card view
     }
-
-
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-
+    
+    
 }
