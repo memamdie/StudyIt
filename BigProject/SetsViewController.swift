@@ -18,7 +18,7 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var sets = [String]()
     var setName: String!
     var selectedSet = ""
-    
+    var deletes = false
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadData()
@@ -27,8 +27,22 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cellWidth = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
         let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
         cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        
+        
+        let swipeLEFT = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeLEFT.direction = UISwipeGestureRecognizerDirection.Left
+        view.addGestureRecognizer(swipeLEFT)
+        
+        
         super.viewDidLoad()
 
+    }
+    
+    
+    
+    func swiped(gesture: UISwipeGestureRecognizer){
+     print("Trying to delete")
+        deletes = true
     }
     
     @IBAction func SignOut(sender: AnyObject) {
@@ -107,14 +121,25 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         setName = sets[indexPath.row]
         print("Passnig: ", setName)
         
+//        deleteSet(setName)
+        if deletes {
+            print("will be working")
+        }
+        
         //segue to selected set-card view
         self.performSegueWithIdentifier("SetToCard", sender: nil)
         
     }
     
+
+    
     func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
         
-                
+        print("trying to delete")
+        setName = sets[indexPath.row]
+        deleteSet(setName)
+        
+        
         //        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
         //            print("delete button tapped")
         //            self.deleteSet(self.sets[indexPath.row])

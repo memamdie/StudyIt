@@ -12,7 +12,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource  {
+class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
     
     @IBOutlet var collection: UICollectionView!
     var currentUser = PFUser.currentUser()
@@ -22,13 +22,13 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadData()
-        collection.delegate = self
+//        collection.delegate = self
         
 //        print(currentUser!.username!)
         // Resize size of collection view items in grid so that we achieve 3 boxes across
-        let cellWidth = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 3
-        let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
-        cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+//        let cellWidth = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 3
+//        let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
+//        cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
         super.viewDidLoad()
         
 
