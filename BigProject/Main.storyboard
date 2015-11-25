@@ -337,6 +337,7 @@
                     <connections>
                         <outlet property="table" destination="zhY-cq-PBw" id="toN-mH-M5Q"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="bER-Jt-3Qw"/>
+                        <segue destination="eKG-cB-h3T" kind="show" identifier="shuffled" id="uJa-Xx-zK7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -511,6 +512,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="u19-cP-Oav"/>
         <segue reference="Ugy-Wv-VjU"/>
-        <segue reference="bER-Jt-3Qw"/>
+        <segue reference="uJa-Xx-zK7"/>
     </inferredMetricsTieBreakers>
 </document>

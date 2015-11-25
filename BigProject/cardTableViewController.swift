@@ -9,8 +9,8 @@
 import UIKit
 import Parse
 
+var cards = [PFObject]()
 class cardTableViewController: UIViewController, UITableViewDelegate {
-    var cards = [PFObject]()
     var arr:[String] = []
     var selectedSet = ""
     @IBOutlet var table: UITableView!
@@ -25,6 +25,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
         downloadCards()
         shuffleInPlace()
         table.reloadData()
+        self.performSegueWithIdentifier("shuffled", sender: nil)
     }
     func shuffleInPlace() {
         // empty and single-element collections don't shuffle
@@ -107,7 +108,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
         
         let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
             print("delete button tapped")
-            self.deleteCard(self.cards[indexPath.row])
+            self.deleteCard(cards[indexPath.row])
         }
         delete.backgroundColor = UIColor.redColor()
         //            return [delete]
@@ -126,5 +127,12 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //selectedCard = cards[indexPath.row]
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "shuffled"   {
+            let fvc = segue.destinationViewController as! FrontViewController
+            fvc.displayShuffle()
+        }
     }
 }
