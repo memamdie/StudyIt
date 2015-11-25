@@ -14,7 +14,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet var collection: UICollectionView!
     var currentUser = PFUser.currentUser()
     var cards = [PFObject]()
-    
+    var setName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     func downloadData(){
         let query = PFQuery(className: "CardInfo")
         query.whereKey("username", equalTo: currentUser!.username!)
+        query.whereKey("setName", equalTo: setName)
         
         
         do {
@@ -60,14 +61,13 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        //        print("be do")
-        
+
         var setName : String
         
         var comment: String
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
         
-        if let value = cards[indexPath.row]["setName"] as? String {
+        if let value = cards[indexPath.row]["frontstring"] as? String {
             
             comment = value
             var name = UILabel(frame: CGRectMake(0, 0, 50, 50))
@@ -75,7 +75,6 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
             name.text = comment
             name.contentMode = UIViewContentMode.ScaleAspectFit
             
-            //            var pic = UIImage(named: "card.png")
             var pic = UIImageView(image: UIImage(named: "card.png"))
             cell.addSubview(pic)
             cell.addSubview(name)

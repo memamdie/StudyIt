@@ -92,6 +92,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="Txa-gf-wWI" id="kPX-IL-xXe"/>
+                        <segue destination="gMl-Oa-Bou" kind="show" identifier="Home" id="yAF-uE-6RO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -210,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1296" y="1017"/>
+            <point key="canvasLocation" x="1302" y="1001"/>
         </scene>
         <!--Set Table-->
         <scene sceneID="cC9-br-IXw">
@@ -454,20 +455,39 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfs-Iw-taR">
-                                <rect key="frame" x="92" y="10" width="46" height="30"/>
+                                <rect key="frame" x="76" y="91" width="46" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="iyZ-Md-vQG" kind="show" id="AWg-Le-xxg"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yic-Zl-LtB">
+                                <rect key="frame" x="-1" y="28" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem title="Profile" id="ntC-qk-tEN">
+                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="PUO-Oe-gqS">
+                                            <connections>
+                                                <action selector="SignOut:" destination="gMl-Oa-Bou" id="T9a-HG-unb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4xf-s8-cNy">
+                                            <connections>
+                                                <action selector="addSet:" destination="gMl-Oa-Bou" id="QsI-di-wSb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="collection" destination="Eaq-QG-KJK" id="cTp-Bo-gZI"/>
                         <segue destination="u8t-gQ-Aqq" kind="show" identifier="SetToCard" id="BOg-A4-r2c"/>
+                        <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="dsx-EF-USm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYr-47-0TO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -641,7 +661,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="s6D-7b-aqh"/>
-        <segue reference="u19-cP-Oav"/>
         <segue reference="meP-hC-F5U"/>
+        <segue reference="u19-cP-Oav"/>
+        <segue reference="Tdh-dJ-M08"/>
     </inferredMetricsTieBreakers>
 </document>

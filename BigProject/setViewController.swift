@@ -70,6 +70,7 @@ class setViewController: UIViewController, UITableViewDelegate {
         catch{}
         table.reloadData()
     }
+    
     func deleteSet(setName: String) {
         let query = PFQuery(className: "CardInfo")
         query.whereKey("setName", equalTo: setName)

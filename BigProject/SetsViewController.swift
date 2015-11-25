@@ -14,8 +14,10 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet var collection: UICollectionView!
     var currentUser = PFUser.currentUser()
     var cards = [PFObject]()
-   var widthsize = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
-    
+    var widthsize = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
+    var sets = [String]()
+    var setName: String!
+    var selectedSet = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,12 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
 
     }
+    
+    @IBAction func SignOut(sender: AnyObject) {
+        let login = ViewController()
+        login.signOut("")
+    }
+    
     
     func downloadData(){
         let query = PFQuery(className: "CardInfo")
@@ -78,7 +86,7 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             name.text = comment
             name.contentMode = UIViewContentMode.ScaleAspectFit
             name.textAlignment = NSTextAlignment.Center
-            
+            sets.append(comment)
             var pic = UIImage(named: "card.png")
         
             
@@ -95,8 +103,30 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-            //segue to selected set-card view
+        //get info from card
+        setName = sets[indexPath.row]
+        print("Passnig: ", setName)
+        
+        //segue to selected set-card view
+        self.performSegueWithIdentifier("SetToCard", sender: nil)
+        
     }
+    
+    func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+        
+                
+        //        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
+        //            print("delete button tapped")
+        //            self.deleteSet(self.sets[indexPath.row])
+        //            //            self.table.reloadData()
+        //
+        //        }
+        //        delete.backgroundColor = UIColor.redColor()
+        //        
+        //        return [delete]
+    }
+
+
 
 
     
@@ -105,6 +135,50 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func addSet(sender: AnyObject) {
+        let alertControl: UIAlertController = UIAlertController(title: "Start by naming your set", message: "", preferredStyle: .Alert)
+        let ok = UIAlertAction(title: "OK", style: .Cancel) { action -> Void in
+            let titlename = alertControl.textFields![0] as UITextField
+            self.setName = titlename.text!
+            if self.setName != "" {
+                self.performSegueWithIdentifier("toCard", sender: nil)
+            }
+        }
+        alertControl.addAction(ok)
+        alertControl.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Set Title"
+        }
+        
+        self.presentViewController(alertControl, animated: true, completion: nil)
+        
+    }
+    
+    func deleteSet(setName: String) {
+        let query = PFQuery(className: "CardInfo")
+        query.whereKey("setName", equalTo: setName)
+        do {
+            let result = try query.findObjects()
+            for r in result {
+                r.deleteInBackground()
+            }
+        }
+        catch {}
+        downloadData()
 
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toCard" {
+            print("Segueing to the card screen")
+            let card = segue.destinationViewController as! FrontViewController
+            card.setName = setName
+        }
+        else if segue.identifier == "SetToCard" {
+            print("Segueing to the card set screen")
+            let card = segue.destinationViewController as! SetToCardViewController
+            card.setName = setName
+        }
+
+    }
 
 }
