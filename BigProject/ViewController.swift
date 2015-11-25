@@ -13,8 +13,12 @@ import Parse
 import ParseUI
 
 class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
-    @IBOutlet var nameLabel: UILabel?
+    
+    @IBOutlet var collection: UICollectionView!
     var currentUser = PFUser.currentUser()
+    var cards = [PFObject]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLabel?.font = nameLabel?.font.fontWithSize(20)
@@ -106,6 +110,61 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         
         self.loginSetup()
     }
+    
+    
+    
+
+    
+
+    
+    func downloadData(){      
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //query for current user
+        //query for number of sets from user
+        //return number of sets from user
+        
+        //        return 1
+        print(cards.count ,"Number of sets")
+        return cards.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        print("be do")
+        
+        
+        
+        
+        
+        
+        var comment: String
+        //        var imageView:UIImageView = UIImageView()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
+        if let value = cards[indexPath.row]["username"] as? String {
+            comment = value
+        }
+        //        if let img = pictures[indexPath.row]["image"] as? PFFile {
+        //            let finalImage = pictures[indexPath.row]["image"] as? PFFile
+        //            finalImage!.getDataInBackgroundWithBlock {
+        //                (imageData: NSData?, error: NSError?) -> Void in
+        //                imageView.image = UIImage(data: imageData!)
+        //            }
+        //        }
+        //        imageView.frame = cell.bounds
+        cell.backgroundColor = UIColor.lightGrayColor()
+        
+        //        cell.addSubview(imageView)
+        return cell
+    }
+    
+
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

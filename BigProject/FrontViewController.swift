@@ -11,6 +11,7 @@ import Parse
 var cardname = ""
 var ID = ""
 
+
 class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     var setName: String!
     @IBOutlet var EnteredText: UITextView!
@@ -39,7 +40,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
             
             //save title to parse
             let FriendName = PFObject(className: "CardInfo")
-            FriendName.setObject(cardname, forKey: "title")
+//            FriendName.setObject(cardname, forKey: "title")
             FriendName.setObject(self.EnteredText.text, forKey: "frontstring")
             FriendName.setObject((PFUser.currentUser()?.username)!, forKey: "username")
             FriendName.setObject(self.setName, forKey: "setName")
