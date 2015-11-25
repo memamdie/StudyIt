@@ -45,7 +45,9 @@ class BackViewController: UIViewController {
             }
         }
         print("Saving Back")
-        performSegueWithIdentifier("toIndividualCards", sender: nil)
+//        performSegueWithIdentifier("toIndividualCards", sender: nil)
+        performSegueWithIdentifier("BackToCard", sender: nil)
+        
     }
     
     //segue set name
@@ -55,7 +57,11 @@ class BackViewController: UIViewController {
             let fvc = segue.destinationViewController as! cardTableViewController
             fvc.selectedSet = setName
         }
-        
+        else if segue.identifier == "BackToCard"   {
+            
+            let fvc = segue.destinationViewController as! SetToCardViewController
+            fvc.setName = setName
+        }
         
     }
     //********************************************************************************************************************//

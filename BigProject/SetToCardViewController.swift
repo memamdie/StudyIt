@@ -28,6 +28,50 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         
     }
     
+    
+    @IBAction func newCard(sender: AnyObject) {
+        let alertControl: UIAlertController = UIAlertController(title: "Start by naming your card", message: "", preferredStyle: .Alert)
+        let ok = UIAlertAction(title: "OK", style: .Cancel) { action -> Void in
+            let titlename = alertControl.textFields![0] as UITextField
+            let cardName = titlename.text!
+            if cardName != "" {
+                //save title to parse
+                let FriendName = PFObject(className: "CardInfo")
+                FriendName.setObject(cardName, forKey: "title")
+                
+                FriendName.saveInBackgroundWithBlock {
+                    (success: Bool, error:NSError?) -> Void in
+                    
+                    if(success) {
+                        //We saved our information
+                        print("Saved Set Title")
+                    }
+                    else
+                    {
+                        //there was a problem
+                        print((error?.description)! + "\n")
+                        print("Error: Did Not Save Title")
+                    }
+                }
+            }
+            
+            
+        }
+        alertControl.addAction(ok)
+        alertControl.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Card Title"
+        }
+        
+        
+        
+//        self.presentViewController(alertControl, animated: true, completion: nil)
+        self.performSegueWithIdentifier("newCardFromSet", sender: nil)
+
+//        self.performSegueWithIdentifier("newCardFromSet", sender: nil)
+    }
+    
+    
+    
     func downloadData(){
         let query = PFQuery(className: "CardInfo")
         query.whereKey("username", equalTo: currentUser!.username!)
@@ -89,6 +133,16 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         //segue to selected set-card view
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        if segue.identifier == "newCardFromSet" {
+            print("Segueing to the card set screen")
+            let card = segue.destinationViewController as! FrontViewController
+            card.setName = setName
+        }
+        
+    }
+
     
     
     override func didReceiveMemoryWarning() {

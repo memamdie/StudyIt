@@ -200,8 +200,18 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Cards" id="7qH-X8-fti">
-                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="kGS-Jh-azS"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="8oe-G4-BVX"/>
+                                        <leftBarButtonItems>
+                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS"/>
+                                            <barButtonItem title="Home" id="n7G-DE-1wj"/>
+                                        </leftBarButtonItems>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Item" systemItem="add" id="8oe-G4-BVX">
+                                                <connections>
+                                                    <action selector="newCard:" destination="u8t-gQ-Aqq" id="ffu-1e-deP"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Shuffle" id="h8o-KZ-r2a"/>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -211,6 +221,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="f6N-CP-x0T" id="fys-XZ-rgC"/>
+                        <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="FFr-B2-nmJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -654,6 +665,7 @@
                         <outlet property="Image" destination="mJ5-tj-p9b" id="Ly3-XB-bjd"/>
                         <outlet property="backText" destination="ghF-zY-53a" id="74P-1O-pug"/>
                         <segue destination="DiB-RA-CtL" kind="show" identifier="toIndividualCards" id="UKw-Me-Ckc"/>
+                        <segue destination="u8t-gQ-Aqq" kind="show" identifier="BackToCard" id="iuG-uP-pqy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqq-zK-ecD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -665,9 +677,10 @@
         <image name="card" width="518" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="iuG-uP-pqy"/>
+        <segue reference="TMg-GK-TIp"/>
+        <segue reference="eGf-8t-LJp"/>
+        <segue reference="UKw-Me-Ckc"/>
         <segue reference="yAF-uE-6RO"/>
-        <segue reference="AWg-Le-xxg"/>
-        <segue reference="u19-cP-Oav"/>
-        <segue reference="dsx-EF-USm"/>
     </inferredMetricsTieBreakers>
 </document>

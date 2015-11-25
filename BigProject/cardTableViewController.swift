@@ -14,6 +14,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
     var arr:[String] = []
     var selectedSet = ""
     //var selectedCard = PFObject()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadCards()
@@ -33,6 +34,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
             swap(&cards[i], &cards[j])
         }
     }
+    
     @IBAction func newCard(sender: AnyObject) {
         let alertControl: UIAlertController = UIAlertController(title: "Start by naming your card", message: "", preferredStyle: .Alert)
         let ok = UIAlertAction(title: "OK", style: .Cancel) { action -> Void in
@@ -84,6 +86,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
         }
         catch{}
     }
+    
     func deleteCard(cardObj: PFObject) {
 //       let location =  cards.indexOf(cardObj)
         cardObj.deleteInBackground()
