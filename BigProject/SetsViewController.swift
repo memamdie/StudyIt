@@ -19,6 +19,8 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var setName: String!
     var selectedSet = ""
     var deletes = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadData()
@@ -29,9 +31,10 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
         
         
-        let swipeLEFT = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        swipeLEFT.direction = UISwipeGestureRecognizerDirection.Left
-        view.addGestureRecognizer(swipeLEFT)
+//        let swipeLEFT = UISwipeGestureRecognizer(target: self, action: "swiped:")
+//        swipeLEFT.direction = UISwipeGestureRecognizerDirection.Left
+//        view.addGestureRecognizer(swipeLEFT)
+        
         
         
         super.viewDidLoad()
@@ -39,10 +42,11 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
-    
     func swiped(gesture: UISwipeGestureRecognizer){
      print("Trying to delete")
         deletes = true
+//        setName = sets[indexPath.row]
+//        deleteSet(setName)
     }
     
     @IBAction func SignOut(sender: AnyObject) {
@@ -61,7 +65,6 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cards = try query.findObjects()
             self.collection.reloadData()
             print("Number of sets", cards.count)
-//            print("cards", cards)
         }
         catch _ {
             print("Error")
@@ -84,7 +87,6 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-//        print("be do")
         
         var setName : String
 
@@ -110,6 +112,30 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cell.addSubview(backpic)
             cell.addSubview(name)
             
+            
+            //
+            //            for var i = 0; i < sets.count; i++ {
+            //                //dont add to view
+            //                if comment == sets[i]{
+            //                    print("don't add")
+            //                    add = false
+            //                }
+            //            }
+            //
+            //            if add == true {
+            //                print("add")
+            //                sets.append(comment)
+            //
+            //                var pic = UIImage(named: "card.png")
+            //                var backpic = UIImageView(image: UIImage(named: "card.png"))
+            //                backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
+            //
+            //                
+            //                cell.addSubview(backpic)
+            //                cell.addSubview(name)
+            //            }
+            //            
+
          }
 
         cell.backgroundColor = UIColor.lightGrayColor()
@@ -117,19 +143,29 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //get info from card
-        setName = sets[indexPath.row]
-        print("Passnig: ", setName)
-        
-//        deleteSet(setName)
-        if deletes {
-            print("will be working")
+        if deletes == false {
+            //get info from card
+            setName = sets[indexPath.row]
+            print("Passnig: ", setName)
+            
+
+            
+            
+            //segue to selected set-card view
+            self.performSegueWithIdentifier("SetToCard", sender: nil)
         }
         
-        //segue to selected set-card view
-        self.performSegueWithIdentifier("SetToCard", sender: nil)
-        
+        else {
+            
+//            let swipeLEFT = UISwipeGestureRecognizer(target: self, action: "swiped:")
+//            swipeLEFT.direction = UISwipeGestureRecognizerDirection.Left
+//            //        view.addGestureRecognizer(swipeLEFT)
+//            collectionView.addGestureRecognizer(swipeLEFT)
+            deleteSet(sets[indexPath.row])
+            deletes = false
+        }
     }
+    
     
 
     
@@ -176,6 +212,11 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         self.presentViewController(alertControl, animated: true, completion: nil)
         
+    }
+    
+    @IBAction func Trash(sender: AnyObject) {
+        //makes collections selected to delete
+        deletes = true
     }
     
     func deleteSet(setName: String) {

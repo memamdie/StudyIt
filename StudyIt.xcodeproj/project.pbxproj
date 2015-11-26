@@ -42,6 +42,7 @@
 		9C22C2C91BBB4B8F006971F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C22C2C71BBB4B8F006971F3 /* LaunchScreen.storyboard */; };
 		9C22C2D11BBB4BBE006971F3 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2D01BBB4BBE006971F3 /* CardViewController.swift */; };
 		9C40ECC91BFBC78B00EB29B1 /* SetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40ECC81BFBC78B00EB29B1 /* SetsViewController.swift */; };
+		9C482E211C067A7700599EF3 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C482E201C067A7700599EF3 /* StudyViewController.swift */; };
 		9C88F6F91BDA811E001F5A42 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88F6F81BDA811E001F5A42 /* FrontViewController.swift */; };
 		9C88F6FD1BDA860E001F5A42 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88F6FC1BDA860E001F5A42 /* BackViewController.swift */; };
 		9C98C8F01BFD54F50008F004 /* SetToCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C98C8EF1BFD54F50008F004 /* SetToCardViewController.swift */; };
@@ -101,6 +102,7 @@
 		9C22C2CA1BBB4B8F006971F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C22C2D01BBB4BBE006971F3 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		9C40ECC81BFBC78B00EB29B1 /* SetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetsViewController.swift; sourceTree = "<group>"; };
+		9C482E201C067A7700599EF3 /* StudyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		9C88F6F81BDA811E001F5A42 /* FrontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontViewController.swift; sourceTree = "<group>"; };
 		9C88F6FC1BDA860E001F5A42 /* BackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackViewController.swift; sourceTree = "<group>"; };
 		9C98C8EF1BFD54F50008F004 /* SetToCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetToCardViewController.swift; sourceTree = "<group>"; };
@@ -220,15 +222,16 @@
 			isa = PBXGroup;
 			children = (
 				9C22C2BE1BBB4B8F006971F3 /* AppDelegate.swift */,
-				9C22C2C01BBB4B8F006971F3 /* ViewController.swift */,
+				58C5DC4F1BF0FDE100EFB5F7 /* cardTableViewController.swift */,
+				58C5DC4D1BF0FAEA00EFB5F7 /* setViewController.swift */,
 				9CD1D9081BDAE97200545E2E /* Main.storyboard */,
-				9C98C8EF1BFD54F50008F004 /* SetToCardViewController.swift */,
+				9C482E201C067A7700599EF3 /* StudyViewController.swift */,
+				9C22C2C01BBB4B8F006971F3 /* ViewController.swift */,
 				9C40ECC81BFBC78B00EB29B1 /* SetsViewController.swift */,
+				9C98C8EF1BFD54F50008F004 /* SetToCardViewController.swift */,
 				9C88F6F81BDA811E001F5A42 /* FrontViewController.swift */,
 				9C88F6FC1BDA860E001F5A42 /* BackViewController.swift */,
 				9C22C2D01BBB4BBE006971F3 /* CardViewController.swift */,
-				58C5DC4F1BF0FDE100EFB5F7 /* cardTableViewController.swift */,
-				58C5DC4D1BF0FAEA00EFB5F7 /* setViewController.swift */,
 				9C22C2C51BBB4B8F006971F3 /* Assets.xcassets */,
 				9C22C2C71BBB4B8F006971F3 /* LaunchScreen.storyboard */,
 				9C22C2CA1BBB4B8F006971F3 /* Info.plist */,
@@ -390,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C482E211C067A7700599EF3 /* StudyViewController.swift in Sources */,
 				9C88F6F91BDA811E001F5A42 /* FrontViewController.swift in Sources */,
 				9C98C8F01BFD54F50008F004 /* SetToCardViewController.swift in Sources */,
 				9C40ECC91BFBC78B00EB29B1 /* SetsViewController.swift in Sources */,

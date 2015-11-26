@@ -202,7 +202,11 @@
                                     <navigationItem title="Cards" id="7qH-X8-fti">
                                         <leftBarButtonItems>
                                             <barButtonItem title="Sign Out" id="kGS-Jh-azS"/>
-                                            <barButtonItem title="Home" id="n7G-DE-1wj"/>
+                                            <barButtonItem title="Home" id="n7G-DE-1wj">
+                                                <connections>
+                                                    <segue destination="gMl-Oa-Bou" kind="show" id="wLe-0n-Rcz"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </leftBarButtonItems>
                                         <rightBarButtonItems>
                                             <barButtonItem title="Item" systemItem="add" id="8oe-G4-BVX">
@@ -222,11 +226,12 @@
                     <connections>
                         <outlet property="collection" destination="f6N-CP-x0T" id="fys-XZ-rgC"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="FFr-B2-nmJ"/>
+                        <segue destination="yGh-7U-wQV" kind="show" identifier="Study" id="kg2-Jc-YRr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="1050"/>
+            <point key="canvasLocation" x="741" y="1065"/>
         </scene>
         <!--Set Table-->
         <scene sceneID="cC9-br-IXw">
@@ -488,11 +493,18 @@
                                                 <action selector="SignOut:" destination="gMl-Oa-Bou" id="T9a-HG-unb"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4xf-s8-cNy">
-                                            <connections>
-                                                <action selector="addSet:" destination="gMl-Oa-Bou" id="QsI-di-wSb"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="4xf-s8-cNy">
+                                                <connections>
+                                                    <action selector="addSet:" destination="gMl-Oa-Bou" id="QsI-di-wSb"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="trash" id="qFR-mj-9md">
+                                                <connections>
+                                                    <action selector="Trash:" destination="gMl-Oa-Bou" id="NPN-8A-KBv"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -672,15 +684,76 @@
             </objects>
             <point key="canvasLocation" x="1888" y="191"/>
         </scene>
+        <!--Study View Controller-->
+        <scene sceneID="ysX-KG-KK2">
+            <objects>
+                <viewController id="yGh-7U-wQV" customClass="StudyViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kOq-OG-eVM"/>
+                        <viewControllerLayoutGuide type="bottom" id="nJS-28-tOC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sk3-Ax-oWo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="QbF-2s-eaH">
+                                <rect key="frame" x="8" y="159" width="584" height="282"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="282" id="I9m-LH-Tyo"/>
+                                    <constraint firstAttribute="width" constant="584" id="Xuy-hT-xnV"/>
+                                </constraints>
+                            </imageView>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" text="Hello Guys!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vRE-XY-CqQ">
+                                <rect key="frame" x="22" y="184" width="560" height="232"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="557" id="dMQ-Kg-lxi"/>
+                                    <constraint firstAttribute="height" constant="232" id="vIx-Rv-Fox"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ze-fC-stU">
+                                <rect key="frame" x="0.0" y="111" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem title="Study" id="MHf-CA-oUg">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="CpU-G3-lsv"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Back of Card" id="8MJ-6h-dye"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="QbF-2s-eaH" firstAttribute="centerX" secondItem="Sk3-Ax-oWo" secondAttribute="centerX" id="77d-ie-b7Z"/>
+                            <constraint firstItem="vRE-XY-CqQ" firstAttribute="centerX" secondItem="Sk3-Ax-oWo" secondAttribute="centerX" id="Ky3-zg-NF6"/>
+                            <constraint firstItem="QbF-2s-eaH" firstAttribute="centerY" secondItem="Sk3-Ax-oWo" secondAttribute="centerY" id="Wbo-Fw-w4x"/>
+                            <constraint firstItem="QbF-2s-eaH" firstAttribute="top" secondItem="1ze-fC-stU" secondAttribute="bottom" constant="4" id="Ydm-5L-LJJ"/>
+                            <constraint firstItem="1ze-fC-stU" firstAttribute="centerX" secondItem="Sk3-Ax-oWo" secondAttribute="centerX" id="nBq-pu-Dtb"/>
+                            <constraint firstItem="vRE-XY-CqQ" firstAttribute="centerY" secondItem="Sk3-Ax-oWo" secondAttribute="centerY" id="sEw-QQ-yHZ"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="text" destination="vRE-XY-CqQ" id="AMI-Q2-1gh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jBZ-qJ-Bw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1570" y="1065"/>
+        </scene>
     </scenes>
     <resources>
         <image name="card" width="518" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iuG-uP-pqy"/>
-        <segue reference="TMg-GK-TIp"/>
-        <segue reference="eGf-8t-LJp"/>
+        <segue reference="AWg-Le-xxg"/>
+        <segue reference="wLe-0n-Rcz"/>
+        <segue reference="BOg-A4-r2c"/>
+        <segue reference="FFr-B2-nmJ"/>
         <segue reference="UKw-Me-Ckc"/>
-        <segue reference="yAF-uE-6RO"/>
     </inferredMetricsTieBreakers>
 </document>
