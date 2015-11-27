@@ -45,6 +45,7 @@
 		9C482E211C067A7700599EF3 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C482E201C067A7700599EF3 /* StudyViewController.swift */; };
 		9C88F6F91BDA811E001F5A42 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88F6F81BDA811E001F5A42 /* FrontViewController.swift */; };
 		9C88F6FD1BDA860E001F5A42 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88F6FC1BDA860E001F5A42 /* BackViewController.swift */; };
+		9C94F47A1C08A3B70049C614 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94F4791C08A3B70049C614 /* MatchViewController.swift */; };
 		9C98C8F01BFD54F50008F004 /* SetToCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C98C8EF1BFD54F50008F004 /* SetToCardViewController.swift */; };
 		9CD1D9091BDAE97200545E2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1D9081BDAE97200545E2E /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,7 @@
 		9C482E201C067A7700599EF3 /* StudyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		9C88F6F81BDA811E001F5A42 /* FrontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontViewController.swift; sourceTree = "<group>"; };
 		9C88F6FC1BDA860E001F5A42 /* BackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackViewController.swift; sourceTree = "<group>"; };
+		9C94F4791C08A3B70049C614 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		9C98C8EF1BFD54F50008F004 /* SetToCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetToCardViewController.swift; sourceTree = "<group>"; };
 		9CD1D9081BDAE97200545E2E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,6 +227,7 @@
 				58C5DC4F1BF0FDE100EFB5F7 /* cardTableViewController.swift */,
 				58C5DC4D1BF0FAEA00EFB5F7 /* setViewController.swift */,
 				9CD1D9081BDAE97200545E2E /* Main.storyboard */,
+				9C94F4791C08A3B70049C614 /* MatchViewController.swift */,
 				9C482E201C067A7700599EF3 /* StudyViewController.swift */,
 				9C22C2C01BBB4B8F006971F3 /* ViewController.swift */,
 				9C40ECC81BFBC78B00EB29B1 /* SetsViewController.swift */,
@@ -400,6 +403,7 @@
 				9C22C2C11BBB4B8F006971F3 /* ViewController.swift in Sources */,
 				58C5DC501BF0FDE100EFB5F7 /* cardTableViewController.swift in Sources */,
 				9C22C2BF1BBB4B8F006971F3 /* AppDelegate.swift in Sources */,
+				9C94F47A1C08A3B70049C614 /* MatchViewController.swift in Sources */,
 				58C5DC4E1BF0FAEA00EFB5F7 /* setViewController.swift in Sources */,
 				9C88F6FD1BDA860E001F5A42 /* BackViewController.swift in Sources */,
 				9C22C2D11BBB4BBE006971F3 /* CardViewController.swift in Sources */,

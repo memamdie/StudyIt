@@ -1,16 +1,16 @@
 //
-//  SetToCardViewController.swift
+//  MatchViewController.swift
 //  StudyIt
 //
-//  Created by Isabel Laurenceau on 11/18/15.
+//  Created by Isabel Laurenceau on 11/27/15.
 //  Copyright © 2015 Isabel Laurenceau. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+class MatchViewController: UIViewController {
+    
     @IBOutlet var collection: UICollectionView!
     var currentUser = PFUser.currentUser()
     var cards = [PFObject]()
@@ -18,24 +18,24 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     var studyset = [PFObject]()
     var deletes = false
     
+    
     override func viewDidLoad() {
+      
         downloadData()
-        collection.delegate = self
+//        collection.delegate = self
         
         // Resize size of collection view items in grid so that we achieve 3 boxes across
         let cellWidth = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
         let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
         cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
         super.viewDidLoad()
-        
+
     }
-    
-    
-    @IBAction func newCard(sender: AnyObject) {
-        self.performSegueWithIdentifier("newCardFromSet", sender: nil)
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    
-    
     
     func downloadData(){
         let query = PFQuery(className: "CardInfo")
@@ -46,7 +46,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         do {
             cards = try query.findObjects()
             studyset = try query.findObjects()
-//            print("sets:", studyset)
+            //            print("sets:", studyset)
             self.collection.reloadData()
             print("Number of sets", cards.count)
         }
@@ -70,8 +70,9 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         return cards.count
     }
     
+    //        Match, collection view of front and back of cards
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-
+        
         var setName : String
         
         var comment: String
@@ -92,71 +93,27 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         
         cell.backgroundColor = UIColor.lightGrayColor()
+        
+     
+        
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        //segue to study
-        if deletes == false {
-            self.performSegueWithIdentifier("Study", sender: nil)
+
+//        In did selects cell(
+//        Make every first selection one color and every second collection another.
+//        If they have the same object ID make cell go gray, if not pop up that it was wrong and lower the score.
+//        Once score is 20% of collection count game over. )
+        
+        var cell = collectionView.cellForItemAtIndexPath(indexPath)
+        if cell?.selected == true {
+            cell?.backgroundColor = UIColor.orangeColor()
+        }
+        else{
+        cell?.backgroundColor = UIColor.clearColor()
         }
         
-        //delete card
-        else {
-            let alertControl: UIAlertController = UIAlertController(title: "Delete Card?", message:"" , preferredStyle: .Alert)
-            let ok = UIAlertAction(title: "Delete", style: .Cancel) {action -> Void in
-           //     deleteCard(cards[indexPath.row])
-                self.deleteCard(self.cards[indexPath.row])
-                self.deletes = false
-                self.downloadData()
-            }
-            let cancel = UIAlertAction(title: "Cancel", style: .Default) {action -> Void in}
-            alertControl.addAction(ok)
-            alertControl.addAction(cancel)
-            self.presentViewController(alertControl, animated: true, completion: nil)
-
-        }
     }
-    
-    @IBAction func Trash(sender: AnyObject) {
-        //makes collections selected to delete
-        deletes = true
-    }
-    
-    
-    func deleteCard(cardObj: PFObject) {
-        cardObj.deleteInBackground()
-    }
-
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
-        if segue.identifier == "newCardFromSet" {
-            print("Segueing to the card set screen")
-            let card = segue.destinationViewController as! FrontViewController
-            card.setName = setName
-        }
-            
-        else if segue.identifier == "Study" {
-            print("Segueing to the card set screen")
-            let svc = segue.destinationViewController as! StudyViewController
-            svc.studyset = studyset
-        }
-        else if segue.identifier == "Match" {
-            print("Segueing to match screen")
-            let card = segue.destinationViewController as! MatchViewController
-            card.setName = setName
-        }
-
-    }
-
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
 }

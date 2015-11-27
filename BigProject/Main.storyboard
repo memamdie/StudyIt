@@ -99,38 +99,10 @@
             </objects>
             <point key="canvasLocation" x="-135" y="191"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="GVF-Z3-3CG">
-            <objects>
-                <viewController id="uuw-aq-EVN" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Jd8-Wy-evq"/>
-                        <viewControllerLayoutGuide type="bottom" id="Bo6-NE-i47"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Baw-2Z-Xwj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shuffle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USh-fF-Rx8">
-                                <rect key="frame" x="282" y="91" width="55" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S8U-kd-SD0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="222" y="3287"/>
-        </scene>
-        <!--View Controller-->
+        <!--Match View Controller-->
         <scene sceneID="9Hp-kL-6e8">
             <objects>
-                <viewController id="wCG-gz-6va" sceneMemberID="viewController">
+                <viewController id="wCG-gz-6va" customClass="MatchViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OHM-aY-dBN"/>
                         <viewControllerLayoutGuide type="bottom" id="RTh-7c-fer"/>
@@ -139,21 +111,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qO-DB-qIV">
-                                <rect key="frame" x="228" y="63" width="48" height="21"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OE3-9h-EPa">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <items>
+                                    <navigationItem title="Match" id="Raa-Zu-haE">
+                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="xB8-5U-k11"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Home" id="5Dg-U4-ZdH">
+                                            <connections>
+                                                <segue destination="gMl-Oa-Bou" kind="show" identifier="MatchToHome" id="hzK-JI-o6R"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4r6-g3-1PZ">
+                                <rect key="frame" x="20" y="132" width="566" height="454"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I5C-H1-ocs">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="9v6-CH-Qf5">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <animations/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="wCG-gz-6va" id="8SR-h5-6j6"/>
+                                    <outlet property="delegate" destination="wCG-gz-6va" id="2au-0b-YuG"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="collection" destination="4r6-g3-1PZ" id="64e-9h-u7M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbX-0X-ek2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="3257"/>
+            <point key="canvasLocation" x="764" y="1875"/>
         </scene>
         <!--Set To Card View Controller-->
         <scene sceneID="nQ3-Jt-1Z2">
@@ -207,6 +217,11 @@
                                                     <segue destination="gMl-Oa-Bou" kind="show" id="wLe-0n-Rcz"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem title="Match" id="6kh-zz-ghz">
+                                                <connections>
+                                                    <segue destination="wCG-gz-6va" kind="show" identifier="Match" id="yDe-e2-62M"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </leftBarButtonItems>
                                         <rightBarButtonItems>
                                             <barButtonItem title="Item" systemItem="add" id="8oe-G4-BVX">
@@ -215,6 +230,11 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem title="Shuffle" id="h8o-KZ-r2a"/>
+                                            <barButtonItem systemItem="trash" id="lwl-nJ-QXb">
+                                                <connections>
+                                                    <action selector="Trash:" destination="u8t-gQ-Aqq" id="F1d-uB-c4T"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -751,7 +771,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AWg-Le-xxg"/>
-        <segue reference="wLe-0n-Rcz"/>
+        <segue reference="hzK-JI-o6R"/>
         <segue reference="BOg-A4-r2c"/>
         <segue reference="FFr-B2-nmJ"/>
         <segue reference="UKw-Me-Ckc"/>

@@ -25,18 +25,12 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         downloadData()
         collection.delegate = self
+        
         // Resize size of collection view items in grid so that we achieve 3 boxes across
         let cellWidth = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
         let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
         cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
-        
-        
-//        let swipeLEFT = UISwipeGestureRecognizer(target: self, action: "swiped:")
-//        swipeLEFT.direction = UISwipeGestureRecognizerDirection.Left
-//        view.addGestureRecognizer(swipeLEFT)
-        
-        
-        
+
         super.viewDidLoad()
 
     }
@@ -45,8 +39,6 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func swiped(gesture: UISwipeGestureRecognizer){
      print("Trying to delete")
         deletes = true
-//        setName = sets[indexPath.row]
-//        deleteSet(setName)
     }
     
     @IBAction func SignOut(sender: AnyObject) {
@@ -161,8 +153,20 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //            swipeLEFT.direction = UISwipeGestureRecognizerDirection.Left
 //            //        view.addGestureRecognizer(swipeLEFT)
 //            collectionView.addGestureRecognizer(swipeLEFT)
-            deleteSet(sets[indexPath.row])
-            deletes = false
+            
+            
+            let alertControl: UIAlertController = UIAlertController(title: "Delete Set?", message:"" , preferredStyle: .Alert)
+            let ok = UIAlertAction(title: "Delete", style: .Cancel) {action -> Void in
+                self.deleteSet(self.sets[indexPath.row])
+                self.deletes = false
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .Default) {action -> Void in}
+            alertControl.addAction(ok)
+            alertControl.addAction(cancel)
+            self.presentViewController(alertControl, animated: true, completion: nil)
+            
+//            deleteSet(sets[indexPath.row])
+//            deletes = false
         }
     }
     
@@ -232,6 +236,12 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         downloadData()
 
     }
+    
+    
+    
+    
+
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toCard" {
