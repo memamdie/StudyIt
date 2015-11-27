@@ -54,8 +54,7 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func downloadData(){
         let query = PFQuery(className: "CardInfo")
         query.whereKey("username", equalTo: currentUser!.username!)
-        
-        
+        query.whereKey("setName", notEqualTo: "")
         do {
             print("be do be do")
             cards = try query.findObjects()

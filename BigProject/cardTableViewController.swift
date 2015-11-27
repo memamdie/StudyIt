@@ -9,9 +9,10 @@
 import UIKit
 import Parse
 
-var cards = [PFObject]()
+var shuffledCards = [PFObject]()
 class cardTableViewController: UIViewController, UITableViewDelegate {
     var arr:[String] = []
+    var cards = [PFObject]()
     var selectedSet = ""
     @IBOutlet var table: UITableView!
     //var selectedCard = PFObject()
@@ -22,22 +23,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
         table.reloadData()
         // Do any additional setup after loading the view.
     }
-    @IBAction func shuffle() {
-        downloadCards()
-        shuffleInPlace()
-        table.reloadData()
-        self.performSegueWithIdentifier("shuffled", sender: nil)
-    }
-    func shuffleInPlace() {
-        // empty and single-element collections don't shuffle
-        if cards.count < 2 { return }
-        
-        for i in 0..<cards.count - 1 {
-            let j = Int(arc4random_uniform(UInt32(cards.count - i))) + i
-            guard i != j else { continue }
-            swap(&cards[i], &cards[j])
-        }
-    }
+
     
     @IBAction func newCard(sender: AnyObject) {
         let alertControl: UIAlertController = UIAlertController(title: "Start by naming your card", message: "", preferredStyle: .Alert)
@@ -115,7 +101,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
         
         let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
             print("delete button tapped")
-            self.deleteCard(cards[indexPath.row])
+            self.deleteCard(self.cards[indexPath.row])
         }
         delete.backgroundColor = UIColor.redColor()
         //            return [delete]
@@ -136,10 +122,5 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
         //selectedCard = cards[indexPath.row]
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "shuffled"   {
-            let fvc = segue.destinationViewController as! FrontViewController
-            fvc.displayShuffle()
-        }
-    }
+
 }

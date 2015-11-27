@@ -21,8 +21,9 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameLabel?.font = nameLabel?.font.fontWithSize(20)
-//        nameLabel?.text = "Welcome \(currentUser!.username!)!!"
+        downloadData()
+        
+
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -49,16 +50,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         print("Failed to log in...")
     }
     
-    // Password requirement
-    /*func signUpViewController(signUpController: PFSignUpViewController, shouldBeginSignUp info: [NSObject : AnyObject]!) -> Bool {
-    
-        if let password = info?["password"] as? String {
-            return password.utf16 >= 6
-        }
-        return false
-    }*/
-    
-    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -163,8 +155,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     }
     
 
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

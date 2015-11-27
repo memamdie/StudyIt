@@ -78,7 +78,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         view.addGestureRecognizer(tap)
         side = false
         nextCard = false
-        for card in cards {
+        for card in shuffledCards {
             tempCard = card
             while !nextCard {
                 if card["frontstring"] != nil {

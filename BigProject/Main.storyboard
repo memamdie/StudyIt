@@ -97,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-135" y="191"/>
+            <point key="canvasLocation" x="-399" y="-559"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GVF-Z3-3CG">
@@ -201,8 +201,16 @@
                                 <items>
                                     <navigationItem title="Cards" id="7qH-X8-fti">
                                         <leftBarButtonItems>
-                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS"/>
-                                            <barButtonItem title="Home" id="n7G-DE-1wj"/>
+                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS">
+                                                <connections>
+                                                    <segue destination="BYZ-38-t0r" kind="show" id="PMD-Ix-CbA"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Home" id="n7G-DE-1wj">
+                                                <connections>
+                                                    <segue destination="BYZ-38-t0r" kind="show" id="UkV-Cc-HpS"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </leftBarButtonItems>
                                         <rightBarButtonItems>
                                             <barButtonItem title="Item" systemItem="add" id="8oe-G4-BVX">
@@ -210,7 +218,11 @@
                                                     <action selector="newCard:" destination="u8t-gQ-Aqq" id="ffu-1e-deP"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Shuffle" id="h8o-KZ-r2a"/>
+                                            <barButtonItem title="Shuffle" id="h8o-KZ-r2a">
+                                                <connections>
+                                                    <action selector="shuffle" destination="u8t-gQ-Aqq" id="SDl-Bz-Jy8"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -222,11 +234,12 @@
                     <connections>
                         <outlet property="collection" destination="f6N-CP-x0T" id="fys-XZ-rgC"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="FFr-B2-nmJ"/>
+                        <segue destination="eKG-cB-h3T" kind="show" identifier="shuffled" id="Ekf-Vu-ieh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="1050"/>
+            <point key="canvasLocation" x="-399" y="242"/>
         </scene>
         <!--Set Table-->
         <scene sceneID="cC9-br-IXw">
@@ -285,11 +298,11 @@
                                         <rect key="frame" x="0.0" y="28" width="421" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dke-xh-bQZ" id="nWd-pa-uDe">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1ou-t5-SyS">
-                                                    <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
+                                                    <rect key="frame" x="15" y="12" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -297,7 +310,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D3i-U8-e0d">
-                                                    <rect key="frame" x="344.5" y="12" width="41.5" height="19.5"/>
+                                                    <rect key="frame" x="344" y="12" width="42" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -337,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061" y="-583"/>
+            <point key="canvasLocation" x="1135" y="-635"/>
         </scene>
         <!--Card Table-->
         <scene sceneID="G46-ts-62k">
@@ -369,7 +382,7 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="l83-1U-fHH">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W8Z-ah-9qi">
-                                                    <rect key="frame" x="410.5" y="7" width="133" height="30"/>
+                                                    <rect key="frame" x="411" y="7" width="133" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <state key="normal" title="Shuffle"/>
@@ -391,7 +404,7 @@
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7OF-YY-Zt4" id="jps-fT-ryl">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -510,7 +523,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYr-47-0TO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-170" y="1050"/>
+            <point key="canvasLocation" x="310" y="-559"/>
         </scene>
         <!--Front View Controller-->
         <scene sceneID="9tA-US-ytH">
@@ -587,7 +600,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Tx-Yk-f0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222" y="191"/>
+            <point key="canvasLocation" x="468" y="242"/>
         </scene>
         <!--Back View Controller-->
         <scene sceneID="hHL-ot-Psy">
@@ -672,15 +685,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqq-zK-ecD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1888" y="191"/>
+            <point key="canvasLocation" x="1728" y="334"/>
         </scene>
     </scenes>
     <resources>
         <image name="card" width="518" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="UkV-Cc-HpS"/>
+        <segue reference="BOg-A4-r2c"/>
+        <segue reference="Tdh-dJ-M08"/>
+        <segue reference="Sew-fZ-vjy"/>
+        <segue reference="Ekf-Vu-ieh"/>
         <segue reference="u19-cP-Oav"/>
-        <segue reference="Ugy-Wv-VjU"/>
-        <segue reference="uJa-Xx-zK7"/>
     </inferredMetricsTieBreakers>
 </document>

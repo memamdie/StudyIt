@@ -70,7 +70,22 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
 //        self.performSegueWithIdentifier("newCardFromSet", sender: nil)
     }
     
-    
+    @IBAction func shuffle() {
+        downloadData()
+        shuffleInPlace()
+//        table.reloadData()
+        self.performSegueWithIdentifier("shuffled", sender: nil)
+    }
+    func shuffleInPlace() {
+        // empty and single-element collections don't shuffle
+        if cards.count < 2 { return }
+        
+        for i in 0..<cards.count - 1 {
+            let j = Int(arc4random_uniform(UInt32(cards.count - i))) + i
+            guard i != j else { continue }
+            swap(&cards[i], &cards[j])
+        }
+    }
     
     func downloadData(){
         let query = PFQuery(className: "CardInfo")
@@ -140,10 +155,13 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
             let card = segue.destinationViewController as! FrontViewController
             card.setName = setName
         }
+        else if segue.identifier == "shuffled"   {
+            shuffledCards = cards
+            let fvc = segue.destinationViewController as! FrontViewController
+            fvc.displayShuffle()
+        }
         
     }
-
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
