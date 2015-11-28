@@ -44,6 +44,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
+         self.performSegueWithIdentifier("Home", sender: nil)
     }
     
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
@@ -52,6 +53,8 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
      func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
+         self.performSegueWithIdentifier("Home", sender: nil)
+        
     }
     
     func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
@@ -94,6 +97,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
             logInViewController.signUpController = signUpViewController
             
             self.presentViewController(logInViewController, animated: true, completion: nil)
+            
         }
     }
   
@@ -160,4 +164,14 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "Home" {
+            print("Going Home")
+        }
+            
+        
+    }
+
 }

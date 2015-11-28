@@ -15,11 +15,14 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     var currentUser = PFUser.currentUser()
     var cards = [PFObject]()
     var setName: String!
+    var studyset = [PFObject]()
+    var deletes = false
+    var index = 0
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         downloadData()
         collection.delegate = self
+        
         // Resize size of collection view items in grid so that we achieve 3 boxes across
         let cellWidth = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
         let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
@@ -30,44 +33,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     
     
     @IBAction func newCard(sender: AnyObject) {
-        let alertControl: UIAlertController = UIAlertController(title: "Start by naming your card", message: "", preferredStyle: .Alert)
-        let ok = UIAlertAction(title: "OK", style: .Cancel) { action -> Void in
-            let titlename = alertControl.textFields![0] as UITextField
-            let cardName = titlename.text!
-            if cardName != "" {
-                //save title to parse
-                let FriendName = PFObject(className: "CardInfo")
-                FriendName.setObject(cardName, forKey: "title")
-                
-                FriendName.saveInBackgroundWithBlock {
-                    (success: Bool, error:NSError?) -> Void in
-                    
-                    if(success) {
-                        //We saved our information
-                        print("Saved Set Title")
-                    }
-                    else
-                    {
-                        //there was a problem
-                        print((error?.description)! + "\n")
-                        print("Error: Did Not Save Title")
-                    }
-                }
-            }
-            
-            
-        }
-        alertControl.addAction(ok)
-        alertControl.addTextFieldWithConfigurationHandler { (textField) in
-            textField.placeholder = "Card Title"
-        }
-        
-        
-        
-//        self.presentViewController(alertControl, animated: true, completion: nil)
         self.performSegueWithIdentifier("newCardFromSet", sender: nil)
-
-//        self.performSegueWithIdentifier("newCardFromSet", sender: nil)
     }
     
     @IBAction func shuffle() {
@@ -94,8 +60,9 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         
         
         do {
-            print("be do be do")
             cards = try query.findObjects()
+            studyset = try query.findObjects()
+//            print("sets:", studyset)
             self.collection.reloadData()
             print("Number of sets", cards.count)
         }
@@ -145,7 +112,42 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //segue to selected set-card view
+        
+        //segue to study
+        if deletes == false {
+             index = indexPath.row
+            self.performSegueWithIdentifier("Study", sender: nil)
+        }
+        
+        //delete card
+        else {
+            let alertControl: UIAlertController = UIAlertController(title: "Delete Card?", message:"" , preferredStyle: .Alert)
+            let ok = UIAlertAction(title: "Delete", style: .Cancel) {action -> Void in
+           //     deleteCard(cards[indexPath.row])
+                self.deleteCard(self.cards[indexPath.row])
+                self.deletes = false
+                self.downloadData()
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .Default) {action -> Void in}
+            alertControl.addAction(ok)
+            alertControl.addAction(cancel)
+            self.presentViewController(alertControl, animated: true, completion: nil)
+
+        }
+    }
+    
+    @IBAction func Trash(sender: AnyObject) {
+        //makes collections selected to delete
+        deletes = true
+    }
+    
+    
+    func deleteCard(cardObj: PFObject) {
+        cardObj.deleteInBackground()
+    }
+
+    @IBAction func StudyIt(sender: AnyObject) {
+        self.performSegueWithIdentifier("Study", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -167,7 +169,6 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     
 }
