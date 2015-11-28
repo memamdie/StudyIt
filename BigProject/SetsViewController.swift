@@ -19,7 +19,8 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var setName: String!
     var selectedSet = ""
     var deletes = false
-    
+    var add = true
+    var i = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,28 +106,46 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cell.addSubview(name)
             
             
-            //
-            //            for var i = 0; i < sets.count; i++ {
-            //                //dont add to view
-            //                if comment == sets[i]{
-            //                    print("don't add")
-            //                    add = false
-            //                }
-            //            }
-            //
-            //            if add == true {
-            //                print("add")
-            //                sets.append(comment)
-            //
-            //                var pic = UIImage(named: "card.png")
-            //                var backpic = UIImageView(image: UIImage(named: "card.png"))
-            //                backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
-            //
-            //                
-            //                cell.addSubview(backpic)
-            //                cell.addSubview(name)
-            //            }
-            //            
+//            for var i = 0; i < sets.count; i++ {
+//                //dont add to view
+//                if comment != sets[i]{
+//                    sets.append(comment)
+//                    cell.addSubview(backpic)
+//                    cell.addSubview(name)
+//                }
+//                else if sets.count == 0{
+//                 sets.append(comment)
+//                }
+//            }
+            
+
+//                var pic = UIImage(named: "card.png")
+//                var backpic = UIImageView(image: UIImage(named: "card.png"))
+//                backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
+//            
+//                for var i = 0; i < sets.count; i++ {
+//      
+//                    //dont add to view
+//                    if comment == sets[i]{
+//                        print("don't add")
+//                        add = false
+////                        break;
+//                    }
+////                    else  {
+////                        add = true
+////                    }
+//                }
+//
+//                if add == true {
+//                    print("add")
+//                    sets.append(comment)
+//                    
+//                    cell.addSubview(backpic)
+//                    cell.addSubview(name)
+//                }
+            
+
+            
 
          }
 
@@ -172,24 +191,24 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
 
-    
-    func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-        
-        print("trying to delete")
-        setName = sets[indexPath.row]
-        deleteSet(setName)
-        
-        
-        //        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
-        //            print("delete button tapped")
-        //            self.deleteSet(self.sets[indexPath.row])
-        //            //            self.table.reloadData()
-        //
-        //        }
-        //        delete.backgroundColor = UIColor.redColor()
-        //        
-        //        return [delete]
-    }
+//    
+//    func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+//        
+//        print("trying to delete")
+//        setName = sets[indexPath.row]
+//        deleteSet(setName)
+//        
+//        
+//        //        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
+//        //            print("delete button tapped")
+//        //            self.deleteSet(self.sets[indexPath.row])
+//        //            //            self.table.reloadData()
+//        //
+//        //        }
+//        //        delete.backgroundColor = UIColor.redColor()
+//        //        
+//        //        return [delete]
+//    }
 
 
 

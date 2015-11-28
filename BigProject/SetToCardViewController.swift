@@ -17,6 +17,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     var setName: String!
     var studyset = [PFObject]()
     var deletes = false
+    var index = 0
     
     override func viewDidLoad() {
         downloadData()
@@ -99,6 +100,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         
         //segue to study
         if deletes == false {
+             index = indexPath.row
             self.performSegueWithIdentifier("Study", sender: nil)
         }
         
@@ -129,6 +131,9 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         cardObj.deleteInBackground()
     }
 
+    @IBAction func StudyIt(sender: AnyObject) {
+        self.performSegueWithIdentifier("Study", sender: nil)
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
@@ -142,6 +147,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
             print("Segueing to the card set screen")
             let svc = segue.destinationViewController as! StudyViewController
             svc.studyset = studyset
+            svc.i = index
         }
         else if segue.identifier == "Match" {
             print("Segueing to match screen")
