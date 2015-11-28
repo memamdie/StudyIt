@@ -59,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-399" y="-559"/>
+            <point key="canvasLocation" x="-471" y="-553"/>
         </scene>
         <!--Match View Controller-->
         <scene sceneID="9Hp-kL-6e8">
@@ -134,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbX-0X-ek2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="1875"/>
+            <point key="canvasLocation" x="310" y="927"/>
         </scene>
         <!--Set To Card View Controller-->
         <scene sceneID="nQ3-Jt-1Z2">
@@ -182,14 +182,15 @@
                                 <items>
                                     <navigationItem title="Cards" id="7qH-X8-fti">
                                         <leftBarButtonItems>
-                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS">
-                                                <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="PMD-Ix-CbA"/>
-                                                </connections>
-                                            </barButtonItem>
+                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS"/>
                                             <barButtonItem title="Home" id="n7G-DE-1wj">
                                                 <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="UkV-Cc-HpS"/>
+                                                    <segue destination="gMl-Oa-Bou" kind="show" id="wLe-0n-Rcz"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Match" id="6kh-zz-ghz">
+                                                <connections>
+                                                    <segue destination="wCG-gz-6va" kind="show" identifier="Match" id="yDe-e2-62M"/>
                                                 </connections>
                                             </barButtonItem>
                                         </leftBarButtonItems>
@@ -199,9 +200,15 @@
                                                     <action selector="newCard:" destination="u8t-gQ-Aqq" id="ffu-1e-deP"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Shuffle" id="h8o-KZ-r2a">
+                                            <barButtonItem title="Shuffle" id="h8o-KZ-r2a"/>
+                                            <barButtonItem systemItem="trash" id="lwl-nJ-QXb">
                                                 <connections>
-                                                    <action selector="shuffle" destination="u8t-gQ-Aqq" id="SDl-Bz-Jy8"/>
+                                                    <action selector="Trash:" destination="u8t-gQ-Aqq" id="F1d-uB-c4T"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Study" id="fnh-Fs-bPt">
+                                                <connections>
+                                                    <action selector="StudyIt:" destination="u8t-gQ-Aqq" id="Apd-wS-3oa"/>
                                                 </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -224,12 +231,12 @@
                     <connections>
                         <outlet property="collection" destination="f6N-CP-x0T" id="fys-XZ-rgC"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="FFr-B2-nmJ"/>
-                        <segue destination="eKG-cB-h3T" kind="show" identifier="shuffled" id="Ekf-Vu-ieh"/>
+                        <segue destination="yGh-7U-wQV" kind="show" identifier="Study" id="kg2-Jc-YRr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-399" y="242"/>
+            <point key="canvasLocation" x="310" y="213"/>
         </scene>
         <!--Set Table-->
         <scene sceneID="cC9-br-IXw">
@@ -340,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1135" y="-635"/>
+            <point key="canvasLocation" x="310" y="-1573"/>
         </scene>
         <!--Card Table-->
         <scene sceneID="G46-ts-62k">
@@ -428,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1876" y="-597"/>
+            <point key="canvasLocation" x="2564" y="-553"/>
         </scene>
         <!--Sets View Controller-->
         <scene sceneID="OYq-9h-QNr">
@@ -531,7 +538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYr-47-0TO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="-559"/>
+            <point key="canvasLocation" x="310" y="-553"/>
         </scene>
         <!--Front View Controller-->
         <scene sceneID="9tA-US-ytH">
@@ -608,7 +615,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Tx-Yk-f0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468" y="242"/>
+            <point key="canvasLocation" x="1028" y="-553"/>
         </scene>
         <!--Back View Controller-->
         <scene sceneID="hHL-ot-Psy">
@@ -693,7 +700,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqq-zK-ecD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1728" y="334"/>
+            <point key="canvasLocation" x="1844" y="-553"/>
         </scene>
         <!--Study View Controller-->
         <scene sceneID="ysX-KG-KK2">
@@ -770,18 +777,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBZ-qJ-Bw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1570" y="1065"/>
+            <point key="canvasLocation" x="1058" y="213"/>
         </scene>
     </scenes>
     <resources>
         <image name="card" width="518" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UkV-Cc-HpS"/>
-        <segue reference="BOg-A4-r2c"/>
-        <segue reference="Tdh-dJ-M08"/>
-        <segue reference="Sew-fZ-vjy"/>
-        <segue reference="Ekf-Vu-ieh"/>
-        <segue reference="u19-cP-Oav"/>
+        <segue reference="iuG-uP-pqy"/>
+        <segue reference="FFr-B2-nmJ"/>
+        <segue reference="UKw-Me-Ckc"/>
+        <segue reference="eGf-8t-LJp"/>
+        <segue reference="qWT-Ks-cVF"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -157,18 +157,29 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
             let card = segue.destinationViewController as! FrontViewController
             card.setName = setName
         }
+            
+        else if segue.identifier == "Study" {
+            print("Segueing to the card set screen")
+            let svc = segue.destinationViewController as! StudyViewController
+            svc.studyset = studyset
+            svc.i = index
+        }
         else if segue.identifier == "shuffled"   {
             shuffledCards = cards
             let fvc = segue.destinationViewController as! FrontViewController
             fvc.displayShuffle()
         }
-        
+        else if segue.identifier == "Match" {
+            print("Segueing to match screen")
+            let card = segue.destinationViewController as! MatchViewController
+            card.setName = setName
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
 }
