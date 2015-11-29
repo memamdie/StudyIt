@@ -39,6 +39,10 @@ class BackViewController: UIViewController {
                 if let object = object {
                     print("found")
                     object["backstring"] = self.backText.text
+                    if self.imagePicked?.image != nil {
+                        let imageData = UIImagePNGRepresentation(self.imagePicked!.image!)
+                        object["backpic"] = PFFile(data: imageData!)
+                    }
                     object["username"] = (PFUser.currentUser()?.username)!
                     object.saveInBackground()
                 }
@@ -64,49 +68,17 @@ class BackViewController: UIViewController {
         }
         
     }
+    
     //********************************************************************************************************************//
-    @IBOutlet var Image: UIImageView!
-    var picker = UIImagePickerController()
-    
-    @IBAction func upload(sender: AnyObject) {
-        picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        picker.allowsEditing = true
-        self.presentViewController(picker, animated: true, completion: nil)
-    }
-    
+    @IBOutlet var imagePicked: UIImageView?
+    var imagePicker = UIImagePickerController()
+
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        //set selectedIMage to image that we picked.
-        Image.image = image
-        //get rid of picker
+        print("image has been picked")
+        imagePicked!.image = image
+        backText.text = ""
         self.dismissViewControllerAnimated(true, completion: nil)
         
-        
-        if picker.sourceType == UIImagePickerControllerSourceType.Camera{
-            //save photos in app
-            //doing image:didFinishSavingWithError means sending to function image with parameter didFinishSavingWithError
-            UIImageWriteToSavedPhotosAlbum(image, self, "image:didFinishSavingWithError", nil)
-        }
-    }
-    
-    //save image to photo album
-    //will let us know if there was error whil saving
-    //will than display message
-    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafePointer<Void>){
-        if error == nil{
-            let alertSuccess = UIAlertController(title: "SUCESSSSSSSS!", message: "Because it would suck otherwise", preferredStyle: .Alert)
-            
-            let alertAction = UIAlertAction(title: "Yes!", style: .Default, handler: nil)
-            alertSuccess.addAction(alertAction)
-            presentViewController(alertSuccess, animated: true, completion: nil)
-        }
-        else{
-            let alertSuccess = UIAlertController(title: "FAILLLL!", message: "Boooooo", preferredStyle: .Alert)
-            
-            let alertAction = UIAlertAction(title: ":(!", style: .Cancel, handler: nil)
-            alertSuccess.addAction(alertAction)
-            presentViewController(alertSuccess, animated: true, completion: nil)
-            
-        }
     }
     
     @IBAction func AddPhoto(sender: AnyObject) {
@@ -121,21 +93,20 @@ class BackViewController: UIViewController {
         self.presentViewController(alertControl, animated: true, completion: nil)
     }
     
-    
     func PickFromGallery() {
-        picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        picker.allowsEditing = true
-        self.presentViewController(picker, animated: true, completion: nil)
+        print("in gal")
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker.allowsEditing = true
+        self.presentViewController(imagePicker, animated: true, completion: nil)
         
     }
     
     func PickFromCamera() {
-        picker.sourceType = UIImagePickerControllerSourceType.Camera
-        picker.allowsEditing = true
-        self.presentViewController(picker, animated: true, completion: nil)
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        imagePicker.allowsEditing = true
+        self.presentViewController(imagePicker, animated: true, completion: nil)
         
     }
     
-    
-    
 }
+

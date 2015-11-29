@@ -200,7 +200,11 @@
                                                     <action selector="newCard:" destination="u8t-gQ-Aqq" id="ffu-1e-deP"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Shuffle" id="h8o-KZ-r2a"/>
+                                            <barButtonItem title="Shuffle" id="h8o-KZ-r2a">
+                                                <connections>
+                                                    <action selector="shuffle" destination="u8t-gQ-Aqq" id="WmI-yP-kKk"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem systemItem="trash" id="lwl-nJ-QXb">
                                                 <connections>
                                                     <action selector="Trash:" destination="u8t-gQ-Aqq" id="F1d-uB-c4T"/>
@@ -232,6 +236,7 @@
                         <outlet property="collection" destination="f6N-CP-x0T" id="fys-XZ-rgC"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="FFr-B2-nmJ"/>
                         <segue destination="yGh-7U-wQV" kind="show" identifier="Study" id="kg2-Jc-YRr"/>
+                        <segue destination="yGh-7U-wQV" kind="show" identifier="shuffled" id="w4N-pV-inC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -577,7 +582,7 @@
                                     <navigationItem title="Front" id="pJa-Gg-U1n">
                                         <barButtonItem key="leftBarButtonItem" title="Home" id="Sb0-VO-7Zf">
                                             <connections>
-                                                <segue destination="iyZ-Md-vQG" kind="show" id="Sew-fZ-vjy"/>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="L4x-Tp-zZv"/>
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
@@ -595,21 +600,32 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sGx-3L-7zS">
+                                <rect key="frame" x="22" y="205" width="558" height="211"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="211" id="JH3-1Z-bYq"/>
+                                    <constraint firstAttribute="width" constant="558" id="rrQ-4I-0l3"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="zJS-jm-6Df" firstAttribute="centerY" secondItem="bU8-Ha-R5k" secondAttribute="centerY" id="2IX-kP-9MS"/>
+                            <constraint firstItem="sGx-3L-7zS" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="KRE-qk-Oiq"/>
                             <constraint firstItem="zJS-jm-6Df" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="MI3-J4-ai7"/>
                             <constraint firstItem="bK9-Rx-2V7" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="NeR-LT-fDs"/>
                             <constraint firstItem="zJS-jm-6Df" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="4" id="aVE-lK-TnN"/>
                             <constraint firstItem="pN0-QM-GXy" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="hHZ-Sl-aHF"/>
                             <constraint firstItem="pN0-QM-GXy" firstAttribute="centerY" secondItem="bU8-Ha-R5k" secondAttribute="centerY" id="oWz-IN-6RA"/>
+                            <constraint firstItem="sGx-3L-7zS" firstAttribute="bottom" secondItem="pN0-QM-GXy" secondAttribute="bottom" id="rur-Ml-P6O"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="EnteredText" destination="pN0-QM-GXy" id="UNW-NA-L1E"/>
+                        <outlet property="imagePicked" destination="sGx-3L-7zS" id="i4d-Bs-dYP"/>
                         <segue destination="LU0-Y6-D0V" kind="show" identifier="FrontToBack" id="NnY-cx-23L"/>
                     </connections>
                 </viewController>
@@ -655,7 +671,7 @@
                                         <leftBarButtonItems>
                                             <barButtonItem title="Home" id="PBp-yv-nyS">
                                                 <connections>
-                                                    <segue destination="iyZ-Md-vQG" kind="show" id="eGf-8t-LJp"/>
+                                                    <segue destination="BYZ-38-t0r" kind="show" id="mQu-ix-Dkr"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem title="Front" id="aB1-C0-Kgj">
@@ -672,13 +688,21 @@
                                             </barButtonItem>
                                             <barButtonItem systemItem="camera" id="N2s-4x-ldK">
                                                 <connections>
-                                                    <action selector="AddPhoto:" destination="LU0-Y6-D0V" id="Rqk-Jp-uSx"/>
+                                                    <action selector="AddPhoto:" destination="LU0-Y6-D0V" id="voS-MM-Txv"/>
                                                 </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YY6-qP-KwM">
+                                <rect key="frame" x="20" y="206" width="560" height="217"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="217" id="Yvj-nR-eWd"/>
+                                    <constraint firstAttribute="width" constant="560" id="rCc-KB-3JP"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -686,14 +710,16 @@
                             <constraint firstItem="mJ5-tj-p9b" firstAttribute="centerY" secondItem="aY1-DJ-Mao" secondAttribute="centerY" id="0DX-e1-Leg"/>
                             <constraint firstItem="ghF-zY-53a" firstAttribute="centerY" secondItem="aY1-DJ-Mao" secondAttribute="centerY" id="Qnj-1a-1bl"/>
                             <constraint firstItem="lbC-Bj-uur" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="WIH-bn-DEt"/>
+                            <constraint firstItem="YY6-qP-KwM" firstAttribute="top" secondItem="lbC-Bj-uur" secondAttribute="bottom" constant="51" id="bOG-XZ-tkG"/>
                             <constraint firstItem="mJ5-tj-p9b" firstAttribute="top" secondItem="lbC-Bj-uur" secondAttribute="bottom" constant="4" id="cPU-Kf-sta"/>
+                            <constraint firstItem="YY6-qP-KwM" firstAttribute="centerX" secondItem="lbC-Bj-uur" secondAttribute="centerX" id="e9r-9y-fFL"/>
                             <constraint firstItem="ghF-zY-53a" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="g7Q-hM-jGq"/>
                             <constraint firstItem="mJ5-tj-p9b" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="mOF-9v-xaH"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Image" destination="mJ5-tj-p9b" id="Ly3-XB-bjd"/>
                         <outlet property="backText" destination="ghF-zY-53a" id="74P-1O-pug"/>
+                        <outlet property="imagePicked" destination="YY6-qP-KwM" id="Qdt-TA-cLe"/>
                         <segue destination="DiB-RA-CtL" kind="show" identifier="toIndividualCards" id="UKw-Me-Ckc"/>
                         <segue destination="u8t-gQ-Aqq" kind="show" identifier="BackToCard" id="iuG-uP-pqy"/>
                     </connections>
@@ -785,9 +811,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iuG-uP-pqy"/>
-        <segue reference="FFr-B2-nmJ"/>
+        <segue reference="TMg-GK-TIp"/>
         <segue reference="UKw-Me-Ckc"/>
-        <segue reference="eGf-8t-LJp"/>
-        <segue reference="qWT-Ks-cVF"/>
+        <segue reference="mQu-ix-Dkr"/>
+        <segue reference="w4N-pV-inC"/>
+        <segue reference="Tdh-dJ-M08"/>
+        <segue reference="AWg-Le-xxg"/>
     </inferredMetricsTieBreakers>
 </document>

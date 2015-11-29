@@ -40,10 +40,15 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
             
             //save title to parse
             let FriendName = PFObject(className: "CardInfo")
-//            FriendName.setObject(cardname, forKey: "title")
+            FriendName.setObject(cardname, forKey: "title")
             FriendName.setObject(self.EnteredText.text, forKey: "frontstring")
             FriendName.setObject((PFUser.currentUser()?.username)!, forKey: "username")
             FriendName.setObject(self.setName, forKey: "setName")
+            if self.imagePicked?.image != nil {
+                let imageData = UIImagePNGRepresentation(self.imagePicked!.image!)
+                FriendName["frontpic"] = PFFile(data: imageData!)
+            }
+//            FriendName.setObject(self.imagePicked!, forKey: "frontpic")
             FriendName.saveInBackgroundWithBlock {
                 (success: Bool, error:NSError?) -> Void in
                 
@@ -115,61 +120,29 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
             fvc.selected = cardname
             //fvc.cardID = ""
             fvc.setName = setName
+            
         }
     }
-    
-    
     
     
     //********************************************************************************************************************//
-    @IBOutlet var Image: UIImageView!
+    @IBOutlet var imagePicked: UIImageView?
     var picker = UIImagePickerController()
     
-    @IBAction func upload(sender: AnyObject) {
-        print("in upload")
-        picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        picker.allowsEditing = true
-        self.presentViewController(picker, animated: true, completion: nil)
-    }
+//    @IBAction func upload(sender: AnyObject) {
+//        print("in upload")
+//        picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+//        picker.allowsEditing = true
+//        self.presentViewController(picker, animated: true, completion: nil)
+//    }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        print("TRYING TO SAVE TO PARSE")
-        //set selectedIMage to image that we picked.
-        Image.image = image
-        //get rid of picker
+        
+        imagePicked!.image = image
+        EnteredText.text = ""
         self.dismissViewControllerAnimated(true, completion: nil)
         
-        //upload image
-        let imagePosts = PFObject(className: "CardInfo")
-        
-        
-        let imageData = UIImagePNGRepresentation(image)
-        imagePosts["frontpic"] = PFFile(data: imageData!)
-        
-        //let naneuser = PFUser.currentUser()!.username
-        //imagePosts["username"] = PFUser.currentUser()!.username
-        
-        //ALSO GET TITLE
-        
-        imagePosts.saveInBackgroundWithBlock {
-            (success: Bool, error:NSError?) -> Void in
-            
-            if(success)
-            {
-                //We saved our information
-                print("Saved")
-                
-            }
-            else
-            {
-                //there was a problem
-                print("Error")
-            }
-            
-        }
-        
     }
-    
     
     @IBAction func AddPhoto(sender: AnyObject) {
         

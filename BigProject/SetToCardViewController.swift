@@ -39,7 +39,6 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBAction func shuffle() {
         downloadData()
         shuffleInPlace()
-//        table.reloadData()
         self.performSegueWithIdentifier("shuffled", sender: nil)
     }
     func shuffleInPlace() {
@@ -166,8 +165,9 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         else if segue.identifier == "shuffled"   {
             shuffledCards = cards
-            let fvc = segue.destinationViewController as! FrontViewController
-            fvc.displayShuffle()
+            let fvc = segue.destinationViewController as! StudyViewController
+            fvc.i = index
+
         }
         else if segue.identifier == "Match" {
             print("Segueing to match screen")
