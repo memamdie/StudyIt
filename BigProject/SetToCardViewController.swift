@@ -88,22 +88,32 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         var setName : String
-        
+        var imageView:UIImageView = UIImageView()
         var comment: String
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) 
         
         if let value = cards[indexPath.row]["frontstring"] as? String {
-            
-            comment = value
-            var name = UILabel(frame: CGRectMake(0, 0, 50, 50))
-            name.font = UIFont(name:"HelveticaNeue;", size: 6.0)
-            name.text = comment
-            name.contentMode = UIViewContentMode.ScaleAspectFit
-            
-            var pic = UIImageView(image: UIImage(named: "card.png"))
-            cell.addSubview(pic)
-            cell.addSubview(name)
-            
+            if value != "" {
+                comment = value
+                let name = UILabel(frame: CGRectMake(0, 0, 50, 50))
+                name.font = UIFont(name:"HelveticaNeue;", size: 6.0)
+                name.text = comment
+                name.contentMode = UIViewContentMode.ScaleAspectFit
+                
+                let pic = UIImageView(image: UIImage(named: "card.png"))
+                cell.addSubview(pic)
+                cell.addSubview(name)
+            }
+            else {
+                if let finalImage = cards[indexPath.row]["frontpic"] as? PFFile {
+                    finalImage.getDataInBackgroundWithBlock {
+                        (imageData: NSData?, error: NSError?) -> Void in
+                        imageView.image = UIImage(data: imageData!)
+                    }
+                }
+                imageView.frame = cell.bounds
+                cell.addSubview(imageView)
+            }
         }
         
         cell.backgroundColor = UIColor.lightGrayColor()
