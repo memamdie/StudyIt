@@ -12,6 +12,7 @@ import Parse
 class StudyViewController: UIViewController {
     
     @IBOutlet var text: UITextView!
+    @IBOutlet var imageView: UIImageView?
     var currentUser = PFUser.currentUser()
     var cards = [PFObject]()
     var setName: String!
@@ -32,26 +33,42 @@ class StudyViewController: UIViewController {
     }
     
     func study(){
-        //iterate through array
-        //how to get front string print(studyset[1]["frontstring"])
-//        for i = 0; i < studyset.count; i++ {
-            //when they press back go to back of notecard
-            //when they press next go to next notecard
-//            text.text = studyset[i] as! String
+//            print(studyset[i]["frontstring"])
+        if studyset[i]["frontstring"] as? String != "" {
             text.text = studyset[i]["frontstring"] as! String
-//        }
-        
+        }
+        else {
+            text.text = ""
+            if let finalImage = studyset[i]["frontpic"] as? PFFile {
+                finalImage.getDataInBackgroundWithBlock {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    self.imageView!.image = UIImage(data: imageData!)
+                }
+            }
+        }
     }
 
     @IBAction func Next(sender: AnyObject) {
+        //Inside this function we want to show the front of the next card
         if i < (studyset.count - 1) {
             self.i++
-            text.text = studyset[i]["frontstring"] as! String
         }
         else{
             i = 0
+        }
+        //check to see if the front is a string
+        if studyset[i]["frontstring"] as? String != "" {
             text.text = studyset[i]["frontstring"] as! String
-            //do nothing
+        }
+            //if its not a string show the picture
+        else {
+            text.text = ""
+            if let finalImage = studyset[i]["frontpic"] as? PFFile {
+                finalImage.getDataInBackgroundWithBlock {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    self.imageView!.image = UIImage(data: imageData!)
+                }
+            }
         }
         front = true
     }
@@ -59,27 +76,36 @@ class StudyViewController: UIViewController {
     
     @IBAction func BackOfCard(sender: AnyObject) {
         if front == true{
-//        for var i = 0; i < studyset.count; i++ {
-            //when they press back go to back of notecard
-            //when they press next go to next notecard
-            text.text = studyset[i]["backstring"] as? String
+            if studyset[i]["backstring"] as? String != "" {
+                text.text = studyset[i]["backstring"] as! String
+            }
+            else {
+                text.text = ""
+                if let finalImage = studyset[i]["backpic"] as? PFFile {
+                    finalImage.getDataInBackgroundWithBlock {
+                        (imageData: NSData?, error: NSError?) -> Void in
+                        self.imageView!.image = UIImage(data: imageData!)
+                    }
+                }
+            }
             front = false
-//        }
         }
-        else if front == false{
-            text.text = studyset[i]["frontstring"] as? String
+        
+        else {
+            if studyset[i]["frontstring"] as? String != "" {
+                text.text = studyset[i]["frontstring"] as! String
+            }
+            else {
+                text.text = ""
+                if let finalImage = studyset[i]["frontpic"] as? PFFile {
+                    finalImage.getDataInBackgroundWithBlock {
+                        (imageData: NSData?, error: NSError?) -> Void in
+                        self.imageView!.image = UIImage(data: imageData!)
+                    }
+                }
+            }
             front = true
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

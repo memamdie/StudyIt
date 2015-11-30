@@ -36,7 +36,7 @@ class StudyItUITests: XCTestCase {
         
         // Make sure to signout of exisiting login
         if (app.staticTexts["StudyIt"].exists == false) {
-            app.navigationBars["Home"].buttons["Sign Out"].tap()
+            app.navigationBars["Profile"].buttons["Sign Out"].tap()
         }
         
         // Testing text fields on login view and their behaviors
@@ -62,7 +62,7 @@ class StudyItUITests: XCTestCase {
         app.buttons["Log In"].tap()
 
         // Test log out button's function
-        app.navigationBars["Home"].buttons["Sign Out"].tap()
+        app.navigationBars["Profile"].buttons["Sign Out"].tap()
     }
     
     func testLoginViewWithInvalidAccount() {
@@ -73,7 +73,7 @@ class StudyItUITests: XCTestCase {
         
         // Make sure to signout of exisiting login
         if (app.staticTexts["StudyIt"].exists == false) {
-            app.navigationBars["Home"].buttons["Sign Out"].tap()
+            app.navigationBars["Prfile"].buttons["Sign Out"].tap()
         }
         
         // Test signing in with existing account

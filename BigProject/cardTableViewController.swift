@@ -10,30 +10,19 @@ import UIKit
 import Parse
 
 class cardTableViewController: UIViewController, UITableViewDelegate {
-    var cards = [PFObject]()
     var arr:[String] = []
+    var cards = [PFObject]()
     var selectedSet = ""
+    @IBOutlet var table: UITableView!
     //var selectedCard = PFObject()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadCards()
+        table.reloadData()
         // Do any additional setup after loading the view.
     }
-    @IBAction func shuffle() {
-        downloadCards()
-        shuffleInPlace()
-    }
-    func shuffleInPlace() {
-        // empty and single-element collections don't shuffle
-        if cards.count < 2 { return }
-        
-        for i in 0..<cards.count - 1 {
-            let j = Int(arc4random_uniform(UInt32(cards.count - i))) + i
-            guard i != j else { continue }
-            swap(&cards[i], &cards[j])
-        }
-    }
+
     
     @IBAction func newCard(sender: AnyObject) {
         let alertControl: UIAlertController = UIAlertController(title: "Start by naming your card", message: "", preferredStyle: .Alert)
@@ -50,7 +39,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
                     
                     if(success) {
                         //We saved our information
-                        print("Saved Set Title")
+                        print("Saved card Title")
                     }
                     else
                     {
@@ -71,6 +60,7 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
         
         self.presentViewController(alertControl, animated: true, completion: nil)
         performSegueWithIdentifier("newCardFromSet", sender: nil)
+        downloadCards()
     }
    
    
@@ -130,4 +120,6 @@ class cardTableViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //selectedCard = cards[indexPath.row]
     }
+
+
 }

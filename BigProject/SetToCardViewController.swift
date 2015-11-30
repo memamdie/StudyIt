@@ -37,7 +37,21 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         self.performSegueWithIdentifier("newCardFromSet", sender: nil)
     }
     
-    
+    @IBAction func shuffle() {
+        downloadData()
+        shuffleInPlace()
+        self.performSegueWithIdentifier("shuffled", sender: nil)
+    }
+    func shuffleInPlace() {
+        // empty and single-element collections don't shuffle
+        if cards.count < 2 { return }
+        
+        for i in 0..<cards.count - 1 {
+            let j = Int(arc4random_uniform(UInt32(cards.count - i))) + i
+            guard i != j else { continue }
+            swap(&cards[i], &cards[j])
+        }
+    }
     
     func downloadData(){
         let query = PFQuery(className: "CardInfo")
@@ -75,27 +89,36 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         var setName : String
-        
+        var imageView:UIImageView = UIImageView()
         var comment: String
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
         
         if let value = cards[indexPath.row]["frontstring"] as? String {
             let cellsize = CGFloat(widthsize)
-            
-            comment = value
-            var name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
-            name.font = UIFont(name:"HelveticaNeue;", size: 6.0)
-            name.text = comment
-            name.contentMode = UIViewContentMode.ScaleAspectFit
-            name.textAlignment = NSTextAlignment.Center
-            
-            
-            var pic = UIImageView(image: UIImage(named: "flashcard.png"))
-            pic.frame = CGRectMake(0, -5, cellsize, cellsize)
-            
-            cell.addSubview(pic)
-            cell.addSubview(name)
-            
+            if value != "" {
+                comment = value
+                let name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
+                name.font = UIFont(name:"HelveticaNeue;", size: 6.0)
+                name.text = comment
+                name.contentMode = UIViewContentMode.ScaleAspectFit
+                name.textAlignment = NSTextAlignment.Center
+
+                let pic = UIImageView(image: UIImage(named: "flashcard.png"))
+                pic.frame = CGRectMake(0, -5, cellsize, cellsize)
+
+                cell.addSubview(pic)
+                cell.addSubview(name)
+            }
+            else {
+                if let finalImage = cards[indexPath.row]["frontpic"] as? PFFile {
+                    finalImage.getDataInBackgroundWithBlock {
+                        (imageData: NSData?, error: NSError?) -> Void in
+                        imageView.image = UIImage(data: imageData!)
+                    }
+                }
+                imageView.frame = cell.bounds
+                cell.addSubview(imageView)
+            }
         }
         
         cell.backgroundColor = UIColor.clearColor()
@@ -114,7 +137,6 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         else {
             let alertControl: UIAlertController = UIAlertController(title: "Delete Card?", message:"" , preferredStyle: .Alert)
             let ok = UIAlertAction(title: "Delete", style: .Cancel) {action -> Void in
-           //     deleteCard(cards[indexPath.row])
                 self.deleteCard(self.cards[indexPath.row])
                 self.deletes = false
                 self.downloadData()
@@ -132,13 +154,23 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         deletes = true
     }
     
-    
     func deleteCard(cardObj: PFObject) {
         cardObj.deleteInBackground()
     }
 
     @IBAction func StudyIt(sender: AnyObject) {
         self.performSegueWithIdentifier("Study", sender: nil)
+    }
+    
+    
+    @IBAction func logOut(sender: UIBarButtonItem) {
+        PFUser.logOut()
+        if (PFUser.currentUser() == nil) {
+            performSegueWithIdentifier("cardToHome", sender: self)
+            print("Logging out of SetToCardViewController")
+        } else {
+            print("Error logging out from SetToCardViewController")
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -148,27 +180,27 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
             let card = segue.destinationViewController as! FrontViewController
             card.setName = setName
         }
-            
         else if segue.identifier == "Study" {
             print("Segueing to the card set screen")
             let svc = segue.destinationViewController as! StudyViewController
             svc.studyset = studyset
             svc.i = index
         }
+        else if segue.identifier == "shuffled"   {
+            let fvc = segue.destinationViewController as! StudyViewController
+            fvc.studyset = cards
+            fvc.i = index
+        }
         else if segue.identifier == "Match" {
             print("Segueing to match screen")
             let card = segue.destinationViewController as! MatchViewController
             card.setName = setName
         }
-
     }
-
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
 }

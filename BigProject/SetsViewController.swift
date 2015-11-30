@@ -45,16 +45,20 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     @IBAction func SignOut(sender: AnyObject) {
-        let login = ViewController()
-        login.signOut("")
+        PFUser.logOut()
+        if (PFUser.currentUser() == nil) {
+            performSegueWithIdentifier("setsViewToHome", sender: self)
+            print("Logging out of SetsViewController")
+        } else {
+            print("Error logging out from SetsViewController")
+        }
     }
     
     
     func downloadData(){
         let query = PFQuery(className: "CardInfo")
         query.whereKey("username", equalTo: currentUser!.username!)
-        
-        
+        query.whereKey("setName", notEqualTo: "")
         do {
             print("be do be do")
             cards = try query.findObjects()

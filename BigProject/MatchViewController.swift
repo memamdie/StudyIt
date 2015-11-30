@@ -40,7 +40,17 @@ class MatchViewController: UIViewController {
         super.viewDidLoad()
 
     }
-
+    
+    @IBAction func logOut(sender: UIBarButtonItem) {
+        PFUser.logOut()
+        if (PFUser.currentUser() == nil) {
+            performSegueWithIdentifier("matchToHome", sender: self)
+            print("Logging out of MatchViewController")
+        } else {
+            print("Error logging out from MatchViewController")
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
