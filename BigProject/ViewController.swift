@@ -48,6 +48,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     }
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
+        self.performSegueWithIdentifier("Home", sender: nil)
         self.dismissViewControllerAnimated(true, completion: nil)
         self.performSegueWithIdentifier("Home", sender: nil)
     }
@@ -63,8 +64,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
      func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
-         self.performSegueWithIdentifier("Home", sender: nil)
-        
     }
     
     func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
@@ -124,50 +123,50 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
 
     
-    func downloadData(){      
-    }
-    
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //query for current user
-        //query for number of sets from user
-        //return number of sets from user
-        
-        //        return 1
-        print(cards.count ,"Number of sets")
-        return cards.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        print("be do")
-        
-        
-        
-        
-        
-        
-        var comment: String
-        //        var imageView:UIImageView = UIImageView()
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
-        if let value = cards[indexPath.row]["username"] as? String {
-            comment = value
-        }
-        //        if let img = pictures[indexPath.row]["image"] as? PFFile {
-        //            let finalImage = pictures[indexPath.row]["image"] as? PFFile
-        //            finalImage!.getDataInBackgroundWithBlock {
-        //                (imageData: NSData?, error: NSError?) -> Void in
-        //                imageView.image = UIImage(data: imageData!)
-        //            }
-        //        }
-        //        imageView.frame = cell.bounds
-        cell.backgroundColor = UIColor.lightGrayColor()
-        
-        //        cell.addSubview(imageView)
-        return cell
-    }
+//    func downloadData(){      
+//    }
+//    
+//    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+//        return 1
+//    }
+//    
+//    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        //query for current user
+//        //query for number of sets from user
+//        //return number of sets from user
+//        
+//        //        return 1
+//        print(cards.count ,"Number of sets")
+//        return cards.count
+//    }
+//    
+//    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+//        print("be do")
+//        
+//        
+//        
+//        
+//        
+//        
+//        var comment: String
+//        //        var imageView:UIImageView = UIImageView()
+//        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
+//        if let value = cards[indexPath.row]["username"] as? String {
+//            comment = value
+//        }
+//        //        if let img = pictures[indexPath.row]["image"] as? PFFile {
+//        //            let finalImage = pictures[indexPath.row]["image"] as? PFFile
+//        //            finalImage!.getDataInBackgroundWithBlock {
+//        //                (imageData: NSData?, error: NSError?) -> Void in
+//        //                imageView.image = UIImage(data: imageData!)
+//        //            }
+//        //        }
+//        //        imageView.frame = cell.bounds
+//        cell.backgroundColor = UIColor.lightGrayColor()
+//        
+//        //        cell.addSubview(imageView)
+//        return cell
+//    }
     
 
     
@@ -177,12 +176,9 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if segue.identifier == "Home" {
             print("Going Home")
         }
-            
-        
     }
 
 }

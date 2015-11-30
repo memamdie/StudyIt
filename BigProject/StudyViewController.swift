@@ -18,6 +18,7 @@ class StudyViewController: UIViewController {
     var setName: String!
     var studyset = [PFObject]()
     var i = 0
+    var front = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +67,7 @@ class StudyViewController: UIViewController {
                 }
             }
         }
+        front = true
     }
     
     

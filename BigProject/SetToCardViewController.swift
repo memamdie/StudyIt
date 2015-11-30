@@ -11,6 +11,7 @@ import Parse
 
 class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    var widthsize = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
     @IBOutlet var collection: UICollectionView!
     var currentUser = PFUser.currentUser()
     var cards = [PFObject]()
@@ -61,7 +62,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         do {
             cards = try query.findObjects()
             studyset = try query.findObjects()
-//            print("sets:", studyset)
+            print("sets:", studyset)
             self.collection.reloadData()
             print("Number of sets", cards.count)
         }
@@ -116,7 +117,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
             }
         }
         
-        cell.backgroundColor = UIColor.lightGrayColor()
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     

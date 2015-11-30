@@ -135,4 +135,27 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         
     }
     
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in(touches as! Set<UITouch>){
+            let location = touch.locationInView(self.view)
+            if EnteredText.frame.contains(location){
+                EnteredText.center = location
+            }
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in(touches as! Set<UITouch>){
+            let location = touch.locationInView(self.view)
+            if EnteredText.frame.contains(location){
+                EnteredText.center = location
+            }
+        }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        EnteredText.center = self.view.center
+    }
+    
 }
