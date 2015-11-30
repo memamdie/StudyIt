@@ -4,7 +4,7 @@
 //
 //  Created by Isabel Laurenceau on 9/29/15.
 //  Copyright © 2015 Isabel Laurenceau. All rights reserved.
-//
+//http://www.clker.com/cliparts/g/y/g/4/r/h/tan-index-card-hi.png
 
 import UIKit
 import Parse

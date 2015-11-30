@@ -21,10 +21,12 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var deletes = false
     var add = true
     var i = 0
+    var number = [String]()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+//        super.viewDidLoad()
         downloadData()
+        checkData()
         collection.delegate = self
         
         // Resize size of collection view items in grid so that we achieve 3 boxes across
@@ -57,12 +59,57 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             print("be do be do")
             cards = try query.findObjects()
             self.collection.reloadData()
-            print("Number of sets", cards.count)
+            
+            
+            for var i = 0; i < cards.count; i++ {
+                 print(cards[i]["setName"] as! String)
+        }
+            
+            
+            
+//            print("Number of sets", cards.count)
+//            print("Sets:", cards)
         }
         catch _ {
             print("Error")
         }
 
+    }
+    
+    func checkData(){
+        //if the setname is already in the cards set do not add
+        
+        
+        
+        let query = PFQuery(className: "CardInfo")
+        query.whereKey("username", equalTo: currentUser!.username!)
+        
+        
+        do {
+            cards = try query.findObjects()
+            self.collection.reloadData()
+            
+            //get the setName- cards[i]["setName"] as! String
+            for var i = 0; i < cards.count; i++ {
+            number.append(cards[i]["setName"] as! String)
+            }
+            
+            
+            
+            number = Array(Set(number))
+            
+            print(number)
+            
+            
+            
+            
+        }
+        catch _ {
+            print("Error")
+        }
+
+        print("Please work", number.count)
+        
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -73,10 +120,38 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //query for current user
         //query for number of sets from user
         //return number of sets from user
+    
         
+        let query = PFQuery(className: "CardInfo")
+        query.whereKey("username", equalTo: currentUser!.username!)
+        
+        
+        do {
+            cards = try query.findObjects()
+            self.collection.reloadData()
+            
+            //get the setName- cards[i]["setName"] as! String
+            for var i = 0; i < cards.count; i++ {
+                number.append(cards[i]["setName"] as! String)
+            }
+            
+            
+            
+            number = Array(Set(number))
 
-        print("Collection number", cards.count)
-        return cards.count
+            
+        }
+        catch _ {
+            print("Error")
+        }
+        
+        
+//        
+//        print("Collection number", cards.count)
+//        return cards.count
+        
+        print("Collection number",  number.count)
+        return number.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -86,38 +161,60 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         var comment: String
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
         
-        if let value = cards[indexPath.row]["setName"] as? String {
-            
-            comment = value
+        
+
+        
+        
             let cellsize = CGFloat(widthsize)
             var name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
-            name.font = UIFont(name:"HelveticaNeue;", size: 6.0)
-            name.text = comment
-            name.contentMode = UIViewContentMode.ScaleAspectFit
+            name.font = UIFont(name:"HelveticaNeue;", size: 30.0)
+            name.text = number[indexPath.row]
+            name.contentMode = UIViewContentMode.ScaleToFill
             name.textAlignment = NSTextAlignment.Center
-            sets.append(comment)
-            var pic = UIImage(named: "card.png")
         
+        
+            var pic = UIImage(named: "flashcard.png")
             
-            var backpic = UIImageView(image: UIImage(named: "card.png"))
-            backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
+            
+            var backpic = UIImageView(image: UIImage(named: "flashcard.png"))
+            backpic.frame = CGRectMake(0, -5, cellsize, cellsize)
+            
+            
+            
             
             cell.addSubview(backpic)
             cell.addSubview(name)
-            
-            
-//            for var i = 0; i < sets.count; i++ {
-//                //dont add to view
-//                if comment != sets[i]{
-//                    sets.append(comment)
-//                    cell.addSubview(backpic)
-//                    cell.addSubview(name)
-//                }
-//                else if sets.count == 0{
-//                 sets.append(comment)
-//                }
-//            }
-            
+        
+
+        
+        //works but has dupicaltes
+//        if let value = cards[indexPath.row]["setName"] as? String {
+//            
+//            comment = value
+//            let cellsize = CGFloat(widthsize)
+//            var name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
+//            name.font = UIFont(name:"HelveticaNeue;", size: 6.0)
+//            name.text = comment
+//            name.contentMode = UIViewContentMode.ScaleAspectFit
+//            name.textAlignment = NSTextAlignment.Center
+//            sets.append(comment)
+//            var pic = UIImage(named: "card.png")
+//        
+//            
+//            var backpic = UIImageView(image: UIImage(named: "card.png"))
+//            backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
+//
+//            
+//            
+//            
+//            cell.addSubview(backpic)
+//            cell.addSubview(name)
+//        }
+        
+
+    
+        
+        //does note work...
 
 //                var pic = UIImage(named: "card.png")
 //                var backpic = UIImageView(image: UIImage(named: "card.png"))
@@ -129,11 +226,7 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //                    if comment == sets[i]{
 //                        print("don't add")
 //                        add = false
-////                        break;
 //                    }
-////                    else  {
-////                        add = true
-////                    }
 //                }
 //
 //                if add == true {
@@ -143,25 +236,22 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //                    cell.addSubview(backpic)
 //                    cell.addSubview(name)
 //                }
-            
+        
+//         }
 
-            
-
-         }
-
-        cell.backgroundColor = UIColor.lightGrayColor()
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
+    
+    
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if deletes == false {
             //get info from card
-            setName = sets[indexPath.row]
+//            setName = sets[indexPath.row]
+            setName = number[indexPath.row]
             print("Passnig: ", setName)
-            
 
-            
-            
             //segue to selected set-card view
             self.performSegueWithIdentifier("SetToCard", sender: nil)
         }
@@ -176,48 +266,22 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let alertControl: UIAlertController = UIAlertController(title: "Delete Set?", message:"" , preferredStyle: .Alert)
             let ok = UIAlertAction(title: "Delete", style: .Cancel) {action -> Void in
-                self.deleteSet(self.sets[indexPath.row])
+//                self.deleteSet(self.sets[indexPath.row])
+                 self.deleteSet(self.number[indexPath.row])
                 self.deletes = false
+                self.downloadData()
             }
             let cancel = UIAlertAction(title: "Cancel", style: .Default) {action -> Void in}
             alertControl.addAction(ok)
             alertControl.addAction(cancel)
             self.presentViewController(alertControl, animated: true, completion: nil)
             
-//            deleteSet(sets[indexPath.row])
-//            deletes = false
         }
     }
     
-    
-
-//    
-//    func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-//        
-//        print("trying to delete")
-//        setName = sets[indexPath.row]
-//        deleteSet(setName)
-//        
-//        
-//        //        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
-//        //            print("delete button tapped")
-//        //            self.deleteSet(self.sets[indexPath.row])
-//        //            //            self.table.reloadData()
-//        //
-//        //        }
-//        //        delete.backgroundColor = UIColor.redColor()
-//        //        
-//        //        return [delete]
-//    }
-
-
-
 
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
     @IBAction func addSet(sender: AnyObject) {
         let alertControl: UIAlertController = UIAlertController(title: "Start by naming your set", message: "", preferredStyle: .Alert)
@@ -275,5 +339,11 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
 
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
 }
+

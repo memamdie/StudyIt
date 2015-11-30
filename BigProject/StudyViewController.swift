@@ -17,10 +17,11 @@ class StudyViewController: UIViewController {
     var setName: String!
     var studyset = [PFObject]()
     var i = 0
+    var front = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(studyset)
+        print(studyset)
         study()
         // Do any additional setup after loading the view.
     }
@@ -52,16 +53,23 @@ class StudyViewController: UIViewController {
             text.text = studyset[i]["frontstring"] as! String
             //do nothing
         }
+        front = true
     }
     
     
     @IBAction func BackOfCard(sender: AnyObject) {
+        if front == true{
 //        for var i = 0; i < studyset.count; i++ {
             //when they press back go to back of notecard
             //when they press next go to next notecard
             text.text = studyset[i]["backstring"] as? String
+            front = false
 //        }
-
+        }
+        else if front == false{
+            text.text = studyset[i]["frontstring"] as? String
+            front = true
+        }
     }
     
     /*

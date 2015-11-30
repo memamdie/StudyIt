@@ -11,6 +11,7 @@ import Parse
 
 class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    var widthsize = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
     @IBOutlet var collection: UICollectionView!
     var currentUser = PFUser.currentUser()
     var cards = [PFObject]()
@@ -47,7 +48,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         do {
             cards = try query.findObjects()
             studyset = try query.findObjects()
-//            print("sets:", studyset)
+            print("sets:", studyset)
             self.collection.reloadData()
             print("Number of sets", cards.count)
         }
@@ -79,20 +80,25 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
         
         if let value = cards[indexPath.row]["frontstring"] as? String {
+            let cellsize = CGFloat(widthsize)
             
             comment = value
-            var name = UILabel(frame: CGRectMake(0, 0, 50, 50))
+            var name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
             name.font = UIFont(name:"HelveticaNeue;", size: 6.0)
             name.text = comment
             name.contentMode = UIViewContentMode.ScaleAspectFit
+            name.textAlignment = NSTextAlignment.Center
             
-            var pic = UIImageView(image: UIImage(named: "card.png"))
+            
+            var pic = UIImageView(image: UIImage(named: "flashcard.png"))
+            pic.frame = CGRectMake(0, -5, cellsize, cellsize)
+            
             cell.addSubview(pic)
             cell.addSubview(name)
             
         }
         
-        cell.backgroundColor = UIColor.lightGrayColor()
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     
