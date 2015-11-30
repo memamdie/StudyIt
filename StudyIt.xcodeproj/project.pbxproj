@@ -32,8 +32,6 @@
 		81547E9C1BF0F1D700042145 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81547E9B1BF0F1D700042145 /* Foundation.framework */; };
 		81547E9E1BFC509F00042145 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2C01BBB4B8F006971F3 /* ViewController.swift */; };
 		81547E9F1BFC51DC00042145 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1D9081BDAE97200545E2E /* Main.storyboard */; };
-		81547EA01BFC525500042145 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88F6F81BDA811E001F5A42 /* FrontViewController.swift */; };
-		81547EA11BFC525900042145 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88F6FC1BDA860E001F5A42 /* BackViewController.swift */; };
 		81547EA21BFC526000042145 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C22C2D01BBB4BBE006971F3 /* CardViewController.swift */; };
 		81547EA31BFC5D2300042145 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58179F921BDA786A002648F1 /* Parse.framework */; };
 		81547EA51BFC5ECA00042145 /* HomepageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81547EA41BFC5ECA00042145 /* HomepageTest.swift */; };
@@ -379,11 +377,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81547EA01BFC525500042145 /* FrontViewController.swift in Sources */,
 				81547E9E1BFC509F00042145 /* ViewController.swift in Sources */,
 				81547E801BF0767900042145 /* StudyItTests.swift in Sources */,
 				81547EA21BFC526000042145 /* CardViewController.swift in Sources */,
-				81547EA11BFC525900042145 /* BackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

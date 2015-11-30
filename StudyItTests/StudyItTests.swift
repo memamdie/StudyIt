@@ -31,10 +31,10 @@ class StudyItTests: XCTestCase {
         let cvc = CardViewController()
         XCTAssertNotNil(cvc.view, "View did not load for CardViewController")
         
-        let fvc = FrontViewController()
+        /*let fvc = FrontViewController()
         XCTAssertNotNil(fvc.view, "View did not load for FrontViewController")
         
-        /*let bvc = BackViewController()
+        let bvc = BackViewController()
         XCTAssertNotNil(bvc.view, "View did not load for BackViewController")*/
     }
     

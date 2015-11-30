@@ -28,12 +28,16 @@ class setViewController: UIViewController, UITableViewDelegate {
         downloadSets()
     }
     
-
-    
     @IBAction func logOut(sender: AnyObject) {
-        let login = ViewController()
-        login.signOut("")
+        PFUser.logOut()
+        if (PFUser.currentUser() == nil) {
+            performSegueWithIdentifier("setTableToHome", sender: self)
+            print("Logging out of SetTableController")
+        } else {
+            print("Error logging out from SetTableController")
+        }
     }
+    
     @IBAction func newSet(sender: AnyObject) {
         let alertControl: UIAlertController = UIAlertController(title: "Start by naming your set", message: "", preferredStyle: .Alert)
         let ok = UIAlertAction(title: "OK", style: .Cancel) { action -> Void in
