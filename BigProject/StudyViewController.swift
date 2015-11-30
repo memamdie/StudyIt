@@ -12,6 +12,7 @@ import Parse
 class StudyViewController: UIViewController {
     
     @IBOutlet var text: UITextView!
+    @IBOutlet var imageView: UIImageView?
     var currentUser = PFUser.currentUser()
     var cards = [PFObject]()
     var setName: String!
@@ -20,7 +21,6 @@ class StudyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(studyset)
         study()
         // Do any additional setup after loading the view.
     }
@@ -31,47 +31,59 @@ class StudyViewController: UIViewController {
     }
     
     func study(){
-        //iterate through array
-        //how to get front string print(studyset[1]["frontstring"])
-//        for i = 0; i < studyset.count; i++ {
-            //when they press back go to back of notecard
-            //when they press next go to next notecard
-//            text.text = studyset[i] as! String
+//            print(studyset[i]["frontstring"])
+        if studyset[i]["frontstring"] as? String != "" {
             text.text = studyset[i]["frontstring"] as! String
-//        }
-        
+        }
+        else {
+            text.text = ""
+            if let finalImage = studyset[i]["frontpic"] as? PFFile {
+                finalImage.getDataInBackgroundWithBlock {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    self.imageView!.image = UIImage(data: imageData!)
+                }
+            }
+        }
     }
 
     @IBAction func Next(sender: AnyObject) {
+        
         if i < (studyset.count - 1) {
             self.i++
-            text.text = studyset[i]["frontstring"] as! String
         }
         else{
             i = 0
+        }
+        if studyset[i]["frontstring"] as? String != "" {
             text.text = studyset[i]["frontstring"] as! String
-            //do nothing
+        }
+        else {
+            text.text = ""
+            if let finalImage = studyset[i]["frontpic"] as? PFFile {
+                finalImage.getDataInBackgroundWithBlock {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    self.imageView!.image = UIImage(data: imageData!)
+                }
+            }
         }
     }
     
     
     @IBAction func BackOfCard(sender: AnyObject) {
-//        for var i = 0; i < studyset.count; i++ {
-            //when they press back go to back of notecard
-            //when they press next go to next notecard
-            text.text = studyset[i]["backstring"] as? String
-//        }
+        
+        if studyset[i]["backstring"] as? String != "" {
+            text.text = studyset[i]["backstring"] as! String
+        }
+        else {
+            text.text = ""
+            if let finalImage = studyset[i]["backpic"] as? PFFile {
+                finalImage.getDataInBackgroundWithBlock {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    self.imageView!.image = UIImage(data: imageData!)
+                }
+            }
+        }
 
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

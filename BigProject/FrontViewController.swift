@@ -77,42 +77,6 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         self.presentViewController(alertControl, animated: true, completion: nil)
 
     }
-    func displayShuffle() {
-        let tap = UITapGestureRecognizer(target: self, action: "doubleTapped")
-        tap.numberOfTapsRequired = 2
-        view.addGestureRecognizer(tap)
-        side = false
-        nextCard = false
-        for card in shuffledCards {
-            tempCard = card
-            while !nextCard {
-                if card["frontstring"] != nil {
-                    EnteredText.text = card["frontstring"] as! String
-                }
-                else {
-                    //Display the picture in the entered text somehow
-                }
-            }
-        }
-    }
-    func doubleTapped() {
-        //This means you are looking at the front and you have doubleTapped
-        if side == false {
-            //so we need to display the back now
-            side = true
-            if tempCard["backstring"] != nil {
-                EnteredText.text = tempCard["backstring"] as! String
-            }
-            else {
-                //Display the picture in the entered text somehow
-            }
-        }
-        else {
-            //we need to display the next card
-            nextCard = true
-        }
-    }
-    
     //segue title name
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "FrontToBack"   {

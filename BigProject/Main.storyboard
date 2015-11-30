@@ -783,11 +783,21 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJq-mz-mSL">
+                                <rect key="frame" x="22" y="206" width="558" height="220"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="M5R-LY-p9v"/>
+                                    <constraint firstAttribute="width" constant="558" id="p4z-hT-qn2"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="QbF-2s-eaH" firstAttribute="centerX" secondItem="Sk3-Ax-oWo" secondAttribute="centerX" id="77d-ie-b7Z"/>
+                            <constraint firstItem="XJq-mz-mSL" firstAttribute="centerX" secondItem="Sk3-Ax-oWo" secondAttribute="centerX" id="DxT-Wh-GeS"/>
+                            <constraint firstItem="XJq-mz-mSL" firstAttribute="top" secondItem="1ze-fC-stU" secondAttribute="bottom" constant="51" id="Eqf-kv-bm7"/>
                             <constraint firstItem="vRE-XY-CqQ" firstAttribute="centerX" secondItem="Sk3-Ax-oWo" secondAttribute="centerX" id="Ky3-zg-NF6"/>
                             <constraint firstItem="QbF-2s-eaH" firstAttribute="centerY" secondItem="Sk3-Ax-oWo" secondAttribute="centerY" id="Wbo-Fw-w4x"/>
                             <constraint firstItem="QbF-2s-eaH" firstAttribute="top" secondItem="1ze-fC-stU" secondAttribute="bottom" constant="4" id="Ydm-5L-LJJ"/>
@@ -798,6 +808,7 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="imageView" destination="XJq-mz-mSL" id="40H-0y-TZf"/>
                         <outlet property="text" destination="vRE-XY-CqQ" id="AMI-Q2-1gh"/>
                     </connections>
                 </viewController>
@@ -815,7 +826,7 @@
         <segue reference="UKw-Me-Ckc"/>
         <segue reference="mQu-ix-Dkr"/>
         <segue reference="Ugy-Wv-VjU"/>
-        <segue reference="wLe-0n-Rcz"/>
         <segue reference="w4N-pV-inC"/>
+        <segue reference="qWT-Ks-cVF"/>
     </inferredMetricsTieBreakers>
 </document>

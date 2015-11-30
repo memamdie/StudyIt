@@ -9,7 +9,6 @@
 import UIKit
 import Parse
 
-var shuffledCards = [PFObject]()
 class cardTableViewController: UIViewController, UITableViewDelegate {
     var arr:[String] = []
     var cards = [PFObject]()

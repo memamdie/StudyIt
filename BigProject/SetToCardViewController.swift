@@ -132,7 +132,6 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         else {
             let alertControl: UIAlertController = UIAlertController(title: "Delete Card?", message:"" , preferredStyle: .Alert)
             let ok = UIAlertAction(title: "Delete", style: .Cancel) {action -> Void in
-           //     deleteCard(cards[indexPath.row])
                 self.deleteCard(self.cards[indexPath.row])
                 self.deletes = false
                 self.downloadData()
@@ -149,7 +148,6 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         //makes collections selected to delete
         deletes = true
     }
-    
     
     func deleteCard(cardObj: PFObject) {
         cardObj.deleteInBackground()
@@ -174,8 +172,9 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
             svc.i = index
         }
         else if segue.identifier == "shuffled"   {
-            shuffledCards = cards
+
             let fvc = segue.destinationViewController as! StudyViewController
+            fvc.studyset = cards
             fvc.i = index
 
         }
