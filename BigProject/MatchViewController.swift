@@ -23,6 +23,8 @@ class MatchViewController: UIViewController {
     var expected = 0
     var score = 0
     var pair = 0
+    var previous = NSIndexPath(forRow: 0, inSection: 0);
+    
     
     override func viewDidLoad() {
       
@@ -135,7 +137,7 @@ class MatchViewController: UIViewController {
         var cell = collectionView.cellForItemAtIndexPath(indexPath)
         
         
-        cell?.layer.borderWidth = 4.0
+        cell?.layer.borderWidth = 2.0
         cell?.layer.borderColor = UIColor.grayColor().CGColor
 
         
@@ -145,6 +147,7 @@ class MatchViewController: UIViewController {
                 
                 string1 = cards[indexPath.row].objectId!
               index1 = indexPath
+                previous = indexPath
 //                var cell2 = collectionView.cellForItemAtIndexPath(indexPath)
 //                string1 = ((cards[indexPath.row]["title"] as? String)!
             }
@@ -171,11 +174,12 @@ class MatchViewController: UIViewController {
             if string1 == string2{
                 
     //            cell?.backgroundColor = UIColor.blackColor()
-                 var cell2 = collectionView.cellForItemAtIndexPath(index1)
+                 var cell2 = collectionView.cellForItemAtIndexPath(previous)
+                cell2?.layer.borderColor = UIColor.greenColor().CGColor
     //            cell2?.backgroundColor = UIColor.blackColor()
                 
                 count = count + 2
-                cell?.layer.borderWidth = 4.0
+                cell?.layer.borderWidth = 2.0
                 cell?.layer.borderColor = UIColor.greenColor().CGColor
                 
                 score = score + 1
