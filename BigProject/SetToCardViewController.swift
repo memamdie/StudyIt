@@ -157,6 +157,17 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         self.performSegueWithIdentifier("Study", sender: nil)
     }
     
+    
+    @IBAction func logOut(sender: UIBarButtonItem) {
+        PFUser.logOut()
+        if (PFUser.currentUser() == nil) {
+            performSegueWithIdentifier("cardToHome", sender: self)
+            print("Logging out of SetToCardViewController")
+        } else {
+            print("Error logging out from SetToCardViewController")
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == "newCardFromSet" {
@@ -164,7 +175,6 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
             let card = segue.destinationViewController as! FrontViewController
             card.setName = setName
         }
-            
         else if segue.identifier == "Study" {
             print("Segueing to the card set screen")
             let svc = segue.destinationViewController as! StudyViewController
@@ -172,18 +182,15 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
             svc.i = index
         }
         else if segue.identifier == "shuffled"   {
-
             let fvc = segue.destinationViewController as! StudyViewController
             fvc.studyset = cards
             fvc.i = index
-
         }
         else if segue.identifier == "Match" {
             print("Segueing to match screen")
             let card = segue.destinationViewController as! MatchViewController
             card.setName = setName
         }
-
     }
     
     override func didReceiveMemoryWarning() {

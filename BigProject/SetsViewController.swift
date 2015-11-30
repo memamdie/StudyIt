@@ -43,8 +43,13 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     @IBAction func SignOut(sender: AnyObject) {
-        let login = ViewController()
-        login.signOut("")
+        PFUser.logOut()
+        if (PFUser.currentUser() == nil) {
+            performSegueWithIdentifier("setsViewToHome", sender: self)
+            print("Logging out of SetsViewController")
+        } else {
+            print("Error logging out from SetsViewController")
+        }
     }
     
     

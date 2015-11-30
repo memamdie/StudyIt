@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -78,7 +78,11 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Match" id="Raa-Zu-haE">
-                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="xB8-5U-k11"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="xB8-5U-k11">
+                                            <connections>
+                                                <action selector="logOut:" destination="wCG-gz-6va" id="1iy-rJ-ATl"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Home" id="5Dg-U4-ZdH">
                                             <connections>
                                                 <segue destination="gMl-Oa-Bou" kind="show" identifier="MatchToHome" id="hzK-JI-o6R"/>
@@ -130,11 +134,12 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="4r6-g3-1PZ" id="64e-9h-u7M"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="matchToHome" id="6I1-Zv-qRh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbX-0X-ek2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="927"/>
+            <point key="canvasLocation" x="310" y="925"/>
         </scene>
         <!--Set To Card View Controller-->
         <scene sceneID="nQ3-Jt-1Z2">
@@ -182,7 +187,11 @@
                                 <items>
                                     <navigationItem title="Cards" id="7qH-X8-fti">
                                         <leftBarButtonItems>
-                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS"/>
+                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS">
+                                                <connections>
+                                                    <action selector="logOut:" destination="u8t-gQ-Aqq" id="zzQ-hr-sql"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem title="Home" id="n7G-DE-1wj">
                                                 <connections>
                                                     <segue destination="gMl-Oa-Bou" kind="show" id="wLe-0n-Rcz"/>
@@ -237,6 +246,7 @@
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="FFr-B2-nmJ"/>
                         <segue destination="yGh-7U-wQV" kind="show" identifier="Study" id="kg2-Jc-YRr"/>
                         <segue destination="yGh-7U-wQV" kind="show" identifier="shuffled" id="w4N-pV-inC"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="cardToHome" id="EpU-zu-ej7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -347,7 +357,7 @@
                         <outlet property="table" destination="4YG-Y6-9Pn" id="at8-4k-lX7"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="meP-hC-F5U"/>
                         <segue destination="DiB-RA-CtL" kind="show" identifier="toSpecifiedSet" id="u19-cP-Oav"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="5MQ-tH-ohF"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="setTableToHome" id="5MQ-tH-ohF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
@@ -539,6 +549,7 @@
                         <outlet property="collection" destination="Eaq-QG-KJK" id="cTp-Bo-gZI"/>
                         <segue destination="u8t-gQ-Aqq" kind="show" identifier="SetToCard" id="BOg-A4-r2c"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="dsx-EF-USm"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="setsViewToHome" id="znK-LF-oYX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYr-47-0TO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -821,12 +832,12 @@
         <image name="card" width="518" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iuG-uP-pqy"/>
+        <segue reference="BOg-A4-r2c"/>
+        <segue reference="hzK-JI-o6R"/>
+        <segue reference="AWg-Le-xxg"/>
         <segue reference="FFr-B2-nmJ"/>
-        <segue reference="UKw-Me-Ckc"/>
-        <segue reference="mQu-ix-Dkr"/>
-        <segue reference="Ugy-Wv-VjU"/>
         <segue reference="w4N-pV-inC"/>
-        <segue reference="qWT-Ks-cVF"/>
+        <segue reference="UKw-Me-Ckc"/>
+        <segue reference="6I1-Zv-qRh"/>
     </inferredMetricsTieBreakers>
 </document>

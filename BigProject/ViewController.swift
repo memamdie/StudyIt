@@ -35,20 +35,30 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
 
     func logInViewController(logInController: PFLogInViewController, shouldBeginLogInWithUsername username: String, password: String) -> Bool {
     
-        if (!username.isEmpty || !password.isEmpty) {
-            return true
-        } else {
-            return false
+        if (!username.isEmpty && !password.isEmpty) {
+            return true // Begin login process
         }
+        
+        let title = NSLocalizedString("Missing Information", comment: "")
+        let message = NSLocalizedString("Make sure you fill out all of the information!", comment: "")
+        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
+        UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: cancelButtonTitle).show()
+        
+        return false // Interrupt login process
     }
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
-         self.performSegueWithIdentifier("Home", sender: nil)
+        self.performSegueWithIdentifier("Home", sender: nil)
     }
     
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
-        print("Failed to log in...")
+        if let description = error?.localizedDescription {
+            let cancelButtonTitle = NSLocalizedString("OK", comment: "")
+            UIAlertView(title: "Invalid login paramenter, please try again", message: nil, delegate: nil, cancelButtonTitle: cancelButtonTitle).show()
+        }
+        print("Failed to log in...\(description)")
+        print("\(description)")
     }
     
      func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
@@ -67,13 +77,14 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
     func loginSetup() {
         if (PFUser.currentUser() == nil) {
+            
             let logInViewController = PFLogInViewController()
             
             logInViewController.delegate = self
             
             logInViewController.fields = [PFLogInFields.UsernameAndPassword, PFLogInFields.LogInButton, PFLogInFields.SignUpButton, PFLogInFields.PasswordForgotten]
             
-            logInViewController.logInView!.backgroundColor = UIColor.blueColor()
+            logInViewController.logInView!.backgroundColor = UIColor(red: 0, green: 122/255.0, blue: 1.0, alpha: 1.0)
             let logInLogoTitle = UILabel()
             logInLogoTitle.font = UIFont(name: "Georgia", size: 50)
             logInLogoTitle.textColor = UIColor.whiteColor()
@@ -85,7 +96,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
             
             signUpViewController.delegate = self
             
-            signUpViewController.signUpView!.backgroundColor = UIColor.blueColor()
+            signUpViewController.signUpView!.backgroundColor = UIColor(red: 0, green: 122/255.0, blue: 1.0, alpha: 1.0)
             
             let signUpLogoTitle = UILabel()
             signUpLogoTitle.font = UIFont(name: "Georgia", size: 50)
