@@ -78,16 +78,14 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Match" id="Raa-Zu-haE">
-                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="xB8-5U-k11">
-                                            <connections>
-                                                <action selector="logOut:" destination="wCG-gz-6va" id="1iy-rJ-ATl"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Home" id="5Dg-U4-ZdH">
-                                            <connections>
-                                                <segue destination="gMl-Oa-Bou" kind="show" identifier="MatchToHome" id="hzK-JI-o6R"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <leftBarButtonItems>
+                                            <barButtonItem title="Sign Out" id="xB8-5U-k11"/>
+                                            <barButtonItem title="Home" id="5Dg-U4-ZdH">
+                                                <connections>
+                                                    <segue destination="gMl-Oa-Bou" kind="show" identifier="MatchToHome" id="hzK-JI-o6R"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </leftBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -657,8 +655,8 @@
                                             </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLh-o1-luR">
+                                <rect key="frame" x="300" y="207" width="273" height="199"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sGx-3L-7zS">
                                 <rect key="frame" x="22" y="205" width="558" height="211"/>
                                 <animations/>
@@ -670,19 +668,17 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
+                            <constraint firstItem="bK9-Rx-2V7" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leading" id="9Na-bW-g7M"/>
                             <constraint firstItem="zJS-jm-6Df" firstAttribute="centerY" secondItem="bU8-Ha-R5k" secondAttribute="centerY" id="2IX-kP-9MS"/>
                             <constraint firstItem="sGx-3L-7zS" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="KRE-qk-Oiq"/>
                             <constraint firstItem="zJS-jm-6Df" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="MI3-J4-ai7"/>
                             <constraint firstItem="bK9-Rx-2V7" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="NeR-LT-fDs"/>
                             <constraint firstItem="pN0-QM-GXy" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="52" id="RTa-FX-gyG"/>
-                            <constraint firstItem="NAf-SP-upO" firstAttribute="top" secondItem="pN0-QM-GXy" secondAttribute="bottom" constant="184" id="TdA-YR-bB9"/>
-                            <constraint firstItem="zJS-jm-6Df" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="4" id="aVE-lK-TnN"/>
-                            <constraint firstItem="pN0-QM-GXy" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="hHZ-Sl-aHF"/>
+                            <constraint firstItem="pN0-QM-GXy" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leadingMargin" constant="2" id="jM7-uO-Miy"/>
                             <constraint firstItem="pN0-QM-GXy" firstAttribute="centerY" secondItem="bU8-Ha-R5k" secondAttribute="centerY" id="oWz-IN-6RA"/>
                             <constraint firstItem="sGx-3L-7zS" firstAttribute="bottom" secondItem="pN0-QM-GXy" secondAttribute="bottom" id="rur-Ml-P6O"/>
                         </constraints>
-                    </view>
+                        <outlet property="Image" destination="CLh-o1-luR" id="Ggq-Yt-o1l"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="EnteredText" destination="pN0-QM-GXy" id="UNW-NA-L1E"/>
@@ -752,8 +748,8 @@
                                                     <action selector="AddPhoto:" destination="LU0-Y6-D0V" id="voS-MM-Txv"/>
                                                 </connections>
                                             </barButtonItem>
-                                        </rightBarButtonItems>
-                                    </navigationItem>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-NW-d6a">
+                                <rect key="frame" x="318" y="195" width="256" height="211"/>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YY6-qP-KwM">
@@ -882,7 +878,7 @@
         <image name="flashcard.png" width="600" height="359"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BOg-A4-r2c"/>
+        <segue reference="Sew-fZ-vjy"/>
         <segue reference="hzK-JI-o6R"/>
         <segue reference="AWg-Le-xxg"/>
         <segue reference="FFr-B2-nmJ"/>

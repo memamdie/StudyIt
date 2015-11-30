@@ -91,17 +91,21 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         var setName : String
         var imageView:UIImageView = UIImageView()
         var comment: String
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) 
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
         
         if let value = cards[indexPath.row]["frontstring"] as? String {
+            let cellsize = CGFloat(widthsize)
             if value != "" {
                 comment = value
-                let name = UILabel(frame: CGRectMake(0, 0, 50, 50))
+                let name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
                 name.font = UIFont(name:"HelveticaNeue;", size: 6.0)
                 name.text = comment
                 name.contentMode = UIViewContentMode.ScaleAspectFit
-                
-                let pic = UIImageView(image: UIImage(named: "card.png"))
+                name.textAlignment = NSTextAlignment.Center
+
+                let pic = UIImageView(image: UIImage(named: "flashcard.png"))
+                pic.frame = CGRectMake(0, -5, cellsize, cellsize)
+
                 cell.addSubview(pic)
                 cell.addSubview(name)
             }

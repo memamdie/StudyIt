@@ -228,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				58C008921BFD73C4009AC9E4 /* cardstack.png */,
+				9C50E6CE1C0A6DED008BFFB4 /* flash2.png */,
+				9C50E6D01C0A6EFE008BFFB4 /* flashcard.png */,
 				9C22C2BE1BBB4B8F006971F3 /* AppDelegate.swift */,
 				58C5DC4F1BF0FDE100EFB5F7 /* cardTableViewController.swift */,
 				58C5DC4D1BF0FAEA00EFB5F7 /* setViewController.swift */,

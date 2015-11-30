@@ -22,6 +22,7 @@ class StudyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(studyset)
         study()
         // Do any additional setup after loading the view.
     }
@@ -48,16 +49,18 @@ class StudyViewController: UIViewController {
     }
 
     @IBAction func Next(sender: AnyObject) {
-        
+        //Inside this function we want to show the front of the next card
         if i < (studyset.count - 1) {
             self.i++
         }
         else{
             i = 0
         }
+        //check to see if the front is a string
         if studyset[i]["frontstring"] as? String != "" {
             text.text = studyset[i]["frontstring"] as! String
         }
+            //if its not a string show the picture
         else {
             text.text = ""
             if let finalImage = studyset[i]["frontpic"] as? PFFile {
@@ -72,20 +75,37 @@ class StudyViewController: UIViewController {
     
     
     @IBAction func BackOfCard(sender: AnyObject) {
-        
-        if studyset[i]["backstring"] as? String != "" {
-            text.text = studyset[i]["backstring"] as! String
-        }
-        else {
-            text.text = ""
-            if let finalImage = studyset[i]["backpic"] as? PFFile {
-                finalImage.getDataInBackgroundWithBlock {
-                    (imageData: NSData?, error: NSError?) -> Void in
-                    self.imageView!.image = UIImage(data: imageData!)
+        if front == true{
+            if studyset[i]["backstring"] as? String != "" {
+                text.text = studyset[i]["backstring"] as! String
+            }
+            else {
+                text.text = ""
+                if let finalImage = studyset[i]["backpic"] as? PFFile {
+                    finalImage.getDataInBackgroundWithBlock {
+                        (imageData: NSData?, error: NSError?) -> Void in
+                        self.imageView!.image = UIImage(data: imageData!)
+                    }
                 }
             }
+            front = false
         }
-
+        
+        else {
+            if studyset[i]["frontstring"] as? String != "" {
+                text.text = studyset[i]["frontstring"] as! String
+            }
+            else {
+                text.text = ""
+                if let finalImage = studyset[i]["frontpic"] as? PFFile {
+                    finalImage.getDataInBackgroundWithBlock {
+                        (imageData: NSData?, error: NSError?) -> Void in
+                        self.imageView!.image = UIImage(data: imageData!)
+                    }
+                }
+            }
+            front = true
+        }
     }
     
 }
