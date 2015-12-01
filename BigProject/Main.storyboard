@@ -54,12 +54,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="gMl-Oa-Bou" kind="show" identifier="Home" id="yAF-uE-6RO"/>
+                        <segue destination="gMl-Oa-Bou" kind="show" identifier="viewToHome" animates="NO" id="fTf-VH-GOa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-471" y="-553"/>
+            <point key="canvasLocation" x="-135" y="157"/>
         </scene>
         <!--Match View Controller-->
         <scene sceneID="9Hp-kL-6e8">
@@ -82,7 +82,7 @@
                                             <barButtonItem title="Sign Out" id="xB8-5U-k11"/>
                                             <barButtonItem title="Home" id="5Dg-U4-ZdH">
                                                 <connections>
-                                                    <segue destination="gMl-Oa-Bou" kind="show" identifier="MatchToHome" id="hzK-JI-o6R"/>
+                                                    <segue destination="gMl-Oa-Bou" kind="show" identifier="matchToHome" animates="NO" id="hzK-JI-o6R"/>
                                                 </connections>
                                             </barButtonItem>
                                         </leftBarButtonItems>
@@ -112,7 +112,7 @@
                                         <animations/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell2" id="D6v-Yy-DJZ">
-                                        <rect key="frame" x="64.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="65" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -145,12 +145,11 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collection" destination="4r6-g3-1PZ" id="64e-9h-u7M"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="matchToHome" id="6I1-Zv-qRh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbX-0X-ek2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="925"/>
+            <point key="canvasLocation" x="667" y="1879"/>
         </scene>
         <!--Set To Card View Controller-->
         <scene sceneID="nQ3-Jt-1Z2">
@@ -198,11 +197,7 @@
                                 <items>
                                     <navigationItem title="Cards" id="7qH-X8-fti">
                                         <leftBarButtonItems>
-                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS">
-                                                <connections>
-                                                    <action selector="logOut:" destination="u8t-gQ-Aqq" id="zzQ-hr-sql"/>
-                                                </connections>
-                                            </barButtonItem>
+                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS"/>
                                             <barButtonItem title="Home" id="n7G-DE-1wj">
                                                 <connections>
                                                     <segue destination="gMl-Oa-Bou" kind="show" id="wLe-0n-Rcz"/>
@@ -213,11 +208,6 @@
                                             <barButtonItem title="Item" systemItem="add" id="8oe-G4-BVX">
                                                 <connections>
                                                     <action selector="newCard:" destination="u8t-gQ-Aqq" id="ffu-1e-deP"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Shuffle" id="h8o-KZ-r2a">
-                                                <connections>
-                                                    <action selector="shuffle" destination="u8t-gQ-Aqq" id="WmI-yP-kKk"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem systemItem="trash" id="lwl-nJ-QXb">
@@ -291,13 +281,12 @@
                         <outlet property="collection" destination="f6N-CP-x0T" id="fys-XZ-rgC"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="FFr-B2-nmJ"/>
                         <segue destination="yGh-7U-wQV" kind="show" identifier="Study" id="kg2-Jc-YRr"/>
-                        <segue destination="yGh-7U-wQV" kind="show" identifier="shuffled" id="w4N-pV-inC"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="cardToHome" id="EpU-zu-ej7"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="cardToHome" animates="NO" id="rkx-OI-NgA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="213"/>
+            <point key="canvasLocation" x="667" y="1059"/>
         </scene>
         <!--Set Table-->
         <scene sceneID="cC9-br-IXw">
@@ -403,12 +392,12 @@
                         <outlet property="table" destination="4YG-Y6-9Pn" id="at8-4k-lX7"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="meP-hC-F5U"/>
                         <segue destination="DiB-RA-CtL" kind="show" identifier="toSpecifiedSet" id="u19-cP-Oav"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="setTableToHome" id="5MQ-tH-ohF"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="setTableToHome" animates="NO" id="5MQ-tH-ohF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="-1573"/>
+            <point key="canvasLocation" x="639" y="-497"/>
         </scene>
         <!--Card Table-->
         <scene sceneID="G46-ts-62k">
@@ -489,14 +478,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="table" destination="zhY-cq-PBw" id="toN-mH-M5Q"/>
-                        <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="bER-Jt-3Qw"/>
-                        <segue destination="eKG-cB-h3T" kind="show" identifier="shuffled" id="uJa-Xx-zK7"/>
+                        <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="0Uy-Ar-Yhh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710" y="-1339"/>
+            <point key="canvasLocation" x="1876" y="-597"/>
         </scene>
         <!--Sets View Controller-->
         <scene sceneID="OYq-9h-QNr">
@@ -596,12 +583,12 @@
                         <outlet property="collection" destination="Eaq-QG-KJK" id="cTp-Bo-gZI"/>
                         <segue destination="u8t-gQ-Aqq" kind="show" identifier="SetToCard" id="BOg-A4-r2c"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="dsx-EF-USm"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="setsViewToHome" id="znK-LF-oYX"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="setsViewToHome" animates="NO" id="A4d-37-rCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYr-47-0TO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="-553"/>
+            <point key="canvasLocation" x="-135" y="1059"/>
         </scene>
         <!--Front View Controller-->
         <scene sceneID="9tA-US-ytH">
@@ -639,7 +626,7 @@
                                     <navigationItem title="Front" id="pJa-Gg-U1n">
                                         <barButtonItem key="leftBarButtonItem" title="Home" id="Sb0-VO-7Zf">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="L4x-Tp-zZv"/>
+                                                <segue destination="iyZ-Md-vQG" kind="show" id="Sew-fZ-vjy"/>
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
@@ -655,40 +642,36 @@
                                             </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
+                                </items>
+                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLh-o1-luR">
                                 <rect key="frame" x="300" y="207" width="273" height="199"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sGx-3L-7zS">
-                                <rect key="frame" x="22" y="205" width="558" height="211"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="211" id="JH3-1Z-bYq"/>
-                                    <constraint firstAttribute="width" constant="558" id="rrQ-4I-0l3"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraint firstItem="bK9-Rx-2V7" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leading" id="9Na-bW-g7M"/>
+                        <constraints>
                             <constraint firstItem="zJS-jm-6Df" firstAttribute="centerY" secondItem="bU8-Ha-R5k" secondAttribute="centerY" id="2IX-kP-9MS"/>
-                            <constraint firstItem="sGx-3L-7zS" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="KRE-qk-Oiq"/>
+                            <constraint firstItem="bK9-Rx-2V7" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leading" id="9Na-bW-g7M"/>
                             <constraint firstItem="zJS-jm-6Df" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="MI3-J4-ai7"/>
                             <constraint firstItem="bK9-Rx-2V7" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="NeR-LT-fDs"/>
                             <constraint firstItem="pN0-QM-GXy" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="52" id="RTa-FX-gyG"/>
+                            <constraint firstItem="NAf-SP-upO" firstAttribute="top" secondItem="pN0-QM-GXy" secondAttribute="bottom" constant="184" id="TdA-YR-bB9"/>
+                            <constraint firstItem="zJS-jm-6Df" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="4" id="aVE-lK-TnN"/>
                             <constraint firstItem="pN0-QM-GXy" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leadingMargin" constant="2" id="jM7-uO-Miy"/>
-                            <constraint firstItem="pN0-QM-GXy" firstAttribute="centerY" secondItem="bU8-Ha-R5k" secondAttribute="centerY" id="oWz-IN-6RA"/>
-                            <constraint firstItem="sGx-3L-7zS" firstAttribute="bottom" secondItem="pN0-QM-GXy" secondAttribute="bottom" id="rur-Ml-P6O"/>
                         </constraints>
-                        <outlet property="Image" destination="CLh-o1-luR" id="Ggq-Yt-o1l"/>
+                    </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="EnteredText" destination="pN0-QM-GXy" id="UNW-NA-L1E"/>
-                        <outlet property="imagePicked" destination="sGx-3L-7zS" id="i4d-Bs-dYP"/>
+                        <outlet property="Image" destination="CLh-o1-luR" id="Ggq-Yt-o1l"/>
                         <segue destination="LU0-Y6-D0V" kind="show" identifier="FrontToBack" id="NnY-cx-23L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Tx-Yk-f0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="-553"/>
+            <point key="canvasLocation" x="1222" y="191"/>
         </scene>
         <!--Back View Controller-->
         <scene sceneID="hHL-ot-Psy">
@@ -728,7 +711,7 @@
                                         <leftBarButtonItems>
                                             <barButtonItem title="Home" id="PBp-yv-nyS">
                                                 <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="mQu-ix-Dkr"/>
+                                                    <segue destination="iyZ-Md-vQG" kind="show" id="eGf-8t-LJp"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem title="Front" id="aB1-C0-Kgj">
@@ -745,20 +728,16 @@
                                             </barButtonItem>
                                             <barButtonItem systemItem="camera" id="N2s-4x-ldK">
                                                 <connections>
-                                                    <action selector="AddPhoto:" destination="LU0-Y6-D0V" id="voS-MM-Txv"/>
+                                                    <action selector="AddPhoto:" destination="LU0-Y6-D0V" id="Rqk-Jp-uSx"/>
                                                 </connections>
                                             </barButtonItem>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-NW-d6a">
-                                <rect key="frame" x="318" y="195" width="256" height="211"/>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YY6-qP-KwM">
-                                <rect key="frame" x="20" y="206" width="560" height="217"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-NW-d6a">
+                                <rect key="frame" x="318" y="195" width="256" height="211"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="217" id="Yvj-nR-eWd"/>
-                                    <constraint firstAttribute="width" constant="560" id="rCc-KB-3JP"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <animations/>
@@ -767,23 +746,21 @@
                             <constraint firstItem="mJ5-tj-p9b" firstAttribute="centerY" secondItem="aY1-DJ-Mao" secondAttribute="centerY" id="0DX-e1-Leg"/>
                             <constraint firstItem="ghF-zY-53a" firstAttribute="centerY" secondItem="aY1-DJ-Mao" secondAttribute="centerY" id="Qnj-1a-1bl"/>
                             <constraint firstItem="lbC-Bj-uur" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="WIH-bn-DEt"/>
-                            <constraint firstItem="YY6-qP-KwM" firstAttribute="top" secondItem="lbC-Bj-uur" secondAttribute="bottom" constant="51" id="bOG-XZ-tkG"/>
                             <constraint firstItem="mJ5-tj-p9b" firstAttribute="top" secondItem="lbC-Bj-uur" secondAttribute="bottom" constant="4" id="cPU-Kf-sta"/>
-                            <constraint firstItem="YY6-qP-KwM" firstAttribute="centerX" secondItem="lbC-Bj-uur" secondAttribute="centerX" id="e9r-9y-fFL"/>
                             <constraint firstItem="ghF-zY-53a" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="g7Q-hM-jGq"/>
                             <constraint firstItem="mJ5-tj-p9b" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="mOF-9v-xaH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Image" destination="mJ5-tj-p9b" id="Ly3-XB-bjd"/>
                         <outlet property="backText" destination="ghF-zY-53a" id="74P-1O-pug"/>
-                        <outlet property="imagePicked" destination="YY6-qP-KwM" id="Qdt-TA-cLe"/>
                         <segue destination="DiB-RA-CtL" kind="show" identifier="toIndividualCards" id="UKw-Me-Ckc"/>
                         <segue destination="u8t-gQ-Aqq" kind="show" identifier="BackToCard" id="iuG-uP-pqy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqq-zK-ecD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="-553"/>
+            <point key="canvasLocation" x="1888" y="191"/>
         </scene>
         <!--Study View Controller-->
         <scene sceneID="ysX-KG-KK2">
@@ -840,21 +817,11 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJq-mz-mSL">
-                                <rect key="frame" x="22" y="206" width="558" height="220"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="220" id="M5R-LY-p9v"/>
-                                    <constraint firstAttribute="width" constant="558" id="p4z-hT-qn2"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="QbF-2s-eaH" firstAttribute="centerX" secondItem="Sk3-Ax-oWo" secondAttribute="centerX" id="77d-ie-b7Z"/>
-                            <constraint firstItem="XJq-mz-mSL" firstAttribute="centerX" secondItem="Sk3-Ax-oWo" secondAttribute="centerX" id="DxT-Wh-GeS"/>
-                            <constraint firstItem="XJq-mz-mSL" firstAttribute="top" secondItem="1ze-fC-stU" secondAttribute="bottom" constant="51" id="Eqf-kv-bm7"/>
                             <constraint firstItem="vRE-XY-CqQ" firstAttribute="centerX" secondItem="Sk3-Ax-oWo" secondAttribute="centerX" id="Ky3-zg-NF6"/>
                             <constraint firstItem="QbF-2s-eaH" firstAttribute="centerY" secondItem="Sk3-Ax-oWo" secondAttribute="centerY" id="Wbo-Fw-w4x"/>
                             <constraint firstItem="QbF-2s-eaH" firstAttribute="top" secondItem="1ze-fC-stU" secondAttribute="bottom" constant="4" id="Ydm-5L-LJJ"/>
@@ -865,25 +832,23 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="imageView" destination="XJq-mz-mSL" id="40H-0y-TZf"/>
                         <outlet property="text" destination="vRE-XY-CqQ" id="AMI-Q2-1gh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBZ-qJ-Bw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1058" y="213"/>
+            <point key="canvasLocation" x="1570" y="1065"/>
         </scene>
     </scenes>
     <resources>
         <image name="flashcard.png" width="600" height="359"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sew-fZ-vjy"/>
-        <segue reference="hzK-JI-o6R"/>
+        <segue reference="BOg-A4-r2c"/>
+        <segue reference="Tdh-dJ-M08"/>
         <segue reference="AWg-Le-xxg"/>
-        <segue reference="FFr-B2-nmJ"/>
-        <segue reference="w4N-pV-inC"/>
-        <segue reference="UKw-Me-Ckc"/>
-        <segue reference="6I1-Zv-qRh"/>
+        <segue reference="meP-hC-F5U"/>
+        <segue reference="u19-cP-Oav"/>
+        <segue reference="5MQ-tH-ohF"/>
     </inferredMetricsTieBreakers>
 </document>
