@@ -40,6 +40,7 @@ class MatchViewController: UIViewController {
         let cellWidth = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
         let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
         cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        
         cellLayout.minimumLineSpacing = 10
         super.viewDidLoad()
 
@@ -93,7 +94,7 @@ class MatchViewController: UIViewController {
             print("Error")
         }
         
-//        shuffle()
+        shuffle()
         
     }
     

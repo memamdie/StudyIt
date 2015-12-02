@@ -71,7 +71,7 @@
                                     <navigationItem title="Match" id="Raa-Zu-haE">
                                         <barButtonItem key="leftBarButtonItem" title="Home" id="5Dg-U4-ZdH">
                                             <connections>
-                                                <segue destination="gMl-Oa-Bou" kind="show" identifier="matchToHome" animates="NO" id="hzK-JI-o6R"/>
+                                                <segue destination="gMl-Oa-Bou" kind="show" identifier="MatchToHome" animates="NO" id="hzK-JI-o6R"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -137,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbX-0X-ek2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="667" y="1879"/>
+            <point key="canvasLocation" x="687" y="1879"/>
         </scene>
         <!--Set To Card View Controller-->
         <scene sceneID="nQ3-Jt-1Z2">
@@ -267,7 +267,10 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="f6N-CP-x0T" id="fys-XZ-rgC"/>
+                        <outlet property="matchbutton" destination="w9X-mj-rtY" id="H0q-Gk-l3X"/>
                         <outlet property="navTitle" destination="7qH-X8-fti" id="Src-gd-mLv"/>
+                        <outlet property="shufflebutton" destination="ku7-Rt-7sj" id="3ow-Qq-n6m"/>
+                        <outlet property="studybutton" destination="S21-dT-QFx" id="Mcr-Ha-2Lv"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="FFr-B2-nmJ"/>
                         <segue destination="yGh-7U-wQV" kind="show" identifier="Study" id="kg2-Jc-YRr"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="cardToHome" animates="NO" id="rkx-OI-NgA"/>
@@ -277,203 +280,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="667" y="1059"/>
-        </scene>
-        <!--Set Table-->
-        <scene sceneID="cC9-br-IXw">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
-                <viewController title="Set Table" id="iyZ-Md-vQG" customClass="setViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Kmn-HL-sxW"/>
-                        <viewControllerLayoutGuide type="bottom" id="yIk-0K-C59"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pXc-zp-JVN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDM-VD-yk2">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <animations/>
-                                <items>
-                                    <navigationItem title="Profile?" id="f82-Y7-tfN">
-                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="fb0-6y-T3o">
-                                            <connections>
-                                                <action selector="logOut:" destination="iyZ-Md-vQG" id="Wjx-5T-RBF"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <rightBarButtonItems>
-                                            <barButtonItem systemItem="add" id="wcp-Jw-Hgc">
-                                                <connections>
-                                                    <action selector="newSet:" destination="iyZ-Md-vQG" id="u56-Jw-mBq"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Testing" id="CKq-IK-k3v">
-                                                <connections>
-                                                    <segue destination="gMl-Oa-Bou" kind="show" id="Tdh-dJ-M08"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </rightBarButtonItems>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udo-uO-jXm">
-                                <rect key="frame" x="286" y="280" width="30" height="30"/>
-                                <animations/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4YG-Y6-9Pn">
-                                <rect key="frame" x="90" y="83" width="421" height="215"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="421" id="Rgd-2G-AcN"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" editingAccessoryType="disclosureIndicator" textLabel="1ou-t5-SyS" detailTextLabel="D3i-U8-e0d" style="IBUITableViewCellStyleValue1" id="Dke-xh-bQZ">
-                                        <rect key="frame" x="0.0" y="28" width="421" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dke-xh-bQZ" id="nWd-pa-uDe">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1ou-t5-SyS">
-                                                    <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D3i-U8-e0d">
-                                                    <rect key="frame" x="344.5" y="12" width="41.5" height="19.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="iyZ-Md-vQG" id="unQ-HH-Lpn"/>
-                                    <outlet property="delegate" destination="iyZ-Md-vQG" id="LuF-PJ-OZS"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="fDM-VD-yk2" firstAttribute="leading" secondItem="pXc-zp-JVN" secondAttribute="leading" id="Aac-hv-caW"/>
-                            <constraint firstItem="4YG-Y6-9Pn" firstAttribute="centerX" secondItem="pXc-zp-JVN" secondAttribute="centerX" id="Cqj-AW-LhL"/>
-                            <constraint firstAttribute="trailing" secondItem="fDM-VD-yk2" secondAttribute="trailing" id="Dbd-xg-VpF"/>
-                            <constraint firstItem="4YG-Y6-9Pn" firstAttribute="top" secondItem="fDM-VD-yk2" secondAttribute="bottom" constant="11" id="GaA-HS-2IE"/>
-                            <constraint firstItem="fDM-VD-yk2" firstAttribute="top" secondItem="Kmn-HL-sxW" secondAttribute="bottom" constant="8" id="L2k-HI-WhY"/>
-                        </constraints>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="table" destination="4YG-Y6-9Pn" id="at8-4k-lX7"/>
-                        <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="meP-hC-F5U"/>
-                        <segue destination="DiB-RA-CtL" kind="show" identifier="toSpecifiedSet" id="u19-cP-Oav"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="setTableToHome" animates="NO" id="5MQ-tH-ohF"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="639" y="-497"/>
-        </scene>
-        <!--Card Table-->
-        <scene sceneID="G46-ts-62k">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Card Table" id="DiB-RA-CtL" customClass="cardTableViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cG6-Zx-dmP"/>
-                        <viewControllerLayoutGuide type="bottom" id="TI7-R0-qwh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RXA-Q5-dJd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bFo-fL-BpO">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <animations/>
-                                <items>
-                                    <navigationItem title="Cards" id="eoS-IF-yzY">
-                                        <barButtonItem key="leftBarButtonItem" title="Home" id="4bx-bv-nRZ">
-                                            <connections>
-                                                <segue destination="iyZ-Md-vQG" kind="show" id="Ugy-Wv-VjU"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <rightBarButtonItems>
-                                            <barButtonItem style="plain" systemItem="add" id="icQ-N9-Kh6">
-                                                <connections>
-                                                    <action selector="newCard:" destination="DiB-RA-CtL" id="3Fp-6s-vzi"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="l83-1U-fHH">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W8Z-ah-9qi">
-                                                    <rect key="frame" x="410.5" y="7" width="133" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <state key="normal" title="Shuffle"/>
-                                                    <connections>
-                                                        <action selector="shuffle" destination="DiB-RA-CtL" eventType="touchUpInside" id="Sqe-8h-nYU"/>
-                                                    </connections>
-                                                </button>
-                                            </barButtonItem>
-                                        </rightBarButtonItems>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zhY-cq-PBw">
-                                <rect key="frame" x="180" y="98" width="240" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7OF-YY-Zt4">
-                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7OF-YY-Zt4" id="jps-fT-ryl">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="DiB-RA-CtL" id="e1D-eu-1DS"/>
-                                    <outlet property="delegate" destination="DiB-RA-CtL" id="sTb-fY-Wel"/>
-                                </connections>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDk-nN-T2f">
-                                <rect key="frame" x="87" y="284" width="99" height="67"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="bFo-fL-BpO" firstAttribute="top" secondItem="cG6-Zx-dmP" secondAttribute="bottom" constant="8" id="Gsc-9I-tPs"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="0Uy-Ar-Yhh"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1876" y="-597"/>
         </scene>
         <!--Sets View Controller-->
         <scene sceneID="OYq-9h-QNr">
@@ -525,9 +331,6 @@
                                 <rect key="frame" x="76" y="91" width="46" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="iyZ-Md-vQG" kind="show" id="AWg-Le-xxg"/>
-                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yic-Zl-LtB">
                                 <rect key="frame" x="-1" y="28" width="600" height="44"/>
@@ -656,12 +459,12 @@
                     <connections>
                         <outlet property="EnteredText" destination="pN0-QM-GXy" id="UNW-NA-L1E"/>
                         <outlet property="imagePicked" destination="CLh-o1-luR" id="eBL-PO-Xzi"/>
-                        <segue destination="LU0-Y6-D0V" kind="show" identifier="FrontToBack" id="NnY-cx-23L"/>
+                        <segue destination="LU0-Y6-D0V" kind="show" identifier="FrontToBack" id="Yzm-QQ-SBD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Tx-Yk-f0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222" y="191"/>
+            <point key="canvasLocation" x="1290" y="191"/>
         </scene>
         <!--Back View Controller-->
         <scene sceneID="hHL-ot-Psy">
@@ -699,11 +502,7 @@
                                 <items>
                                     <navigationItem title="Back" id="e4K-rF-iGB">
                                         <leftBarButtonItems>
-                                            <barButtonItem title="Home" id="PBp-yv-nyS">
-                                                <connections>
-                                                    <segue destination="iyZ-Md-vQG" kind="show" id="eGf-8t-LJp"/>
-                                                </connections>
-                                            </barButtonItem>
+                                            <barButtonItem title="Home" id="PBp-yv-nyS"/>
                                             <barButtonItem title="Front" id="aB1-C0-Kgj">
                                                 <connections>
                                                     <segue destination="eKG-cB-h3T" kind="show" id="TMg-GK-TIp"/>
@@ -744,13 +543,13 @@
                     <connections>
                         <outlet property="Image" destination="mJ5-tj-p9b" id="Ly3-XB-bjd"/>
                         <outlet property="backText" destination="ghF-zY-53a" id="74P-1O-pug"/>
-                        <segue destination="DiB-RA-CtL" kind="show" identifier="toIndividualCards" id="UKw-Me-Ckc"/>
+                        <outlet property="imagePicked" destination="RdE-NW-d6a" id="V5b-Qj-zOz"/>
                         <segue destination="u8t-gQ-Aqq" kind="show" identifier="BackToCard" id="iuG-uP-pqy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqq-zK-ecD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1888" y="191"/>
+            <point key="canvasLocation" x="2152" y="191"/>
         </scene>
         <!--Study View Controller-->
         <scene sceneID="ysX-KG-KK2">
@@ -834,12 +633,10 @@
         <image name="flashcard.png" width="600" height="359"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FFr-B2-nmJ"/>
-        <segue reference="BOg-A4-r2c"/>
-        <segue reference="O49-qS-I3l"/>
-        <segue reference="AWg-Le-xxg"/>
-        <segue reference="u19-cP-Oav"/>
-        <segue reference="Q0K-00-A9x"/>
         <segue reference="rkx-OI-NgA"/>
+        <segue reference="iuG-uP-pqy"/>
+        <segue reference="TMg-GK-TIp"/>
+        <segue reference="kg2-Jc-YRr"/>
+        <segue reference="hzK-JI-o6R"/>
     </inferredMetricsTieBreakers>
 </document>

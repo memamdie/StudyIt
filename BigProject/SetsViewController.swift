@@ -265,6 +265,7 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let ok = UIAlertAction(title: "Delete", style: .Cancel) {action -> Void in
 //                self.deleteSet(self.sets[indexPath.row])
                 self.deleteSet(self.number[indexPath.row])
+                
                 self.deletes = false
 //                self.downloadData()
             }
@@ -273,7 +274,10 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             alertControl.addAction(cancel)
             self.presentViewController(alertControl, animated: true, completion: nil)
         }
-        downloadData()
+        collection.reloadData()
+
+//        collection.reloadSections(NSIndexSet(index: 0))
+//        downloadData()
     }
     
 
@@ -306,14 +310,15 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func deleteSet(setName: String) {
         let query = PFQuery(className: "CardInfo")
         query.whereKey("setName", equalTo: setName)
+        
         do {
             let result = try query.findObjects()
             for r in result {
                 r.deleteInBackground()
             }
         }
+            
         catch {}
-        downloadData()
 
     }
     
