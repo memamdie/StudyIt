@@ -20,10 +20,12 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     var deletes = false
     var index = 0
     
+    @IBOutlet var navTitle: UINavigationItem!
+    
     override func viewDidLoad() {
         downloadData()
         collection.delegate = self
-        
+        navTitle.title = setName
         // Resize size of collection view items in grid so that we achieve 3 boxes across
         let cellWidth = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
         let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout

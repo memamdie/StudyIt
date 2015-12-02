@@ -279,8 +279,8 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             alertControl.addAction(ok)
             alertControl.addAction(cancel)
             self.presentViewController(alertControl, animated: true, completion: nil)
-            
         }
+    
     }
     
 

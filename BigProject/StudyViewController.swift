@@ -24,6 +24,7 @@ class StudyViewController: UIViewController {
         super.viewDidLoad()
         print(studyset)
         study()
+        text.editable = false
         // Do any additional setup after loading the view.
     }
 
@@ -77,7 +78,7 @@ class StudyViewController: UIViewController {
     @IBAction func BackOfCard(sender: AnyObject) {
         if front == true{
             if studyset[i]["backstring"] as? String != "" {
-                text.text = studyset[i]["backstring"] as! String
+                text.text = studyset[i]["backstring"] as? String
             }
             else {
                 text.text = ""
@@ -108,4 +109,5 @@ class StudyViewController: UIViewController {
         }
     }
     
+
 }

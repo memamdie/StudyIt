@@ -18,7 +18,7 @@ class BackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(selected)
-        
+        print("BACK")
         // Do any additional setup after loading the view.
     }
     
