@@ -35,7 +35,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         } else {
             aboutButton.alpha = 1.0
             instruction.text = ""
-            addButton.tintColor = default
+            addButton.tintColor = UIColor.blackColor()
         }
         
     }
