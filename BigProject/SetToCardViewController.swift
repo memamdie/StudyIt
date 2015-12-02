@@ -98,9 +98,9 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         var setName : String
-        var imageView:UIImageView = UIImageView()
+        let imageView:UIImageView = UIImageView()
         var comment: String
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
         
         if let value = cards[indexPath.row]["frontstring"] as? String {
             let cellsize = CGFloat(widthsize)

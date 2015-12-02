@@ -45,12 +45,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="gMl-Oa-Bou" kind="show" identifier="viewToHome" animates="NO" id="fTf-VH-GOa"/>
+                        <segue destination="gMl-Oa-Bou" kind="show" identifier="viewToHome" id="QoY-vb-H3k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-135" y="157"/>
+            <point key="canvasLocation" x="-135" y="191"/>
         </scene>
         <!--Match View Controller-->
         <scene sceneID="9Hp-kL-6e8">
@@ -100,7 +100,7 @@
                                         <animations/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell2" id="D6v-Yy-DJZ">
-                                        <rect key="frame" x="64.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="65" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -184,11 +184,10 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Cards" id="7qH-X8-fti">
-                                        <barButtonItem key="leftBarButtonItem" title="Home" id="n7G-DE-1wj">
-                                            <connections>
-                                                <segue destination="gMl-Oa-Bou" kind="show" id="wLe-0n-Rcz"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <leftBarButtonItems>
+                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS"/>
+                                            <barButtonItem title="Home" id="n7G-DE-1wj"/>
+                                        </leftBarButtonItems>
                                         <rightBarButtonItems>
                                             <barButtonItem title="Item" systemItem="add" id="8oe-G4-BVX">
                                                 <connections>
@@ -215,7 +214,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wCG-gz-6va" kind="show" identifier="Match" id="Zcc-9q-B9z"/>
+                                    <segue destination="wCG-gz-6va" kind="show" identifier="Match" id="7ZN-XQ-vR5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku7-Rt-7sj">
@@ -228,9 +227,6 @@
                                 <state key="normal" title="Shuffle">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="shuffle" destination="u8t-gQ-Aqq" eventType="touchUpInside" id="S5R-6B-3To"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S21-dT-QFx">
                                 <rect key="frame" x="361" y="101" width="63" height="30"/>
@@ -244,6 +240,7 @@
                                 </state>
                                 <connections>
                                     <action selector="StudyIt:" destination="u8t-gQ-Aqq" eventType="touchUpInside" id="rRG-Ei-r5V"/>
+                                    <segue destination="yGh-7U-wQV" kind="show" identifier="Study" id="gjL-VO-g0s"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -346,6 +343,7 @@
                                             <barButtonItem systemItem="add" id="4xf-s8-cNy">
                                                 <connections>
                                                     <action selector="addSet:" destination="gMl-Oa-Bou" id="QsI-di-wSb"/>
+                                                    <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="OTg-cL-Qig"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem systemItem="trash" id="qFR-mj-9md">
@@ -374,14 +372,12 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="Eaq-QG-KJK" id="cTp-Bo-gZI"/>
-                        <segue destination="u8t-gQ-Aqq" kind="show" identifier="SetToCard" id="BOg-A4-r2c"/>
-                        <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="dsx-EF-USm"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="setsViewToHome" animates="NO" id="A4d-37-rCx"/>
+                        <segue destination="u8t-gQ-Aqq" kind="show" identifier="SetToCard" id="BVF-Ag-uUi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYr-47-0TO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-135" y="1059"/>
+            <point key="canvasLocation" x="-135" y="940"/>
         </scene>
         <!--Front View Controller-->
         <scene sceneID="9tA-US-ytH">
@@ -398,16 +394,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flashcard.png" translatesAutoresizingMaskIntoConstraints="NO" id="zJS-jm-6Df">
                                 <rect key="frame" x="8" y="159" width="584" height="282"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="584" id="d6K-Sx-lni"/>
-                                    <constraint firstAttribute="height" constant="282" id="zoD-O1-dCX"/>
-                                </constraints>
                             </imageView>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" text="Hello Guys!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pN0-QM-GXy">
                                 <rect key="frame" x="22" y="207" width="279" height="209"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="279" id="Gtl-MV-ffq"/>
+                                    <constraint firstAttribute="width" constant="279" id="joP-q5-buH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
@@ -419,13 +411,14 @@
                                     <navigationItem title="Front" id="pJa-Gg-U1n">
                                         <barButtonItem key="leftBarButtonItem" title="Home" id="Sb0-VO-7Zf">
                                             <connections>
-                                                <segue destination="gMl-Oa-Bou" kind="show" id="O49-qS-I3l"/>
+                                                <segue destination="gMl-Oa-Bou" kind="show" id="7z2-wD-OVr"/>
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
                                             <barButtonItem title="Back of Card" id="uoA-qI-ft3">
                                                 <connections>
                                                     <action selector="GetTitle:" destination="eKG-cB-h3T" id="Srw-be-hmB"/>
+                                                    <segue destination="LU0-Y6-D0V" kind="show" identifier="FrontToBack" id="j0S-dn-tIr"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem systemItem="camera" id="cP8-tn-xPI">
@@ -437,22 +430,30 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLh-o1-luR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CLh-o1-luR">
                                 <rect key="frame" x="300" y="207" width="273" height="199"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="273" id="SmF-wz-R3v"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="zJS-jm-6Df" firstAttribute="centerY" secondItem="bU8-Ha-R5k" secondAttribute="centerY" id="2IX-kP-9MS"/>
-                            <constraint firstItem="bK9-Rx-2V7" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leading" id="9Na-bW-g7M"/>
-                            <constraint firstItem="zJS-jm-6Df" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="MI3-J4-ai7"/>
-                            <constraint firstItem="bK9-Rx-2V7" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="NeR-LT-fDs"/>
-                            <constraint firstItem="pN0-QM-GXy" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="52" id="RTa-FX-gyG"/>
-                            <constraint firstItem="NAf-SP-upO" firstAttribute="top" secondItem="pN0-QM-GXy" secondAttribute="bottom" constant="184" id="TdA-YR-bB9"/>
-                            <constraint firstItem="zJS-jm-6Df" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="4" id="aVE-lK-TnN"/>
-                            <constraint firstItem="pN0-QM-GXy" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leadingMargin" constant="2" id="jM7-uO-Miy"/>
+                            <constraint firstItem="pN0-QM-GXy" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="52" id="65v-1B-Y1Y"/>
+                            <constraint firstItem="zJS-jm-6Df" firstAttribute="centerX" secondItem="bK9-Rx-2V7" secondAttribute="centerX" id="Eva-VB-Nz3"/>
+                            <constraint firstItem="pN0-QM-GXy" firstAttribute="top" secondItem="CLh-o1-luR" secondAttribute="top" id="MeO-yO-jmQ"/>
+                            <constraint firstItem="zJS-jm-6Df" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="4" id="P7n-Y6-2Q4"/>
+                            <constraint firstItem="NAf-SP-upO" firstAttribute="top" secondItem="zJS-jm-6Df" secondAttribute="bottom" constant="159" id="VTt-br-ZzZ"/>
+                            <constraint firstItem="zJS-jm-6Df" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leadingMargin" constant="-12" id="VmK-ip-X89"/>
+                            <constraint firstItem="pN0-QM-GXy" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leadingMargin" constant="2" id="Z5l-SY-mLE"/>
+                            <constraint firstItem="bK9-Rx-2V7" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leading" id="dDb-G3-iCN"/>
+                            <constraint firstItem="zJS-jm-6Df" firstAttribute="centerY" secondItem="bU8-Ha-R5k" secondAttribute="centerY" id="dcy-U3-b94"/>
+                            <constraint firstItem="NAf-SP-upO" firstAttribute="top" secondItem="pN0-QM-GXy" secondAttribute="bottom" constant="184" id="qfB-qO-lzi"/>
+                            <constraint firstItem="NAf-SP-upO" firstAttribute="top" secondItem="CLh-o1-luR" secondAttribute="bottom" constant="194" id="qfb-Kk-5cv"/>
+                            <constraint firstAttribute="trailing" secondItem="bK9-Rx-2V7" secondAttribute="trailing" id="t5c-f1-Upb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CLh-o1-luR" secondAttribute="trailing" constant="7" id="xV1-OT-6dK"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -478,25 +479,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flashcard.png" translatesAutoresizingMaskIntoConstraints="NO" id="mJ5-tj-p9b">
-                                <rect key="frame" x="8" y="159" width="584" height="282"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flashcard.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rqy-Gu-MpP">
+                                <rect key="frame" x="8" y="160" width="584" height="282"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="584" id="d2I-XL-Mfc"/>
-                                    <constraint firstAttribute="height" constant="282" id="lKg-iF-MP8"/>
-                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Write Notes Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ghF-zY-53a">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write Notes Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ghF-zY-53a">
                                 <rect key="frame" x="18" y="195" width="261" height="233"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="551" id="dOF-uM-aAa"/>
-                                    <constraint firstAttribute="height" constant="210" id="mWD-EF-rwx"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" keyboardAppearance="light"/>
                             </textView>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lbC-Bj-uur">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbC-Bj-uur">
                                 <rect key="frame" x="0.0" y="111" width="600" height="44"/>
                                 <animations/>
                                 <items>
@@ -505,7 +498,7 @@
                                             <barButtonItem title="Home" id="PBp-yv-nyS"/>
                                             <barButtonItem title="Front" id="aB1-C0-Kgj">
                                                 <connections>
-                                                    <segue destination="eKG-cB-h3T" kind="show" id="TMg-GK-TIp"/>
+                                                    <segue destination="eKG-cB-h3T" kind="show" identifier="" id="dzL-k2-g0u"/>
                                                 </connections>
                                             </barButtonItem>
                                         </leftBarButtonItems>
@@ -524,24 +517,34 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-NW-d6a">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-NW-d6a">
                                 <rect key="frame" x="318" y="195" width="256" height="211"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="Tdy-YZ-0Sz"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="mJ5-tj-p9b" firstAttribute="centerY" secondItem="aY1-DJ-Mao" secondAttribute="centerY" id="0DX-e1-Leg"/>
-                            <constraint firstItem="ghF-zY-53a" firstAttribute="centerY" secondItem="aY1-DJ-Mao" secondAttribute="centerY" id="Qnj-1a-1bl"/>
-                            <constraint firstItem="lbC-Bj-uur" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="WIH-bn-DEt"/>
-                            <constraint firstItem="mJ5-tj-p9b" firstAttribute="top" secondItem="lbC-Bj-uur" secondAttribute="bottom" constant="4" id="cPU-Kf-sta"/>
-                            <constraint firstItem="ghF-zY-53a" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="g7Q-hM-jGq"/>
-                            <constraint firstItem="mJ5-tj-p9b" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="mOF-9v-xaH"/>
+                            <constraint firstAttribute="trailing" secondItem="lbC-Bj-uur" secondAttribute="trailing" id="41W-0h-ZbL"/>
+                            <constraint firstItem="Rqy-Gu-MpP" firstAttribute="leading" secondItem="aY1-DJ-Mao" secondAttribute="leadingMargin" constant="-12" id="4SB-zo-nIC"/>
+                            <constraint firstItem="yfS-9m-6WQ" firstAttribute="top" secondItem="Rqy-Gu-MpP" secondAttribute="bottom" constant="158" id="9xf-Mp-NMe"/>
+                            <constraint firstItem="ghF-zY-53a" firstAttribute="top" secondItem="RdE-NW-d6a" secondAttribute="top" id="DSv-G1-RX3"/>
+                            <constraint firstItem="RdE-NW-d6a" firstAttribute="centerY" secondItem="aY1-DJ-Mao" secondAttribute="centerY" id="DXX-Uo-WFR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RdE-NW-d6a" secondAttribute="trailing" constant="6" id="R62-MO-7Qq"/>
+                            <constraint firstItem="RdE-NW-d6a" firstAttribute="leading" secondItem="ghF-zY-53a" secondAttribute="trailing" constant="39" id="VZ1-yq-c1D"/>
+                            <constraint firstItem="Rqy-Gu-MpP" firstAttribute="top" secondItem="lbC-Bj-uur" secondAttribute="bottom" constant="5" id="XtL-67-ec4"/>
+                            <constraint firstItem="yfS-9m-6WQ" firstAttribute="top" secondItem="ghF-zY-53a" secondAttribute="bottom" constant="172" id="fEw-9A-tg9"/>
+                            <constraint firstItem="RdE-NW-d6a" firstAttribute="centerY" secondItem="Rqy-Gu-MpP" secondAttribute="centerY" id="hIY-vj-x6D"/>
+                            <constraint firstItem="ghF-zY-53a" firstAttribute="leading" secondItem="aY1-DJ-Mao" secondAttribute="leadingMargin" constant="-2" id="hw5-xS-qYO"/>
+                            <constraint firstItem="lbC-Bj-uur" firstAttribute="leading" secondItem="aY1-DJ-Mao" secondAttribute="leading" id="kZN-Ra-9xR"/>
+                            <constraint firstItem="lbC-Bj-uur" firstAttribute="centerX" secondItem="Rqy-Gu-MpP" secondAttribute="centerX" id="tCX-dh-92i"/>
+                            <constraint firstItem="ghF-zY-53a" firstAttribute="top" secondItem="lbC-Bj-uur" secondAttribute="bottom" constant="40" id="tSd-Nd-oDE"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Image" destination="mJ5-tj-p9b" id="Ly3-XB-bjd"/>
                         <outlet property="backText" destination="ghF-zY-53a" id="74P-1O-pug"/>
                         <outlet property="imagePicked" destination="RdE-NW-d6a" id="V5b-Qj-zOz"/>
                         <segue destination="u8t-gQ-Aqq" kind="show" identifier="BackToCard" id="iuG-uP-pqy"/>
@@ -571,13 +574,9 @@
                                     <constraint firstAttribute="width" constant="584" id="Xuy-hT-xnV"/>
                                 </constraints>
                             </imageView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" text="Hello Guys!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vRE-XY-CqQ">
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" text="Hello Guys!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vRE-XY-CqQ">
                                 <rect key="frame" x="22" y="184" width="560" height="232"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="557" id="dMQ-Kg-lxi"/>
-                                    <constraint firstAttribute="height" constant="232" id="vIx-Rv-Fox"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
@@ -589,7 +588,7 @@
                                         <leftBarButtonItems>
                                             <barButtonItem title="Home" id="CpU-G3-lsv">
                                                 <connections>
-                                                    <segue destination="gMl-Oa-Bou" kind="show" id="qWT-Ks-cVF"/>
+                                                    <segue destination="gMl-Oa-Bou" kind="show" id="Knv-eF-QiT"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem title="Next" id="oHS-TP-nxL">
@@ -626,7 +625,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBZ-qJ-Bw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1570" y="1065"/>
+            <point key="canvasLocation" x="1234" y="940"/>
         </scene>
     </scenes>
     <resources>

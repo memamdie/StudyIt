@@ -169,7 +169,7 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         
             let cellsize = CGFloat(widthsize)
-            var name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
+            let name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
             name.font = UIFont(name:"HelveticaNeue;", size: 30.0)
             name.text = number[indexPath.row]
             name.contentMode = UIViewContentMode.ScaleToFill
@@ -179,7 +179,7 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             var pic = UIImage(named: "flashcard.png")
             
             
-            var backpic = UIImageView(image: UIImage(named: "flashcard.png"))
+            let backpic = UIImageView(image: UIImage(named: "flashcard.png"))
             backpic.frame = CGRectMake(0, -5, cellsize, cellsize)
             
             
