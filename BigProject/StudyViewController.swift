@@ -43,7 +43,7 @@ class StudyViewController: UIViewController {
             if let finalImage = studyset[i]["frontpic"] as? PFFile {
                 finalImage.getDataInBackgroundWithBlock {
                     (imageData: NSData?, error: NSError?) -> Void in
-                    self.imageView!.image = UIImage(data: imageData!)
+                    self.imageView?.image = UIImage(data: imageData!)
                 }
             }
         }

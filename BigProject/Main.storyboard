@@ -22,28 +22,19 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <animations/>
                                 <items>
-                                    <navigationItem title="How To" id="ufp-T6-egY">
+                                    <navigationItem title="Your Sets" id="ufp-T6-egY">
                                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="XSX-Tx-sVA">
                                             <connections>
                                                 <action selector="signOut:" destination="BYZ-38-t0r" id="wXR-vO-kna"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Profile" id="6z5-vi-bW8">
-                                            <connections>
-                                                <segue destination="gMl-Oa-Bou" kind="show" id="Ysa-sZ-pUi"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="7jO-6V-xzq"/>
+                                            <barButtonItem systemItem="trash" id="2qQ-qI-jCi"/>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kU-Ob-EhP">
-                                <rect key="frame" x="33" y="93" width="32" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Help">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-135" y="191"/>
+            <point key="canvasLocation" x="-135" y="157"/>
         </scene>
         <!--Match View Controller-->
         <scene sceneID="9Hp-kL-6e8">
@@ -78,14 +69,11 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Match" id="Raa-Zu-haE">
-                                        <leftBarButtonItems>
-                                            <barButtonItem title="Sign Out" id="xB8-5U-k11"/>
-                                            <barButtonItem title="Home" id="5Dg-U4-ZdH">
-                                                <connections>
-                                                    <segue destination="gMl-Oa-Bou" kind="show" identifier="matchToHome" animates="NO" id="hzK-JI-o6R"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </leftBarButtonItems>
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="5Dg-U4-ZdH">
+                                            <connections>
+                                                <segue destination="gMl-Oa-Bou" kind="show" identifier="matchToHome" animates="NO" id="hzK-JI-o6R"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -112,7 +100,7 @@
                                         <animations/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell2" id="D6v-Yy-DJZ">
-                                        <rect key="frame" x="65" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="64.5" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -149,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbX-0X-ek2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="1875"/>
+            <point key="canvasLocation" x="667" y="1879"/>
         </scene>
         <!--Set To Card View Controller-->
         <scene sceneID="nQ3-Jt-1Z2">
@@ -196,14 +184,11 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Cards" id="7qH-X8-fti">
-                                        <leftBarButtonItems>
-                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS"/>
-                                            <barButtonItem title="Home" id="n7G-DE-1wj">
-                                                <connections>
-                                                    <segue destination="gMl-Oa-Bou" kind="show" id="wLe-0n-Rcz"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </leftBarButtonItems>
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="n7G-DE-1wj">
+                                            <connections>
+                                                <segue destination="gMl-Oa-Bou" kind="show" id="wLe-0n-Rcz"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <rightBarButtonItems>
                                             <barButtonItem title="Item" systemItem="add" id="8oe-G4-BVX">
                                                 <connections>
@@ -243,6 +228,9 @@
                                 <state key="normal" title="Shuffle">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="shuffle" destination="u8t-gQ-Aqq" eventType="touchUpInside" id="S5R-6B-3To"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S21-dT-QFx">
                                 <rect key="frame" x="361" y="101" width="63" height="30"/>
@@ -282,15 +270,18 @@
                         <outlet property="navTitle" destination="7qH-X8-fti" id="Src-gd-mLv"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="FFr-B2-nmJ"/>
                         <segue destination="yGh-7U-wQV" kind="show" identifier="Study" id="kg2-Jc-YRr"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="cardToHome" animates="NO" id="rkx-OI-NgA"/>
+                        <segue destination="yGh-7U-wQV" kind="show" identifier="shuffled" id="Q0K-00-A9x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741" y="1065"/>
+            <point key="canvasLocation" x="667" y="1059"/>
         </scene>
         <!--Set Table-->
         <scene sceneID="cC9-br-IXw">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
                 <viewController title="Set Table" id="iyZ-Md-vQG" customClass="setViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kmn-HL-sxW"/>
@@ -392,16 +383,16 @@
                         <outlet property="table" destination="4YG-Y6-9Pn" id="at8-4k-lX7"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="meP-hC-F5U"/>
                         <segue destination="DiB-RA-CtL" kind="show" identifier="toSpecifiedSet" id="u19-cP-Oav"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="5MQ-tH-ohF"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="setTableToHome" animates="NO" id="5MQ-tH-ohF"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061" y="-583"/>
+            <point key="canvasLocation" x="639" y="-497"/>
         </scene>
         <!--Card Table-->
         <scene sceneID="G46-ts-62k">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Card Table" id="DiB-RA-CtL" customClass="cardTableViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cG6-Zx-dmP"/>
@@ -481,7 +472,6 @@
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="0Uy-Ar-Yhh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1876" y="-597"/>
         </scene>
@@ -583,11 +573,12 @@
                         <outlet property="collection" destination="Eaq-QG-KJK" id="cTp-Bo-gZI"/>
                         <segue destination="u8t-gQ-Aqq" kind="show" identifier="SetToCard" id="BOg-A4-r2c"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="dsx-EF-USm"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="setsViewToHome" animates="NO" id="A4d-37-rCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYr-47-0TO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-170" y="1050"/>
+            <point key="canvasLocation" x="-135" y="1059"/>
         </scene>
         <!--Front View Controller-->
         <scene sceneID="9tA-US-ytH">
@@ -625,7 +616,7 @@
                                     <navigationItem title="Front" id="pJa-Gg-U1n">
                                         <barButtonItem key="leftBarButtonItem" title="Home" id="Sb0-VO-7Zf">
                                             <connections>
-                                                <segue destination="iyZ-Md-vQG" kind="show" id="Sew-fZ-vjy"/>
+                                                <segue destination="gMl-Oa-Bou" kind="show" id="O49-qS-I3l"/>
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
@@ -843,10 +834,12 @@
         <image name="flashcard.png" width="600" height="359"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sew-fZ-vjy"/>
         <segue reference="FFr-B2-nmJ"/>
         <segue reference="BOg-A4-r2c"/>
-        <segue reference="wLe-0n-Rcz"/>
-        <segue reference="UKw-Me-Ckc"/>
+        <segue reference="O49-qS-I3l"/>
+        <segue reference="AWg-Le-xxg"/>
+        <segue reference="u19-cP-Oav"/>
+        <segue reference="Q0K-00-A9x"/>
+        <segue reference="rkx-OI-NgA"/>
     </inferredMetricsTieBreakers>
 </document>
