@@ -44,10 +44,10 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
             FriendName.setObject(self.EnteredText.text, forKey: "frontstring")
             FriendName.setObject((PFUser.currentUser()?.username)!, forKey: "username")
             FriendName.setObject(self.setName, forKey: "setName")
-            if self.imagePicked?.image != nil {
-                let imageData = UIImagePNGRepresentation(self.imagePicked!.image!)
-                FriendName["frontpic"] = PFFile(data: imageData!)
-            }
+//            if self.imagePicked?.image != nil {
+//                let imageData = UIImagePNGRepresentation(self.imagePicked!.image!)
+//                FriendName["frontpic"] = PFFile(data: imageData!)
+//            }
 //            FriendName.setObject(self.imagePicked!, forKey: "frontpic")
             FriendName.saveInBackgroundWithBlock {
                 (success: Bool, error:NSError?) -> Void in
@@ -56,7 +56,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
                 {
                     //We saved our information
                     print("Saved Title")
-                    ID = FriendName.objectId!
+//                    ID = FriendName.objectId!
                     self.performSegueWithIdentifier("FrontToBack", sender: nil)
                 }
                 else
@@ -81,10 +81,11 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "FrontToBack"   {
             let fvc = segue.destinationViewController as! BackViewController
+            
             fvc.selected = cardname
             //fvc.cardID = ""
             fvc.setName = setName
-            
+            print("front to back")
         }
     }
     
@@ -134,28 +135,4 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         self.presentViewController(picker, animated: true, completion: nil)
         
     }
-    
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in(touches as! Set<UITouch>){
-            let location = touch.locationInView(self.view)
-            if EnteredText.frame.contains(location){
-                EnteredText.center = location
-            }
-        }
-    }
-    
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in(touches as! Set<UITouch>){
-            let location = touch.locationInView(self.view)
-            if EnteredText.frame.contains(location){
-                EnteredText.center = location
-            }
-        }
-    }
-    
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        EnteredText.center = self.view.center
-    }
-    
 }

@@ -14,6 +14,7 @@ class setViewController: UIViewController, UITableViewDelegate {
     var sets = [String]()
     var setName: String!
     var selectedSet = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         table.reloadData()

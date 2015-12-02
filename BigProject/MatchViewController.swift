@@ -13,7 +13,9 @@ class MatchViewController: UIViewController {
     
     @IBOutlet var collection: UICollectionView!
     var currentUser = PFUser.currentUser()
+    var widthsize = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
     var cards = [PFObject]()
+    var cards2 = [PFObject]()
     var setName: String!
     var deletes = false
     var touch1 = true
@@ -23,18 +25,22 @@ class MatchViewController: UIViewController {
     var expected = 0
     var score = 0
     var pair = 0
+    var randoms = 0
+    var previous = NSIndexPath(forRow: 0, inSection: 0);
+    
     
     override func viewDidLoad() {
       
         downloadData()
 //        collection.delegate = self
-        collection.allowsMultipleSelection = true
+//        collection.allowsMultipleSelection = true
         
         
         // Resize size of collection view items in grid so that we achieve 3 boxes across
         let cellWidth = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
         let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
         cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        cellLayout.minimumLineSpacing = 10
         super.viewDidLoad()
 
     }
@@ -58,7 +64,7 @@ class MatchViewController: UIViewController {
         let query = PFQuery(className: "CardInfo")
         query.whereKey("username", equalTo: currentUser!.username!)
         query.whereKey("setName", equalTo: setName)
-        
+//        query.addAscendingOrder("backstring")
         
         do {
             cards = try query.findObjects()
@@ -71,7 +77,26 @@ class MatchViewController: UIViewController {
             print("Error")
         }
         
+        let query2 = PFQuery(className: "CardInfo")
+        query2.whereKey("username", equalTo: currentUser!.username!)
+        query2.whereKey("setName", equalTo: setName)
+//        query.addAscendingOrder("frontstring")
+        
+        do {
+            cards2 = try query.findObjects()
+         
+            //            print("sets:", studyset)
+            self.collection.reloadData()
+            print("Number of sets", cards2.count)
+        }
+        catch _ {
+            print("Error")
+        }
+        
+//        shuffle()
+        
     }
+    
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 2
@@ -84,8 +109,11 @@ class MatchViewController: UIViewController {
         
         print("View number", cards.count)
         expected = cards.count * 2
+        randoms = cards.count
         return cards.count
     }
+    
+
     
     //Match, collection view of front and back of cards
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -97,41 +125,72 @@ class MatchViewController: UIViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
         
         
+        
         if indexPath.section == 0 {
             if let value = cards[indexPath.row]["frontstring"] as? String {
        
                 comment = value
-                var name = UILabel(frame: CGRectMake(0, 0, 50, 50))
+                
+                let cellsize = CGFloat(widthsize)
+                
+                var name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
                 name.font = UIFont(name:"HelveticaNeue;", size: 6.0)
                 name.text = comment
-                name.contentMode = UIViewContentMode.ScaleAspectFit
+                name.contentMode = UIViewContentMode.ScaleToFill
+                name.textAlignment = NSTextAlignment.Center
         
                 var pic = UIImageView(image: UIImage(named: "card.png"))
 //                cell.addSubview(pic)
+                
+                var backpic = UIImageView(image: UIImage(named: "flashcard.png"))
+                backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
+                
+                cell.addSubview(backpic)
                 cell.addSubview(name)
+                
             }
         }
-            
+       
         else if indexPath.section != 0{
             if let back = cards[indexPath.row]["backstring"] as? String{
             
                 comment2 = back
-                var name2 = UILabel(frame: CGRectMake(0, 0, 50, 50))
+                
+                let cellsize = CGFloat(widthsize)
+                var name2 = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
                 name2.font = UIFont(name:"HelveticaNeue;", size: 6.0)
                 name2.text = comment2
-                name2.contentMode = UIViewContentMode.ScaleAspectFit
+                name2.contentMode = UIViewContentMode.ScaleToFill
+                name2.textAlignment = NSTextAlignment.Center
+
+                
                 var pic = UIImageView(image: UIImage(named: "card.png"))
-//                cell.addSubview(pic)
+                var backpic = UIImageView(image: UIImage(named: "flashcard.png"))
+                backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
+
+                cell.addSubview(backpic)
                 cell.addSubview(name2)
+               
             }
         }
         
         cell.backgroundColor = UIColor.lightGrayColor()
-        
-     
+
         
         return cell
     }
+    
+    func shuffle() {
+        // empty and single-element collections don't shuffle
+        if cards.count < 2 { return }
+        
+        for i in 0..<cards.count - 1 {
+            let j = Int(arc4random_uniform(UInt32(cards.count - i))) + i
+            guard i != j else { continue }
+            swap(&cards[i], &cards[j])
+        }
+    }
+    
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         //In did selects cell(
@@ -145,54 +204,61 @@ class MatchViewController: UIViewController {
         var cell = collectionView.cellForItemAtIndexPath(indexPath)
         
         
-        cell?.layer.borderWidth = 4.0
+        cell?.layer.borderWidth = 2.0
         cell?.layer.borderColor = UIColor.grayColor().CGColor
 
         
         
         if touch1 == true{
-            if cell?.selected == true {
-                
+//            if cell?.selected == true {
+            
                 string1 = cards[indexPath.row].objectId!
-              index1 = indexPath
+                index1 = indexPath
+                previous = indexPath
+            
 //                var cell2 = collectionView.cellForItemAtIndexPath(indexPath)
 //                string1 = ((cards[indexPath.row]["title"] as? String)!
-            }
-            else{
-            cell?.backgroundColor = UIColor.clearColor()
-            }
+//            }
+            
+//            else{
+//            cell?.backgroundColor = UIColor.clearColor()
+//            }
+            
             touch1 = false
         }
         
         else if touch1 == false{
-            if cell?.selected == true {
+//            if cell?.selected == true {
 //                cell?.backgroundColor = UIColor.blueColor()
                 string2 = cards[indexPath.row].objectId!
-              index2 = indexPath
+                index2 = indexPath
 //                 string2 = (cards[indexPath.row]["title"] as? String)!
-            }
-            else{
+//            }
+//            else{
                 cell?.backgroundColor = UIColor.clearColor()
-            }
+//            }
             touch1 = true
         }
         
-        if pair != 1 {
+        var check = pair % 2
+        
+        if check == 0 {
+            //same objects
             if string1 == string2{
-                
-    //            cell?.backgroundColor = UIColor.blackColor()
-                 var cell2 = collectionView.cellForItemAtIndexPath(index1)
-    //            cell2?.backgroundColor = UIColor.blackColor()
-                
                 count = count + 2
-                cell?.layer.borderWidth = 4.0
-                cell?.layer.borderColor = UIColor.greenColor().CGColor
-                
                 score = score + 1
+
+                var cell2 = collectionView.cellForItemAtIndexPath(previous)
+                cell2?.layer.borderColor = UIColor.greenColor().CGColor
+
+                
+                cell?.layer.borderWidth = 2.0
+                cell?.layer.borderColor = UIColor.greenColor().CGColor
+        
                 
                 //they finished
                 if count == expected {
-                print("done with matches")
+                    
                     let alertControl: UIAlertController = UIAlertController(title: "You finished the game!", message:"" , preferredStyle: .Alert)
                     let seg = UIAlertAction(title: "Go Home", style: .Default) {action -> Void in
                         self.performSegueWithIdentifier("MatchToHome", sender: nil)
@@ -202,7 +268,10 @@ class MatchViewController: UIViewController {
                     self.presentViewController(alertControl, animated: true, completion: nil)
                 }
             }
-           
+                
+            //different objects
+            else{
+            }
         }
     
         
@@ -210,16 +279,12 @@ class MatchViewController: UIViewController {
         print("String 1: ", string1)
         print("String 2: ", string2)
         print("pair: ", pair)
+        print("check: ", check)
         //get the object id
         print("Object ID", cards[indexPath.row].objectId )
-        
-        if pair == 1{
-            pair = 2
-        }
-        
-        if pair == 2{
-            
-            pair = 1
-        }
+        cell?.selected = false
+
     }
+    
+    
 }

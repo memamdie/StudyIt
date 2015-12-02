@@ -22,28 +22,19 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <animations/>
                                 <items>
-                                    <navigationItem title="How To" id="ufp-T6-egY">
+                                    <navigationItem title="Your Sets" id="ufp-T6-egY">
                                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="XSX-Tx-sVA">
                                             <connections>
                                                 <action selector="signOut:" destination="BYZ-38-t0r" id="wXR-vO-kna"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Profile" id="6z5-vi-bW8">
-                                            <connections>
-                                                <segue destination="gMl-Oa-Bou" kind="show" id="Ysa-sZ-pUi"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="7jO-6V-xzq"/>
+                                            <barButtonItem systemItem="trash" id="2qQ-qI-jCi"/>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kU-Ob-EhP">
-                                <rect key="frame" x="33" y="93" width="32" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Help">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,7 +45,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="gMl-Oa-Bou" kind="show" identifier="Home" id="yAF-uE-6RO"/>
+                        <segue destination="gMl-Oa-Bou" kind="show" identifier="viewToHome" animates="NO" id="fTf-VH-GOa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -78,14 +69,11 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Match" id="Raa-Zu-haE">
-                                        <leftBarButtonItems>
-                                            <barButtonItem title="Sign Out" id="xB8-5U-k11"/>
-                                            <barButtonItem title="Home" id="5Dg-U4-ZdH">
-                                                <connections>
-                                                    <segue destination="gMl-Oa-Bou" kind="show" identifier="MatchToHome" id="hzK-JI-o6R"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </leftBarButtonItems>
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="5Dg-U4-ZdH">
+                                            <connections>
+                                                <segue destination="gMl-Oa-Bou" kind="show" identifier="matchToHome" animates="NO" id="hzK-JI-o6R"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -243,6 +231,9 @@
                                 <state key="normal" title="Shuffle">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="shuffle" destination="u8t-gQ-Aqq" eventType="touchUpInside" id="S5R-6B-3To"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S21-dT-QFx">
                                 <rect key="frame" x="361" y="101" width="63" height="30"/>
@@ -279,6 +270,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="f6N-CP-x0T" id="fys-XZ-rgC"/>
+                        <outlet property="navTitle" destination="7qH-X8-fti" id="Src-gd-mLv"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="FFr-B2-nmJ"/>
                         <segue destination="yGh-7U-wQV" kind="show" identifier="Study" id="kg2-Jc-YRr"/>
                     </connections>
@@ -290,6 +282,7 @@
         <!--Set Table-->
         <scene sceneID="cC9-br-IXw">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
                 <viewController title="Set Table" id="iyZ-Md-vQG" customClass="setViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kmn-HL-sxW"/>
@@ -344,11 +337,11 @@
                                         <rect key="frame" x="0.0" y="28" width="421" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dke-xh-bQZ" id="nWd-pa-uDe">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1ou-t5-SyS">
-                                                    <rect key="frame" x="15" y="12" width="32" height="20"/>
+                                                    <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -356,7 +349,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D3i-U8-e0d">
-                                                    <rect key="frame" x="344" y="12" width="42" height="20"/>
+                                                    <rect key="frame" x="344.5" y="12" width="41.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -394,13 +387,13 @@
                         <segue destination="BYZ-38-t0r" kind="show" id="5MQ-tH-ohF"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1061" y="-583"/>
         </scene>
         <!--Card Table-->
         <scene sceneID="G46-ts-62k">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Card Table" id="DiB-RA-CtL" customClass="cardTableViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cG6-Zx-dmP"/>
@@ -428,7 +421,7 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="l83-1U-fHH">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W8Z-ah-9qi">
-                                                    <rect key="frame" x="411" y="7" width="133" height="30"/>
+                                                    <rect key="frame" x="410.5" y="7" width="133" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <state key="normal" title="Shuffle"/>
@@ -450,7 +443,7 @@
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7OF-YY-Zt4" id="jps-fT-ryl">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -480,7 +473,6 @@
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="0Uy-Ar-Yhh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1876" y="-597"/>
         </scene>

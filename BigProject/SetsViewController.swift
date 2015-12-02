@@ -24,7 +24,7 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var number = [String]()
     
     override func viewDidLoad() {
-//        super.viewDidLoad()
+
         downloadData()
         checkData()
         collection.delegate = self
@@ -35,7 +35,6 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
 
         super.viewDidLoad()
-
     }
     
     
@@ -262,25 +261,19 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         else {
             
-//            let swipeLEFT = UISwipeGestureRecognizer(target: self, action: "swiped:")
-//            swipeLEFT.direction = UISwipeGestureRecognizerDirection.Left
-//            //        view.addGestureRecognizer(swipeLEFT)
-//            collectionView.addGestureRecognizer(swipeLEFT)
-            
-            
             let alertControl: UIAlertController = UIAlertController(title: "Delete Set?", message:"" , preferredStyle: .Alert)
             let ok = UIAlertAction(title: "Delete", style: .Cancel) {action -> Void in
 //                self.deleteSet(self.sets[indexPath.row])
-                 self.deleteSet(self.number[indexPath.row])
+                self.deleteSet(self.number[indexPath.row])
                 self.deletes = false
-                self.downloadData()
+//                self.downloadData()
             }
             let cancel = UIAlertAction(title: "Cancel", style: .Default) {action -> Void in}
             alertControl.addAction(ok)
             alertControl.addAction(cancel)
             self.presentViewController(alertControl, animated: true, completion: nil)
-            
         }
+        downloadData()
     }
     
 
