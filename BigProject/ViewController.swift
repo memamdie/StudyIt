@@ -18,6 +18,27 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     var currentUser = PFUser.currentUser()
     var cards = [PFObject]()
     
+    @IBOutlet var instruction: UILabel!
+    
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var aboutButton: UIButton!
+    
+    var tap = 0
+    @IBAction func about(sender: AnyObject) {
+        tap = tap + 1
+        
+        if (tap % 2 == 1) {
+            aboutButton.alpha = 0.25
+            instruction.textColor = UIColor.whiteColor()
+            instruction.text = "Wecome to StudyIt! You can create multiple sets with its own individuals cards to study or play matching with. To start creating a set click on the add button on the top right."
+            addButton.tintColor = UIColor.whiteColor()
+        } else {
+            aboutButton.alpha = 1.0
+            instruction.text = ""
+            addButton.tintColor = default
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +48,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         super.viewDidAppear(animated)
         
         // Go to sets view controller if user exist
-        if (PFUser.currentUser() != nil) {
+        if (currentUser != nil) {
             self.performSegueWithIdentifier("viewToHome", sender: self)
         }
         else {
@@ -65,6 +86,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
      func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
@@ -115,7 +137,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
   
     @IBAction func signOut(sender: AnyObject) {
         PFUser.logOut()
-        
         self.loginSetup()
     }
     

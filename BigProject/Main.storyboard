@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -35,16 +35,42 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJ8-OF-S2V">
+                                <rect key="frame" x="279" y="85" width="42" height="30"/>
+                                <state key="normal" title="About">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="about:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MhQ-ZM-pAs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKC-Up-i63">
+                                <rect key="frame" x="125" y="200" width="350" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="SjT-Ro-yPh"/>
+                                    <constraint firstAttribute="height" constant="200" id="yVj-10-1HH"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8VZ-Pa-b5g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0hA-Sw-MC5"/>
+                            <constraint firstItem="WKC-Up-i63" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BpO-hh-mQ3"/>
                             <constraint firstAttribute="trailing" secondItem="8VZ-Pa-b5g" secondAttribute="trailing" id="Ek6-pf-9HQ"/>
+                            <constraint firstItem="WKC-Up-i63" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FVv-r3-tBU"/>
                             <constraint firstItem="8VZ-Pa-b5g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TYK-Af-WdM"/>
+                            <constraint firstItem="jJ8-OF-S2V" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-200" id="UZn-qt-PoX"/>
+                            <constraint firstItem="jJ8-OF-S2V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wAw-6J-veH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aboutButton" destination="jJ8-OF-S2V" id="jVw-lA-3aM"/>
+                        <outlet property="addButton" destination="7jO-6V-xzq" id="cUS-d9-XSw"/>
+                        <outlet property="instruction" destination="WKC-Up-i63" id="l5G-N0-j7G"/>
                         <segue destination="gMl-Oa-Bou" kind="show" identifier="viewToHome" animates="NO" id="fTf-VH-GOa"/>
                     </connections>
                 </viewController>
@@ -100,7 +126,7 @@
                                         <animations/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell2" id="D6v-Yy-DJZ">
-                                        <rect key="frame" x="64.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="65" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -281,7 +307,6 @@
         <!--Set Table-->
         <scene sceneID="cC9-br-IXw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
                 <viewController title="Set Table" id="iyZ-Md-vQG" customClass="setViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kmn-HL-sxW"/>
@@ -336,11 +361,11 @@
                                         <rect key="frame" x="0.0" y="28" width="421" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dke-xh-bQZ" id="nWd-pa-uDe">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1ou-t5-SyS">
-                                                    <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
+                                                    <rect key="frame" x="15" y="12" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -348,7 +373,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D3i-U8-e0d">
-                                                    <rect key="frame" x="344.5" y="12" width="41.5" height="19.5"/>
+                                                    <rect key="frame" x="344" y="12" width="42" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -386,13 +411,13 @@
                         <segue destination="BYZ-38-t0r" kind="show" identifier="setTableToHome" animates="NO" id="5MQ-tH-ohF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="639" y="-497"/>
         </scene>
         <!--Card Table-->
         <scene sceneID="G46-ts-62k">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Card Table" id="DiB-RA-CtL" customClass="cardTableViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cG6-Zx-dmP"/>
@@ -420,7 +445,7 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="l83-1U-fHH">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W8Z-ah-9qi">
-                                                    <rect key="frame" x="410.5" y="7" width="133" height="30"/>
+                                                    <rect key="frame" x="411" y="7" width="133" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <state key="normal" title="Shuffle"/>
@@ -442,7 +467,7 @@
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7OF-YY-Zt4" id="jps-fT-ryl">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -472,6 +497,7 @@
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="0Uy-Ar-Yhh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1876" y="-597"/>
         </scene>
@@ -834,12 +860,12 @@
         <image name="flashcard.png" width="600" height="359"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FFr-B2-nmJ"/>
+        <segue reference="Q0K-00-A9x"/>
         <segue reference="BOg-A4-r2c"/>
-        <segue reference="O49-qS-I3l"/>
+        <segue reference="fTf-VH-GOa"/>
+        <segue reference="rkx-OI-NgA"/>
         <segue reference="AWg-Le-xxg"/>
         <segue reference="u19-cP-Oav"/>
-        <segue reference="Q0K-00-A9x"/>
-        <segue reference="rkx-OI-NgA"/>
+        <segue reference="FFr-B2-nmJ"/>
     </inferredMetricsTieBreakers>
 </document>
