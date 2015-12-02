@@ -54,7 +54,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="gMl-Oa-Bou" kind="show" identifier="Home" id="yAF-uE-6RO"/>
+                        <segue destination="gMl-Oa-Bou" kind="show" identifier="viewToHome" animates="NO" id="fTf-VH-GOa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -82,7 +82,7 @@
                                             <barButtonItem title="Sign Out" id="xB8-5U-k11"/>
                                             <barButtonItem title="Home" id="5Dg-U4-ZdH">
                                                 <connections>
-                                                    <segue destination="gMl-Oa-Bou" kind="show" identifier="MatchToHome" id="hzK-JI-o6R"/>
+                                                    <segue destination="gMl-Oa-Bou" kind="show" identifier="matchToHome" animates="NO" id="hzK-JI-o6R"/>
                                                 </connections>
                                             </barButtonItem>
                                         </leftBarButtonItems>
@@ -112,7 +112,7 @@
                                         <animations/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell2" id="D6v-Yy-DJZ">
-                                        <rect key="frame" x="64.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="65" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
