@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class BackViewController: UIViewController {
+class BackViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var backText: UITextView!
     var selected: String!
@@ -18,7 +18,7 @@ class BackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(selected)
-        
+        imagePicker.delegate = self
         // Do any additional setup after loading the view.
     }
     
