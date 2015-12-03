@@ -13,7 +13,6 @@ class BackViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet var backText: UITextView!
     var selected: String!
-    var ID: String!
     var setName: String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +30,7 @@ class BackViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func Save(sender: AnyObject) {
         //get objectID
         let query = PFQuery(className:"CardInfo")
+        print(ID)
         query.getObjectInBackgroundWithId(ID) {
             (object, error) -> Void in
             if error != nil {
@@ -49,7 +49,6 @@ class BackViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             }
         }
         print("Saving Back")
-//        performSegueWithIdentifier("toIndividualCards", sender: nil)
         performSegueWithIdentifier("BackToCard", sender: nil)
         
     }
@@ -76,7 +75,6 @@ class BackViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         print("image has been picked")
         imagePicked!.image = image
-        backText.text = ""
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }

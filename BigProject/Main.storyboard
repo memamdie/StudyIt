@@ -100,7 +100,7 @@
                                         <animations/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell2" id="D6v-Yy-DJZ">
-                                        <rect key="frame" x="64.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="65" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -138,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbX-0X-ek2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="598" y="1861"/>
+            <point key="canvasLocation" x="551" y="1673"/>
         </scene>
         <!--Set To Card View Controller-->
         <scene sceneID="nQ3-Jt-1Z2">
@@ -152,7 +152,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f6N-CP-x0T">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f6N-CP-x0T">
                                 <rect key="frame" x="49" y="173" width="481" height="427"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -342,7 +342,7 @@
                                         <rightBarButtonItems>
                                             <barButtonItem systemItem="add" id="4xf-s8-cNy">
                                                 <connections>
-                                                    <action selector="addSet:" destination="gMl-Oa-Bou" id="QsI-di-wSb"/>
+                                                    <action selector="addSet:" destination="gMl-Oa-Bou" id="CK0-iq-Q1m"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem systemItem="trash" id="qFR-mj-9md">
@@ -413,7 +413,6 @@
                                             <barButtonItem title="Back of Card" id="uoA-qI-ft3">
                                                 <connections>
                                                     <action selector="GetTitle:" destination="eKG-cB-h3T" id="Srw-be-hmB"/>
-                                                    <segue destination="LU0-Y6-D0V" kind="show" identifier="FrontToBack" id="j0S-dn-tIr"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem systemItem="camera" id="cP8-tn-xPI">
@@ -462,6 +461,7 @@
                     <connections>
                         <outlet property="EnteredText" destination="pN0-QM-GXy" id="UNW-NA-L1E"/>
                         <outlet property="imagePicked" destination="CLh-o1-luR" id="cba-K9-MeL"/>
+                        <segue destination="LU0-Y6-D0V" kind="show" identifier="FrontToBack" id="jox-Bj-S0V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Tx-Yk-f0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -507,7 +507,7 @@
                                         <rightBarButtonItems>
                                             <barButtonItem title="Save" id="RKD-ra-4UG">
                                                 <connections>
-                                                    <action selector="Save:" destination="LU0-Y6-D0V" id="Ahz-ha-bJ5"/>
+                                                    <action selector="Save:" destination="LU0-Y6-D0V" id="gzx-6N-KFo"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem systemItem="camera" id="N2s-4x-ldK">
@@ -557,7 +557,7 @@
                     <connections>
                         <outlet property="backText" destination="ghF-zY-53a" id="74P-1O-pug"/>
                         <outlet property="imagePicked" destination="RdE-NW-d6a" id="ITm-le-joY"/>
-                        <segue destination="u8t-gQ-Aqq" kind="show" identifier="BackToCard" id="akQ-hB-opt"/>
+                        <segue destination="u8t-gQ-Aqq" kind="show" identifier="BackToCard" id="QXJ-N5-Pex"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqq-zK-ecD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -590,11 +590,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CpB-bn-2eW">
-                                <rect key="frame" x="311" y="184" width="240" height="357"/>
+                                <rect key="frame" x="311" y="365" width="240" height="176"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Hiv-3Z-Huy"/>
-                                    <constraint firstAttribute="height" constant="357" id="e9o-Wi-GhW"/>
+                                    <constraint firstAttribute="height" constant="176" id="a9O-Gj-Xbf"/>
                                 </constraints>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ze-fC-stU">
@@ -658,9 +658,9 @@
         <image name="flashcard.png" width="600" height="359"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nTm-Of-ex0"/>
-        <segue reference="TF6-OI-hbY"/>
-        <segue reference="yQa-hB-IFV"/>
-        <segue reference="DXz-tl-VwH"/>
+        <segue reference="QXJ-N5-Pex"/>
+        <segue reference="dzL-k2-g0u"/>
+        <segue reference="gjL-VO-g0s"/>
+        <segue reference="Knv-eF-QiT"/>
     </inferredMetricsTieBreakers>
 </document>
