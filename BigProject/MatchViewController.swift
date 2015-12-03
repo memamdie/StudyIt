@@ -41,7 +41,11 @@ class MatchViewController: UIViewController {
         let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
         cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
         
+        cellLayout.sectionInset = UIEdgeInsetsMake(0.0, 0.0,10,0);
+        
         cellLayout.minimumLineSpacing = 10
+        
+        
         super.viewDidLoad()
 
     }
@@ -128,7 +132,7 @@ class MatchViewController: UIViewController {
         
         
         if indexPath.section == 0 {
-            if let value = cards[indexPath.row]["frontstring"] as? String {
+            if let value = cards[indexPath.row]["frontstring"] as? String{
        
                 comment = value
                 
@@ -139,15 +143,35 @@ class MatchViewController: UIViewController {
                 name.text = comment
                 name.contentMode = UIViewContentMode.ScaleToFill
                 name.textAlignment = NSTextAlignment.Center
-        
-                var pic = UIImageView(image: UIImage(named: "card.png"))
-//                cell.addSubview(pic)
                 
                 var backpic = UIImageView(image: UIImage(named: "flashcard.png"))
                 backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
                 
                 cell.addSubview(backpic)
                 cell.addSubview(name)
+                
+            }
+            
+             if let value = cards[indexPath.row]["frontpic"] as? PFFile {
+                print("add images")
+                let cellsize = CGFloat(widthsize)
+                
+                var pic = UIImageView(image: UIImage(named: ""))
+                pic.frame = CGRectMake(0, 0, cellsize, cellsize)
+                
+                    value.getDataInBackgroundWithBlock {
+                        (imageData: NSData?, error: NSError?) -> Void in
+                        pic.image = UIImage(data: imageData!)
+                         cell.addSubview(pic)
+                    }
+                
+              
+            
+                var backpic = UIImageView(image: UIImage(named: "flashcard.png"))
+                backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
+                
+//                cell.addSubview(backpic)
+               
                 
             }
         }
@@ -173,9 +197,32 @@ class MatchViewController: UIViewController {
                 cell.addSubview(name2)
                
             }
+            if let value = cards[indexPath.row]["backpic"] as? PFFile {
+                print("add images")
+                let cellsize = CGFloat(widthsize)
+                
+                var pic = UIImageView(image: UIImage(named: ""))
+                pic.frame = CGRectMake(0, 0, cellsize, cellsize)
+                
+                value.getDataInBackgroundWithBlock {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    pic.image = UIImage(data: imageData!)
+                    cell.addSubview(pic)
+                }
+                
+                
+                
+                var backpic = UIImageView(image: UIImage(named: "flashcard.png"))
+                backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
+                
+                //                cell.addSubview(backpic)
+                
+                
+            }
+
         }
         
-        cell.backgroundColor = UIColor.lightGrayColor()
+        cell.backgroundColor = UIColor.clearColor()
 
         
         return cell
@@ -285,6 +332,15 @@ class MatchViewController: UIViewController {
         print("Object ID", cards[indexPath.row].objectId )
         cell?.selected = false
 
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+       if segue.identifier == "MatchToHome" {
+            print("Segueing to card screen")
+            let card = segue.destinationViewController as! SetToCardViewController
+            card.setName = setName
+        }
     }
     
     

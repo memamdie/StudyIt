@@ -13,11 +13,11 @@ class BackViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet var backText: UITextView!
     var selected: String!
-    //var cardID: String!
+    var ID: String!
     var setName: String!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(selected)
+//        print(selected)
         imagePicker.delegate = self
         // Do any additional setup after loading the view.
     }

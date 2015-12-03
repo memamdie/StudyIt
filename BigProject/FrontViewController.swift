@@ -83,7 +83,7 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
             let fvc = segue.destinationViewController as! BackViewController
             
             fvc.selected = cardname
-            //fvc.cardID = ""
+            fvc.ID = ""
             fvc.setName = setName
             print("front to back")
         }
