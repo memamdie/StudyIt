@@ -224,7 +224,8 @@ class MatchViewController: UIViewController {
         
         cell.backgroundColor = UIColor.clearColor()
 
-        
+        cell.layer.cornerRadius = 7
+
         return cell
     }
     

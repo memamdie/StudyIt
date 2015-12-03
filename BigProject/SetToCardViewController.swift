@@ -113,7 +113,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
                 name.textAlignment = NSTextAlignment.Center
 
                 let pic = UIImageView(image: UIImage(named: "flashcard.png"))
-                pic.frame = CGRectMake(0, -5, cellsize, cellsize)
+                pic.frame = CGRectMake(0, 0, cellsize, cellsize)
 
                 cell.addSubview(pic)
                 cell.addSubview(name)
@@ -131,6 +131,8 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         
         cell.backgroundColor = UIColor.clearColor()
+        cell.layer.cornerRadius = 7
+
         return cell
     }
     

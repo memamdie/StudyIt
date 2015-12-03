@@ -37,7 +37,15 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
     }
     
-    
+    @IBAction func HelpMe(sender: AnyObject) {
+        
+        let alertControl: UIAlertController = UIAlertController(title: "Help Menu", message:"Wecome to StudyIt! Here you can create multiple sets with its own individuals cards to study and  play a matching game with. To start creating your personal set click on the '+' button on the top right." , preferredStyle: .Alert)
+
+        let cancel = UIAlertAction(title: "Cancel", style: .Default) {action -> Void in}
+        alertControl.addAction(cancel)
+        self.presentViewController(alertControl, animated: true, completion: nil)
+
+    }
     
     @IBAction func SignOut(sender: AnyObject) {
         PFUser.logOut()
@@ -155,13 +163,14 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         
         let backpic = UIImageView(image: UIImage(named: "flashcard.png"))
-        backpic.frame = CGRectMake(0, -5, cellsize, cellsize)
+        backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
     
         
         cell.addSubview(backpic)
         cell.addSubview(name)
 
         cell.backgroundColor = UIColor.clearColor()
+        cell.layer.cornerRadius = 7
         return cell
     }
     

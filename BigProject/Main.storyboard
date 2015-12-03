@@ -229,6 +229,9 @@
                                 <state key="normal" title="Shuffle">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="shuffle" destination="u8t-gQ-Aqq" eventType="touchUpInside" id="h4Q-Ss-Tw3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S21-dT-QFx">
                                 <rect key="frame" x="361" y="101" width="63" height="30"/>
@@ -272,6 +275,7 @@
                         <outlet property="studybutton" destination="S21-dT-QFx" id="Cbl-rV-Ctc"/>
                         <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="Pwd-bZ-hgr"/>
                         <segue destination="yGh-7U-wQV" kind="show" identifier="shuffled" id="DXz-tl-VwH"/>
+                        <segue destination="yGh-7U-wQV" kind="show" identifier="shuffled" id="pu4-QC-4Ha"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -334,11 +338,18 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Your Sets" id="ntC-qk-tEN">
-                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="PUO-Oe-gqS">
-                                            <connections>
-                                                <action selector="SignOut:" destination="gMl-Oa-Bou" id="T9a-HG-unb"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <leftBarButtonItems>
+                                            <barButtonItem title="Sign Out" id="PUO-Oe-gqS">
+                                                <connections>
+                                                    <action selector="SignOut:" destination="gMl-Oa-Bou" id="T9a-HG-unb"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Help" id="ycu-QN-g0V">
+                                                <connections>
+                                                    <action selector="HelpMe:" destination="gMl-Oa-Bou" id="b2L-g2-8IQ"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </leftBarButtonItems>
                                         <rightBarButtonItems>
                                             <barButtonItem systemItem="add" id="4xf-s8-cNy">
                                                 <connections>
@@ -658,9 +669,9 @@
         <image name="flashcard.png" width="600" height="359"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QXJ-N5-Pex"/>
-        <segue reference="dzL-k2-g0u"/>
-        <segue reference="gjL-VO-g0s"/>
-        <segue reference="Knv-eF-QiT"/>
+        <segue reference="RYy-re-xhi"/>
+        <segue reference="yQa-hB-IFV"/>
+        <segue reference="Pwd-bZ-hgr"/>
+        <segue reference="pu4-QC-4Ha"/>
     </inferredMetricsTieBreakers>
 </document>
