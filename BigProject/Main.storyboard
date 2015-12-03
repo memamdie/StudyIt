@@ -22,29 +22,20 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <animations/>
                                 <items>
-                                    <navigationItem title="Your Sets" id="ufp-T6-egY">
+                                    <navigationItem title="About StudyIt" id="ufp-T6-egY">
                                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="XSX-Tx-sVA">
                                             <connections>
                                                 <action selector="signOut:" destination="BYZ-38-t0r" id="wXR-vO-kna"/>
                                             </connections>
                                         </barButtonItem>
-                                        <rightBarButtonItems>
-                                            <barButtonItem systemItem="add" id="7jO-6V-xzq"/>
-                                            <barButtonItem systemItem="trash" id="2qQ-qI-jCi"/>
-                                        </rightBarButtonItems>
+                                        <barButtonItem key="rightBarButtonItem" title="Home" id="7jO-6V-xzq">
+                                            <connections>
+                                                <segue destination="gMl-Oa-Bou" kind="show" id="I0i-Gk-WWF"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJ8-OF-S2V">
-                                <rect key="frame" x="279" y="85" width="42" height="30"/>
-                                <state key="normal" title="About">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="about:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MhQ-ZM-pAs"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKC-Up-i63">
                                 <rect key="frame" x="125" y="200" width="350" height="200"/>
                                 <constraints>
@@ -63,13 +54,11 @@
                             <constraint firstAttribute="trailing" secondItem="8VZ-Pa-b5g" secondAttribute="trailing" id="Ek6-pf-9HQ"/>
                             <constraint firstItem="WKC-Up-i63" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FVv-r3-tBU"/>
                             <constraint firstItem="8VZ-Pa-b5g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TYK-Af-WdM"/>
-                            <constraint firstItem="jJ8-OF-S2V" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-200" id="UZn-qt-PoX"/>
-                            <constraint firstItem="jJ8-OF-S2V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wAw-6J-veH"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="aboutButton" destination="jJ8-OF-S2V" id="jVw-lA-3aM"/>
                         <outlet property="addButton" destination="7jO-6V-xzq" id="cUS-d9-XSw"/>
+                        <outlet property="homeButton" destination="7jO-6V-xzq" id="OCR-19-MuX"/>
                         <outlet property="instruction" destination="WKC-Up-i63" id="l5G-N0-j7G"/>
                         <segue destination="gMl-Oa-Bou" kind="show" identifier="viewToHome" animates="NO" id="fTf-VH-GOa"/>
                     </connections>
@@ -860,12 +849,12 @@
         <image name="flashcard.png" width="600" height="359"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Q0K-00-A9x"/>
+        <segue reference="FFr-B2-nmJ"/>
         <segue reference="BOg-A4-r2c"/>
         <segue reference="fTf-VH-GOa"/>
-        <segue reference="rkx-OI-NgA"/>
+        <segue reference="A4d-37-rCx"/>
         <segue reference="AWg-Le-xxg"/>
         <segue reference="u19-cP-Oav"/>
-        <segue reference="FFr-B2-nmJ"/>
+        <segue reference="Q0K-00-A9x"/>
     </inferredMetricsTieBreakers>
 </document>
