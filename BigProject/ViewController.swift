@@ -14,20 +14,22 @@ import ParseUI
 
 class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
     
-    @IBOutlet var collection: UICollectionView!
     var currentUser = PFUser.currentUser()
-    var cards = [PFObject]()
     
+    @IBOutlet var instruction: UILabel!
+    
+    @IBOutlet weak var homeButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        instruction.text = "Wecome to StudyIt! Here you can create multiple sets with its own individuals cards to study and  play a matching game with. To start creating your personal set click on the 'Home' button on the top right."
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         // Go to sets view controller if user exist
-        if (PFUser.currentUser() != nil) {
+        if (currentUser != nil) {
             self.performSegueWithIdentifier("viewToHome", sender: self)
         }
         else {
@@ -51,8 +53,8 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     }
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-        self.dismissViewControllerAnimated(true, completion: nil)
         self.performSegueWithIdentifier("viewToHome", sender: self)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
@@ -60,10 +62,11 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
             let cancelButtonTitle = NSLocalizedString("OK", comment: "")
             UIAlertView(title: "Invalid login paramenter, please try again", message: nil, delegate: nil, cancelButtonTitle: cancelButtonTitle).show()
         }
-        print("Failed to log in...\(description)")
+        print("Failed to log in...\(error?.localizedDescription)")
     }
     
      func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+        self.performSegueWithIdentifier("viewToHome", sender: self)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -109,13 +112,11 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
             logInViewController.signUpController = signUpViewController
             
             self.presentViewController(logInViewController, animated: true, completion: nil)
-            
         }
     }
   
     @IBAction func signOut(sender: AnyObject) {
         PFUser.logOut()
-        
         self.loginSetup()
     }
     

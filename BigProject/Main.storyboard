@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -22,35 +22,50 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <animations/>
                                 <items>
-                                    <navigationItem title="Your Sets" id="ufp-T6-egY">
+                                    <navigationItem title="About StudyIt" id="ufp-T6-egY">
                                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="XSX-Tx-sVA">
                                             <connections>
                                                 <action selector="signOut:" destination="BYZ-38-t0r" id="wXR-vO-kna"/>
                                             </connections>
                                         </barButtonItem>
-                                        <rightBarButtonItems>
-                                            <barButtonItem systemItem="add" id="7jO-6V-xzq"/>
-                                            <barButtonItem systemItem="trash" id="2qQ-qI-jCi"/>
-                                        </rightBarButtonItems>
+                                        <barButtonItem key="rightBarButtonItem" title="Home" id="7jO-6V-xzq">
+                                            <connections>
+                                                <segue destination="gMl-Oa-Bou" kind="show" id="I0i-Gk-WWF"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKC-Up-i63">
+                                <rect key="frame" x="125" y="200" width="350" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="SjT-Ro-yPh"/>
+                                    <constraint firstAttribute="height" constant="200" id="yVj-10-1HH"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8VZ-Pa-b5g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0hA-Sw-MC5"/>
+                            <constraint firstItem="WKC-Up-i63" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BpO-hh-mQ3"/>
                             <constraint firstAttribute="trailing" secondItem="8VZ-Pa-b5g" secondAttribute="trailing" id="Ek6-pf-9HQ"/>
+                            <constraint firstItem="WKC-Up-i63" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FVv-r3-tBU"/>
                             <constraint firstItem="8VZ-Pa-b5g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TYK-Af-WdM"/>
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="gMl-Oa-Bou" kind="show" identifier="viewToHome" id="QoY-vb-H3k"/>
+                        <outlet property="addButton" destination="7jO-6V-xzq" id="cUS-d9-XSw"/>
+                        <outlet property="homeButton" destination="7jO-6V-xzq" id="OCR-19-MuX"/>
+                        <outlet property="instruction" destination="WKC-Up-i63" id="l5G-N0-j7G"/>
+                        <segue destination="gMl-Oa-Bou" kind="show" identifier="viewToHome" animates="NO" id="fTf-VH-GOa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-135" y="191"/>
+            <point key="canvasLocation" x="-135" y="157"/>
         </scene>
         <!--Match View Controller-->
         <scene sceneID="9Hp-kL-6e8">
@@ -71,7 +86,7 @@
                                     <navigationItem title="Match" id="Raa-Zu-haE">
                                         <barButtonItem key="leftBarButtonItem" title="Home" id="5Dg-U4-ZdH">
                                             <connections>
-                                                <segue destination="gMl-Oa-Bou" kind="show" id="VFa-MJ-cvB"/>
+                                                <segue destination="gMl-Oa-Bou" kind="show" identifier="matchToHome" animates="NO" id="hzK-JI-o6R"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -137,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbX-0X-ek2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1234" y="1653"/>
+            <point key="canvasLocation" x="667" y="1879"/>
         </scene>
         <!--Set To Card View Controller-->
         <scene sceneID="nQ3-Jt-1Z2">
@@ -184,10 +199,11 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Cards" id="7qH-X8-fti">
-                                        <leftBarButtonItems>
-                                            <barButtonItem title="Sign Out" id="kGS-Jh-azS"/>
-                                            <barButtonItem title="Home" id="n7G-DE-1wj"/>
-                                        </leftBarButtonItems>
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="n7G-DE-1wj">
+                                            <connections>
+                                                <segue destination="gMl-Oa-Bou" kind="show" id="wLe-0n-Rcz"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <rightBarButtonItems>
                                             <barButtonItem title="Item" systemItem="add" id="8oe-G4-BVX">
                                                 <connections>
@@ -214,7 +230,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wCG-gz-6va" kind="show" identifier="Match" id="7ZN-XQ-vR5"/>
+                                    <segue destination="wCG-gz-6va" kind="show" identifier="Match" id="Zcc-9q-B9z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku7-Rt-7sj">
@@ -227,6 +243,9 @@
                                 <state key="normal" title="Shuffle">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="shuffle" destination="u8t-gQ-Aqq" eventType="touchUpInside" id="S5R-6B-3To"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S21-dT-QFx">
                                 <rect key="frame" x="361" y="101" width="63" height="30"/>
@@ -240,7 +259,6 @@
                                 </state>
                                 <connections>
                                     <action selector="StudyIt:" destination="u8t-gQ-Aqq" eventType="touchUpInside" id="rRG-Ei-r5V"/>
-                                    <segue destination="yGh-7U-wQV" kind="show" identifier="Study" id="gjL-VO-g0s"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -265,13 +283,212 @@
                     <connections>
                         <outlet property="collection" destination="f6N-CP-x0T" id="fys-XZ-rgC"/>
                         <outlet property="navTitle" destination="7qH-X8-fti" id="Src-gd-mLv"/>
-                        <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="Pwd-bZ-hgr"/>
-                        <segue destination="yGh-7U-wQV" kind="show" identifier="shuffled" id="DXz-tl-VwH"/>
+                        <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="FFr-B2-nmJ"/>
+                        <segue destination="yGh-7U-wQV" kind="show" identifier="Study" id="kg2-Jc-YRr"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="cardToHome" animates="NO" id="rkx-OI-NgA"/>
+                        <segue destination="yGh-7U-wQV" kind="show" identifier="shuffled" id="Q0K-00-A9x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmk-9n-nXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="551" y="940"/>
+            <point key="canvasLocation" x="667" y="1059"/>
+        </scene>
+        <!--Set Table-->
+        <scene sceneID="cC9-br-IXw">
+            <objects>
+                <viewController title="Set Table" id="iyZ-Md-vQG" customClass="setViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kmn-HL-sxW"/>
+                        <viewControllerLayoutGuide type="bottom" id="yIk-0K-C59"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pXc-zp-JVN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDM-VD-yk2">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem title="Profile?" id="f82-Y7-tfN">
+                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="fb0-6y-T3o">
+                                            <connections>
+                                                <action selector="logOut:" destination="iyZ-Md-vQG" id="Wjx-5T-RBF"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="wcp-Jw-Hgc">
+                                                <connections>
+                                                    <action selector="newSet:" destination="iyZ-Md-vQG" id="u56-Jw-mBq"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Testing" id="CKq-IK-k3v">
+                                                <connections>
+                                                    <segue destination="gMl-Oa-Bou" kind="show" id="Tdh-dJ-M08"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udo-uO-jXm">
+                                <rect key="frame" x="286" y="280" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4YG-Y6-9Pn">
+                                <rect key="frame" x="90" y="83" width="421" height="215"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="421" id="Rgd-2G-AcN"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" editingAccessoryType="disclosureIndicator" textLabel="1ou-t5-SyS" detailTextLabel="D3i-U8-e0d" style="IBUITableViewCellStyleValue1" id="Dke-xh-bQZ">
+                                        <rect key="frame" x="0.0" y="28" width="421" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dke-xh-bQZ" id="nWd-pa-uDe">
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1ou-t5-SyS">
+                                                    <rect key="frame" x="15" y="12" width="32" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D3i-U8-e0d">
+                                                    <rect key="frame" x="344" y="12" width="42" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="iyZ-Md-vQG" id="unQ-HH-Lpn"/>
+                                    <outlet property="delegate" destination="iyZ-Md-vQG" id="LuF-PJ-OZS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fDM-VD-yk2" firstAttribute="leading" secondItem="pXc-zp-JVN" secondAttribute="leading" id="Aac-hv-caW"/>
+                            <constraint firstItem="4YG-Y6-9Pn" firstAttribute="centerX" secondItem="pXc-zp-JVN" secondAttribute="centerX" id="Cqj-AW-LhL"/>
+                            <constraint firstAttribute="trailing" secondItem="fDM-VD-yk2" secondAttribute="trailing" id="Dbd-xg-VpF"/>
+                            <constraint firstItem="4YG-Y6-9Pn" firstAttribute="top" secondItem="fDM-VD-yk2" secondAttribute="bottom" constant="11" id="GaA-HS-2IE"/>
+                            <constraint firstItem="fDM-VD-yk2" firstAttribute="top" secondItem="Kmn-HL-sxW" secondAttribute="bottom" constant="8" id="L2k-HI-WhY"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="table" destination="4YG-Y6-9Pn" id="at8-4k-lX7"/>
+                        <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="meP-hC-F5U"/>
+                        <segue destination="DiB-RA-CtL" kind="show" identifier="toSpecifiedSet" id="u19-cP-Oav"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="setTableToHome" animates="NO" id="5MQ-tH-ohF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-5a-DWw" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="-497"/>
+        </scene>
+        <!--Card Table-->
+        <scene sceneID="G46-ts-62k">
+            <objects>
+                <viewController title="Card Table" id="DiB-RA-CtL" customClass="cardTableViewController" customModule="StudyIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cG6-Zx-dmP"/>
+                        <viewControllerLayoutGuide type="bottom" id="TI7-R0-qwh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RXA-Q5-dJd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bFo-fL-BpO">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem title="Cards" id="eoS-IF-yzY">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="4bx-bv-nRZ">
+                                            <connections>
+                                                <segue destination="iyZ-Md-vQG" kind="show" id="Ugy-Wv-VjU"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem style="plain" systemItem="add" id="icQ-N9-Kh6">
+                                                <connections>
+                                                    <action selector="newCard:" destination="DiB-RA-CtL" id="3Fp-6s-vzi"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="l83-1U-fHH">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W8Z-ah-9qi">
+                                                    <rect key="frame" x="411" y="7" width="133" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <state key="normal" title="Shuffle"/>
+                                                    <connections>
+                                                        <action selector="shuffle" destination="DiB-RA-CtL" eventType="touchUpInside" id="Sqe-8h-nYU"/>
+                                                    </connections>
+                                                </button>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zhY-cq-PBw">
+                                <rect key="frame" x="180" y="98" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7OF-YY-Zt4">
+                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7OF-YY-Zt4" id="jps-fT-ryl">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="DiB-RA-CtL" id="e1D-eu-1DS"/>
+                                    <outlet property="delegate" destination="DiB-RA-CtL" id="sTb-fY-Wel"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDk-nN-T2f">
+                                <rect key="frame" x="87" y="284" width="99" height="67"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="bFo-fL-BpO" firstAttribute="top" secondItem="cG6-Zx-dmP" secondAttribute="bottom" constant="8" id="Gsc-9I-tPs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="eKG-cB-h3T" kind="show" identifier="newCardFromSet" id="0Uy-Ar-Yhh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QKH-U0-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876" y="-597"/>
         </scene>
         <!--Sets View Controller-->
         <scene sceneID="OYq-9h-QNr">
@@ -323,6 +540,9 @@
                                 <rect key="frame" x="76" y="91" width="46" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="iyZ-Md-vQG" kind="show" id="AWg-Le-xxg"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yic-Zl-LtB">
                                 <rect key="frame" x="-1" y="28" width="600" height="44"/>
@@ -338,7 +558,6 @@
                                             <barButtonItem systemItem="add" id="4xf-s8-cNy">
                                                 <connections>
                                                     <action selector="addSet:" destination="gMl-Oa-Bou" id="QsI-di-wSb"/>
-                                                    <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="OTg-cL-Qig"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem systemItem="trash" id="qFR-mj-9md">
@@ -367,12 +586,14 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="Eaq-QG-KJK" id="cTp-Bo-gZI"/>
-                        <segue destination="u8t-gQ-Aqq" kind="show" identifier="SetToCard" id="BVF-Ag-uUi"/>
+                        <segue destination="u8t-gQ-Aqq" kind="show" identifier="SetToCard" id="BOg-A4-r2c"/>
+                        <segue destination="eKG-cB-h3T" kind="show" identifier="toCard" id="dsx-EF-USm"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="setsViewToHome" animates="NO" id="A4d-37-rCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYr-47-0TO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-135" y="940"/>
+            <point key="canvasLocation" x="-135" y="1059"/>
         </scene>
         <!--Front View Controller-->
         <scene sceneID="9tA-US-ytH">
@@ -389,12 +610,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flashcard.png" translatesAutoresizingMaskIntoConstraints="NO" id="zJS-jm-6Df">
                                 <rect key="frame" x="8" y="159" width="584" height="282"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="584" id="d6K-Sx-lni"/>
+                                    <constraint firstAttribute="height" constant="282" id="zoD-O1-dCX"/>
+                                </constraints>
                             </imageView>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" text="Hello Guys!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pN0-QM-GXy">
                                 <rect key="frame" x="22" y="207" width="279" height="209"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="279" id="joP-q5-buH"/>
+                                    <constraint firstAttribute="width" constant="279" id="Gtl-MV-ffq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
@@ -406,14 +631,13 @@
                                     <navigationItem title="Front" id="pJa-Gg-U1n">
                                         <barButtonItem key="leftBarButtonItem" title="Home" id="Sb0-VO-7Zf">
                                             <connections>
-                                                <segue destination="gMl-Oa-Bou" kind="show" id="7z2-wD-OVr"/>
+                                                <segue destination="gMl-Oa-Bou" kind="show" id="O49-qS-I3l"/>
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
                                             <barButtonItem title="Back of Card" id="uoA-qI-ft3">
                                                 <connections>
                                                     <action selector="GetTitle:" destination="eKG-cB-h3T" id="Srw-be-hmB"/>
-                                                    <segue destination="LU0-Y6-D0V" kind="show" identifier="FrontToBack" id="j0S-dn-tIr"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem systemItem="camera" id="cP8-tn-xPI">
@@ -425,41 +649,34 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CLh-o1-luR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLh-o1-luR">
                                 <rect key="frame" x="300" y="207" width="273" height="199"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="273" id="SmF-wz-R3v"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="pN0-QM-GXy" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="52" id="65v-1B-Y1Y"/>
-                            <constraint firstItem="zJS-jm-6Df" firstAttribute="centerX" secondItem="bK9-Rx-2V7" secondAttribute="centerX" id="Eva-VB-Nz3"/>
-                            <constraint firstItem="pN0-QM-GXy" firstAttribute="top" secondItem="CLh-o1-luR" secondAttribute="top" id="MeO-yO-jmQ"/>
-                            <constraint firstItem="zJS-jm-6Df" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="4" id="P7n-Y6-2Q4"/>
-                            <constraint firstItem="NAf-SP-upO" firstAttribute="top" secondItem="zJS-jm-6Df" secondAttribute="bottom" constant="159" id="VTt-br-ZzZ"/>
-                            <constraint firstItem="zJS-jm-6Df" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leadingMargin" constant="-12" id="VmK-ip-X89"/>
-                            <constraint firstItem="pN0-QM-GXy" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leadingMargin" constant="2" id="Z5l-SY-mLE"/>
-                            <constraint firstItem="bK9-Rx-2V7" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leading" id="dDb-G3-iCN"/>
-                            <constraint firstItem="zJS-jm-6Df" firstAttribute="centerY" secondItem="bU8-Ha-R5k" secondAttribute="centerY" id="dcy-U3-b94"/>
-                            <constraint firstItem="NAf-SP-upO" firstAttribute="top" secondItem="pN0-QM-GXy" secondAttribute="bottom" constant="184" id="qfB-qO-lzi"/>
-                            <constraint firstItem="NAf-SP-upO" firstAttribute="top" secondItem="CLh-o1-luR" secondAttribute="bottom" constant="194" id="qfb-Kk-5cv"/>
-                            <constraint firstAttribute="trailing" secondItem="bK9-Rx-2V7" secondAttribute="trailing" id="t5c-f1-Upb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CLh-o1-luR" secondAttribute="trailing" constant="7" id="xV1-OT-6dK"/>
+                            <constraint firstItem="zJS-jm-6Df" firstAttribute="centerY" secondItem="bU8-Ha-R5k" secondAttribute="centerY" id="2IX-kP-9MS"/>
+                            <constraint firstItem="bK9-Rx-2V7" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leading" id="9Na-bW-g7M"/>
+                            <constraint firstItem="zJS-jm-6Df" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="MI3-J4-ai7"/>
+                            <constraint firstItem="bK9-Rx-2V7" firstAttribute="centerX" secondItem="bU8-Ha-R5k" secondAttribute="centerX" id="NeR-LT-fDs"/>
+                            <constraint firstItem="pN0-QM-GXy" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="52" id="RTa-FX-gyG"/>
+                            <constraint firstItem="NAf-SP-upO" firstAttribute="top" secondItem="pN0-QM-GXy" secondAttribute="bottom" constant="184" id="TdA-YR-bB9"/>
+                            <constraint firstItem="zJS-jm-6Df" firstAttribute="top" secondItem="bK9-Rx-2V7" secondAttribute="bottom" constant="4" id="aVE-lK-TnN"/>
+                            <constraint firstItem="pN0-QM-GXy" firstAttribute="leading" secondItem="bU8-Ha-R5k" secondAttribute="leadingMargin" constant="2" id="jM7-uO-Miy"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="EnteredText" destination="pN0-QM-GXy" id="UNW-NA-L1E"/>
-                        <outlet property="imagePicked" destination="CLh-o1-luR" id="cba-K9-MeL"/>
+                        <outlet property="imagePicked" destination="CLh-o1-luR" id="eBL-PO-Xzi"/>
+                        <segue destination="LU0-Y6-D0V" kind="show" identifier="FrontToBack" id="NnY-cx-23L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Tx-Yk-f0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="551" y="191"/>
+            <point key="canvasLocation" x="1222" y="191"/>
         </scene>
         <!--Back View Controller-->
         <scene sceneID="hHL-ot-Psy">
@@ -473,26 +690,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flashcard.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rqy-Gu-MpP">
-                                <rect key="frame" x="8" y="160" width="584" height="282"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flashcard.png" translatesAutoresizingMaskIntoConstraints="NO" id="mJ5-tj-p9b">
+                                <rect key="frame" x="8" y="159" width="584" height="282"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="584" id="d2I-XL-Mfc"/>
+                                    <constraint firstAttribute="height" constant="282" id="lKg-iF-MP8"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write Notes Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ghF-zY-53a">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Write Notes Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ghF-zY-53a">
                                 <rect key="frame" x="18" y="195" width="261" height="233"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="551" id="dOF-uM-aAa"/>
+                                    <constraint firstAttribute="height" constant="210" id="mWD-EF-rwx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" keyboardAppearance="light"/>
                             </textView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbC-Bj-uur">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lbC-Bj-uur">
                                 <rect key="frame" x="0.0" y="111" width="600" height="44"/>
                                 <animations/>
                                 <items>
                                     <navigationItem title="Back" id="e4K-rF-iGB">
                                         <leftBarButtonItems>
-                                            <barButtonItem title="Home" id="PBp-yv-nyS"/>
+                                            <barButtonItem title="Home" id="PBp-yv-nyS">
+                                                <connections>
+                                                    <segue destination="iyZ-Md-vQG" kind="show" id="eGf-8t-LJp"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem title="Front" id="aB1-C0-Kgj">
                                                 <connections>
-                                                    <segue destination="eKG-cB-h3T" kind="show" identifier="" id="dzL-k2-g0u"/>
+                                                    <segue destination="eKG-cB-h3T" kind="show" id="TMg-GK-TIp"/>
                                                 </connections>
                                             </barButtonItem>
                                         </leftBarButtonItems>
@@ -511,42 +740,32 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-NW-d6a">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-NW-d6a">
                                 <rect key="frame" x="318" y="195" width="256" height="211"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="256" id="Tdy-YZ-0Sz"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="lbC-Bj-uur" secondAttribute="trailing" id="41W-0h-ZbL"/>
-                            <constraint firstItem="Rqy-Gu-MpP" firstAttribute="leading" secondItem="aY1-DJ-Mao" secondAttribute="leadingMargin" constant="-12" id="4SB-zo-nIC"/>
-                            <constraint firstItem="yfS-9m-6WQ" firstAttribute="top" secondItem="Rqy-Gu-MpP" secondAttribute="bottom" constant="158" id="9xf-Mp-NMe"/>
-                            <constraint firstItem="ghF-zY-53a" firstAttribute="top" secondItem="RdE-NW-d6a" secondAttribute="top" id="DSv-G1-RX3"/>
-                            <constraint firstItem="RdE-NW-d6a" firstAttribute="centerY" secondItem="aY1-DJ-Mao" secondAttribute="centerY" id="DXX-Uo-WFR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RdE-NW-d6a" secondAttribute="trailing" constant="6" id="R62-MO-7Qq"/>
-                            <constraint firstItem="RdE-NW-d6a" firstAttribute="leading" secondItem="ghF-zY-53a" secondAttribute="trailing" constant="39" id="VZ1-yq-c1D"/>
-                            <constraint firstItem="Rqy-Gu-MpP" firstAttribute="top" secondItem="lbC-Bj-uur" secondAttribute="bottom" constant="5" id="XtL-67-ec4"/>
-                            <constraint firstItem="yfS-9m-6WQ" firstAttribute="top" secondItem="ghF-zY-53a" secondAttribute="bottom" constant="172" id="fEw-9A-tg9"/>
-                            <constraint firstItem="RdE-NW-d6a" firstAttribute="centerY" secondItem="Rqy-Gu-MpP" secondAttribute="centerY" id="hIY-vj-x6D"/>
-                            <constraint firstItem="ghF-zY-53a" firstAttribute="leading" secondItem="aY1-DJ-Mao" secondAttribute="leadingMargin" constant="-2" id="hw5-xS-qYO"/>
-                            <constraint firstItem="lbC-Bj-uur" firstAttribute="leading" secondItem="aY1-DJ-Mao" secondAttribute="leading" id="kZN-Ra-9xR"/>
-                            <constraint firstItem="lbC-Bj-uur" firstAttribute="centerX" secondItem="Rqy-Gu-MpP" secondAttribute="centerX" id="tCX-dh-92i"/>
-                            <constraint firstItem="ghF-zY-53a" firstAttribute="top" secondItem="lbC-Bj-uur" secondAttribute="bottom" constant="40" id="tSd-Nd-oDE"/>
+                            <constraint firstItem="mJ5-tj-p9b" firstAttribute="centerY" secondItem="aY1-DJ-Mao" secondAttribute="centerY" id="0DX-e1-Leg"/>
+                            <constraint firstItem="ghF-zY-53a" firstAttribute="centerY" secondItem="aY1-DJ-Mao" secondAttribute="centerY" id="Qnj-1a-1bl"/>
+                            <constraint firstItem="lbC-Bj-uur" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="WIH-bn-DEt"/>
+                            <constraint firstItem="mJ5-tj-p9b" firstAttribute="top" secondItem="lbC-Bj-uur" secondAttribute="bottom" constant="4" id="cPU-Kf-sta"/>
+                            <constraint firstItem="ghF-zY-53a" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="g7Q-hM-jGq"/>
+                            <constraint firstItem="mJ5-tj-p9b" firstAttribute="centerX" secondItem="aY1-DJ-Mao" secondAttribute="centerX" id="mOF-9v-xaH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Image" destination="mJ5-tj-p9b" id="Ly3-XB-bjd"/>
                         <outlet property="backText" destination="ghF-zY-53a" id="74P-1O-pug"/>
-                        <outlet property="imagePicked" destination="RdE-NW-d6a" id="ITm-le-joY"/>
-                        <segue destination="u8t-gQ-Aqq" kind="show" identifier="BackToCard" id="akQ-hB-opt"/>
+                        <segue destination="DiB-RA-CtL" kind="show" identifier="toIndividualCards" id="UKw-Me-Ckc"/>
+                        <segue destination="u8t-gQ-Aqq" kind="show" identifier="BackToCard" id="iuG-uP-pqy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqq-zK-ecD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1234" y="191"/>
+            <point key="canvasLocation" x="1888" y="191"/>
         </scene>
         <!--Study View Controller-->
         <scene sceneID="ysX-KG-KK2">
@@ -568,9 +787,13 @@
                                     <constraint firstAttribute="width" constant="584" id="Xuy-hT-xnV"/>
                                 </constraints>
                             </imageView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" text="Hello Guys!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vRE-XY-CqQ">
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" text="Hello Guys!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vRE-XY-CqQ">
                                 <rect key="frame" x="22" y="184" width="560" height="232"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="557" id="dMQ-Kg-lxi"/>
+                                    <constraint firstAttribute="height" constant="232" id="vIx-Rv-Fox"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
@@ -582,7 +805,7 @@
                                         <leftBarButtonItems>
                                             <barButtonItem title="Home" id="CpU-G3-lsv">
                                                 <connections>
-                                                    <segue destination="gMl-Oa-Bou" kind="show" id="Knv-eF-QiT"/>
+                                                    <segue destination="gMl-Oa-Bou" kind="show" id="qWT-Ks-cVF"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem title="Next" id="oHS-TP-nxL">
@@ -619,16 +842,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBZ-qJ-Bw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1234" y="940"/>
+            <point key="canvasLocation" x="1570" y="1065"/>
         </scene>
     </scenes>
     <resources>
         <image name="flashcard.png" width="600" height="359"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="akQ-hB-opt"/>
-        <segue reference="dzL-k2-g0u"/>
-        <segue reference="7z2-wD-OVr"/>
-        <segue reference="DXz-tl-VwH"/>
+        <segue reference="FFr-B2-nmJ"/>
+        <segue reference="BOg-A4-r2c"/>
+        <segue reference="fTf-VH-GOa"/>
+        <segue reference="A4d-37-rCx"/>
+        <segue reference="AWg-Le-xxg"/>
+        <segue reference="u19-cP-Oav"/>
+        <segue reference="Q0K-00-A9x"/>
     </inferredMetricsTieBreakers>
 </document>
