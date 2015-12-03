@@ -20,6 +20,9 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
     var deletes = false
     var index = 0
     
+    @IBOutlet var shufflebutton: UIButton!
+    @IBOutlet var studybutton: UIButton!
+    @IBOutlet var matchbutton: UIButton!
     @IBOutlet var navTitle: UINavigationItem!
     
     override func viewDidLoad() {
@@ -30,6 +33,10 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         let cellWidth = ((UIScreen.mainScreen().bounds.width) - 32 - 30 ) / 4
         let cellLayout = collection.collectionViewLayout as! UICollectionViewFlowLayout
         cellLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        
+        shufflebutton.layer.cornerRadius = 10
+        studybutton.layer.cornerRadius = 10
+        matchbutton.layer.cornerRadius = 10
         super.viewDidLoad()
         
     }
@@ -106,7 +113,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
                 name.textAlignment = NSTextAlignment.Center
 
                 let pic = UIImageView(image: UIImage(named: "flashcard.png"))
-                pic.frame = CGRectMake(0, -5, cellsize, cellsize)
+                pic.frame = CGRectMake(0, 0, cellsize, cellsize)
 
                 cell.addSubview(pic)
                 cell.addSubview(name)
@@ -124,6 +131,8 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         
         cell.backgroundColor = UIColor.clearColor()
+        cell.layer.cornerRadius = 7
+
         return cell
     }
     
@@ -147,7 +156,7 @@ class SetToCardViewController: UIViewController, UICollectionViewDelegate, UICol
             alertControl.addAction(ok)
             alertControl.addAction(cancel)
             self.presentViewController(alertControl, animated: true, completion: nil)
-
+            collection.reloadData()
         }
     }
     

@@ -44,10 +44,10 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
             FriendName.setObject(self.EnteredText.text, forKey: "frontstring")
             FriendName.setObject((PFUser.currentUser()?.username)!, forKey: "username")
             FriendName.setObject(self.setName, forKey: "setName")
-//            if self.imagePicked?.image != nil {
-//                let imageData = UIImagePNGRepresentation(self.imagePicked!.image!)
-//                FriendName["frontpic"] = PFFile(data: imageData!)
-//            }
+            if self.imagePicked?.image != nil {
+                let imageData = UIImagePNGRepresentation(self.imagePicked!.image!)
+                FriendName["frontpic"] = PFFile(data: imageData!)
+            }
 //            FriendName.setObject(self.imagePicked!, forKey: "frontpic")
             FriendName.saveInBackgroundWithBlock {
                 (success: Bool, error:NSError?) -> Void in
@@ -56,7 +56,8 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
                 {
                     //We saved our information
                     print("Saved Title")
-//                    ID = FriendName.objectId!
+                    ID = FriendName.objectId!
+                    print(ID)
                     self.performSegueWithIdentifier("FrontToBack", sender: nil)
                 }
                 else
@@ -83,7 +84,6 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
             let fvc = segue.destinationViewController as! BackViewController
             
             fvc.selected = cardname
-            //fvc.cardID = ""
             fvc.setName = setName
             print("front to back")
         }
@@ -93,18 +93,11 @@ class FrontViewController: UIViewController,UIImagePickerControllerDelegate, UIN
     //********************************************************************************************************************//
     @IBOutlet var imagePicked: UIImageView?
     var picker = UIImagePickerController()
-    
-//    @IBAction func upload(sender: AnyObject) {
-//        print("in upload")
-//        picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-//        picker.allowsEditing = true
-//        self.presentViewController(picker, animated: true, completion: nil)
-//    }
+
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         
         imagePicked!.image = image
-        EnteredText.text = ""
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }

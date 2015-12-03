@@ -37,10 +37,14 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
     }
     
-    
-    func swiped(gesture: UISwipeGestureRecognizer){
-     print("Trying to delete")
-        deletes = true
+    @IBAction func HelpMe(sender: AnyObject) {
+        
+        let alertControl: UIAlertController = UIAlertController(title: "Help Menu", message:"Wecome to StudyIt! Here you can create multiple sets with its own individuals cards to study and  play a matching game with. To start creating your personal set click on the '+' button on the top right." , preferredStyle: .Alert)
+
+        let cancel = UIAlertAction(title: "Cancel", style: .Default) {action -> Void in}
+        alertControl.addAction(cancel)
+        self.presentViewController(alertControl, animated: true, completion: nil)
+
     }
     
     @IBAction func SignOut(sender: AnyObject) {
@@ -58,20 +62,15 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let query = PFQuery(className: "CardInfo")
         query.whereKey("username", equalTo: currentUser!.username!)
         query.whereKey("setName", notEqualTo: "")
+        
         do {
-            print("be do be do")
             cards = try query.findObjects()
             self.collection.reloadData()
             
+//        for var i = 0; i < cards.count; i++ {
+//                 print(cards[i]["setName"] as! String)
+//        }
             
-            for var i = 0; i < cards.count; i++ {
-                 print(cards[i]["setName"] as! String)
-        }
-            
-            
-            
-//            print("Number of sets", cards.count)
-//            print("Sets:", cards)
         }
         catch _ {
             print("Error")
@@ -97,21 +96,16 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             number.append(cards[i]["setName"] as! String)
             }
             
-            
-            
             number = Array(Set(number))
             
-            print(number)
-            
-            
-            
-            
+//            print(number)
+          
         }
         catch _ {
             print("Error")
         }
 
-        print("Please work", number.count)
+//        print("Please work", number.count)
         
     }
     
@@ -137,21 +131,13 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             for var i = 0; i < cards.count; i++ {
                 number.append(cards[i]["setName"] as! String)
             }
-            
-            
-            
-            number = Array(Set(number))
 
-            
+            number = Array(Set(number))
         }
         catch _ {
             print("Error")
         }
-        
-        
-//        
-//        print("Collection number", cards.count)
-//        return cards.count
+
         
         print("Collection number",  number.count)
         return number.count
@@ -165,84 +151,26 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
         
         
-
+        let cellsize = CGFloat(widthsize)
+        let name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
+        name.font = UIFont(name:"HelveticaNeue;", size: 30.0)
+        name.text = number[indexPath.row]
+        name.contentMode = UIViewContentMode.ScaleToFill
+        name.textAlignment = NSTextAlignment.Center
+    
+    
+        var pic = UIImage(named: "flashcard.png")
         
         
-            let cellsize = CGFloat(widthsize)
-            let name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
-            name.font = UIFont(name:"HelveticaNeue;", size: 30.0)
-            name.text = number[indexPath.row]
-            name.contentMode = UIViewContentMode.ScaleToFill
-            name.textAlignment = NSTextAlignment.Center
-        
-        
-            var pic = UIImage(named: "flashcard.png")
-            
-            
-            let backpic = UIImageView(image: UIImage(named: "flashcard.png"))
-            backpic.frame = CGRectMake(0, -5, cellsize, cellsize)
-            
-            
-            
-            
-            cell.addSubview(backpic)
-            cell.addSubview(name)
-        
-
-        
-        //works but has dupicaltes
-//        if let value = cards[indexPath.row]["setName"] as? String {
-//            
-//            comment = value
-//            let cellsize = CGFloat(widthsize)
-//            var name = UILabel(frame: CGRectMake(0, 0, cellsize, cellsize))
-//            name.font = UIFont(name:"HelveticaNeue;", size: 6.0)
-//            name.text = comment
-//            name.contentMode = UIViewContentMode.ScaleAspectFit
-//            name.textAlignment = NSTextAlignment.Center
-//            sets.append(comment)
-//            var pic = UIImage(named: "card.png")
-//        
-//            
-//            var backpic = UIImageView(image: UIImage(named: "card.png"))
-//            backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
-//
-//            
-//            
-//            
-//            cell.addSubview(backpic)
-//            cell.addSubview(name)
-//        }
-        
-
+        let backpic = UIImageView(image: UIImage(named: "flashcard.png"))
+        backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
     
         
-        //does note work...
-
-//                var pic = UIImage(named: "card.png")
-//                var backpic = UIImageView(image: UIImage(named: "card.png"))
-//                backpic.frame = CGRectMake(0, 0, cellsize, cellsize)
-//            
-//                for var i = 0; i < sets.count; i++ {
-//      
-//                    //dont add to view
-//                    if comment == sets[i]{
-//                        print("don't add")
-//                        add = false
-//                    }
-//                }
-//
-//                if add == true {
-//                    print("add")
-//                    sets.append(comment)
-//                    
-//                    cell.addSubview(backpic)
-//                    cell.addSubview(name)
-//                }
-        
-//         }
+        cell.addSubview(backpic)
+        cell.addSubview(name)
 
         cell.backgroundColor = UIColor.clearColor()
+        cell.layer.cornerRadius = 7
         return cell
     }
     
@@ -265,6 +193,7 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let ok = UIAlertAction(title: "Delete", style: .Cancel) {action -> Void in
 //                self.deleteSet(self.sets[indexPath.row])
                 self.deleteSet(self.number[indexPath.row])
+                
                 self.deletes = false
 //                self.downloadData()
             }
@@ -273,12 +202,10 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             alertControl.addAction(cancel)
             self.presentViewController(alertControl, animated: true, completion: nil)
         }
-        downloadData()
+        
+        collection.reloadData()
     }
     
-
-    
-
     
     @IBAction func addSet(sender: AnyObject) {
         let alertControl: UIAlertController = UIAlertController(title: "Start by naming your set", message: "", preferredStyle: .Alert)
@@ -306,21 +233,17 @@ class SetsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func deleteSet(setName: String) {
         let query = PFQuery(className: "CardInfo")
         query.whereKey("setName", equalTo: setName)
+        
         do {
             let result = try query.findObjects()
             for r in result {
                 r.deleteInBackground()
             }
         }
+            
         catch {}
-        downloadData()
 
     }
-    
-    
-    
-    
-
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -24,33 +24,36 @@ class StudyViewController: UIViewController {
         super.viewDidLoad()
         print(studyset)
         study()
+        
         text.editable = false
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func study(){
-//            print(studyset[i]["frontstring"])
+//                    print(studyset[i]["frontstring"])
         if studyset[i]["frontstring"] as? String != "" {
             text.text = studyset[i]["frontstring"] as! String
+              print("Text:", text.text)
         }
-        else {
-            text.text = ""
+      
+     
             if let finalImage = studyset[i]["frontpic"] as? PFFile {
                 finalImage.getDataInBackgroundWithBlock {
                     (imageData: NSData?, error: NSError?) -> Void in
                     self.imageView?.image = UIImage(data: imageData!)
                 }
             }
-        }
+        
     }
-
+    
     @IBAction func Next(sender: AnyObject) {
         //Inside this function we want to show the front of the next card
+        self.imageView?.image = nil
         if i < (studyset.count - 1) {
             self.i++
         }
@@ -61,53 +64,50 @@ class StudyViewController: UIViewController {
         if studyset[i]["frontstring"] as? String != "" {
             text.text = studyset[i]["frontstring"] as! String
         }
-            //if its not a string show the picture
-        else {
-            text.text = ""
+    
             if let finalImage = studyset[i]["frontpic"] as? PFFile {
                 finalImage.getDataInBackgroundWithBlock {
                     (imageData: NSData?, error: NSError?) -> Void in
-                    self.imageView!.image = UIImage(data: imageData!)
+                    self.imageView?.image = UIImage(data: imageData!)
                 }
             }
-        }
+        
         front = true
     }
     
     
     @IBAction func BackOfCard(sender: AnyObject) {
+        self.imageView?.image = nil
         if front == true{
             if studyset[i]["backstring"] as? String != "" {
                 text.text = studyset[i]["backstring"] as? String
             }
-            else {
-                text.text = ""
+       
                 if let finalImage = studyset[i]["backpic"] as? PFFile {
                     finalImage.getDataInBackgroundWithBlock {
                         (imageData: NSData?, error: NSError?) -> Void in
-                        self.imageView!.image = UIImage(data: imageData!)
+                        self.imageView?.image = UIImage(data: imageData!)
                     }
                 }
-            }
+            
             front = false
         }
-        
+            
         else {
             if studyset[i]["frontstring"] as? String != "" {
                 text.text = studyset[i]["frontstring"] as! String
             }
-            else {
-                text.text = ""
+         
                 if let finalImage = studyset[i]["frontpic"] as? PFFile {
                     finalImage.getDataInBackgroundWithBlock {
                         (imageData: NSData?, error: NSError?) -> Void in
                         self.imageView?.image = UIImage(data: imageData!)
                     }
                 }
-            }
+            
             front = true
         }
     }
     
-
+    
 }
